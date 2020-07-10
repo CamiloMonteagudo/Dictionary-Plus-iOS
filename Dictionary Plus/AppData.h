@@ -14,10 +14,11 @@
 
 //===================================================================================================================================================
 #define LGCount     4
-//#define SEP         5
+#define SEP         4
+#define HSUST_DATA  22
+
 //#define WBTNS       20
 //#define HBTNS       20
-//#define HSUST_DATA  22
 //
 //#define SWAP_DICT   0x0001
 //#define DEL_ALL     0x0002
@@ -57,9 +58,9 @@ extern NSCharacterSet* wrdSep;
 extern NSCharacterSet* PntOrSpc;
 extern NSCharacterSet* TrimSpc;
 
-//extern UIColor* SelColor;
-//extern UIColor* SustColor;
-//extern UIColor* BackColor;
+extern UIColor* SelColor;
+extern UIColor* SustColor;
+extern UIColor* BackColor;
 
 //===================================================================================================================================================
 extern NSString* LGFlag( int lng);

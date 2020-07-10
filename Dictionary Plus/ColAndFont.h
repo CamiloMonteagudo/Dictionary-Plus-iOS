@@ -21,6 +21,11 @@ extern UIColor* ColPanelItemBck;                      // Color de fondo para los
 extern UIColor* ColPanelItemTxt;                      // Color de los textos del menú lateral
 extern UIColor* ColHeaderBck;                         // Color de fondo para el encabezamiento de las pantallas
 
+// Menu PopUp de comandos
+extern UIFont*       fontCmdMnu;
+extern UIColor*       ColCmdMnu;
+extern NSDictionary* attrCmdMnu;
+
 // Texto para los botones
 extern UIColor* ColTxtBtns;                           // Color del texto de los botones
 extern UIFont*  fontTxtBtns;                          // Fuente para los botones

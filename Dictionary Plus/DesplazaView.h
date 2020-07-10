@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+#define MODE_LIST    0
+#define MODE_SPLIT   1
+#define MODE_MEANS   2
+
+
 //=========================================================================================================================================================
 @interface DesplazaView : UIView
 
+@property(nonatomic,readonly) int Mode;
+
 - (void)TogglePanel;
+- (void)ShowInMode:(int) mode Animate:(BOOL) anim;
 
 @end
 //=========================================================================================================================================================

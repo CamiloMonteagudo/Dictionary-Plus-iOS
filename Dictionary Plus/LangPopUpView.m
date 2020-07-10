@@ -10,10 +10,10 @@
 #import "AppData.h"
 
 #define HROW    50
-#define SEP     3
+#define SEP_     3
 
 #define WPOP_UP  150
-#define HPOP_UP  ( (LGCount*(HROW+SEP)) + SEP )
+#define HPOP_UP  ( (LGCount*(HROW+SEP_)) + SEP_ )
 
 
 //=========================================================================================================================================================
@@ -61,7 +61,7 @@
   
   popUp = [[UIView alloc] initWithFrame:rcFrm];
   
-  popUp.backgroundColor = [UIColor colorWithRed:0.05 green:0.2 blue:0.75 alpha:1.0];
+  popUp.backgroundColor = [UIColor colorWithRed:0.25 green:0.25 blue:0.25 alpha:1.0];
   popUp.clipsToBounds = TRUE;
   
   [self AddLanguajes ];
@@ -77,11 +77,11 @@
 // Pone todo los idiomas en la lista
 - (void) AddLanguajes
   {
-  int y = -HPOP_UP + SEP;
+  int y = -HPOP_UP + SEP_;
   
   for( int i=0; i<LGCount; ++i )
     {
-    CGRect rc = CGRectMake(SEP, y, WPOP_UP-SEP-SEP, HROW);
+    CGRect rc = CGRectMake(SEP_, y, WPOP_UP-SEP_-SEP_, HROW);
     UIView* row = [[UIView alloc]  initWithFrame:rc ];
     
     row.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
@@ -92,7 +92,7 @@
     
     [popUp addSubview:row ];
     
-    y += (SEP + HROW);
+    y += (SEP_ + HROW);
     }
   }
 
@@ -159,9 +159,9 @@
   CGPoint pnt = [[touches anyObject] locationInView: popUp];     // Punto que se toco dentro de la vista
   
   int lng = -1;
-  if( pnt.x>0 && pnt.x<WPOP_UP && pnt.y>0 && pnt.y<(HPOP_UP-SEP) )
+  if( pnt.x>0 && pnt.x<WPOP_UP && pnt.y>0 && pnt.y<(HPOP_UP-SEP_) )
     {
-    lng = (int)(pnt.y / (HROW+SEP));
+    lng = (int)(pnt.y / (HROW+SEP_));
   
     if( lng==_SelectedLang ) lng = -1;
     }

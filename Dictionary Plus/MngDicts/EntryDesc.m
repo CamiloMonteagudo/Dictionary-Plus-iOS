@@ -204,17 +204,17 @@ static NSCharacterSet * mrk2 = [NSCharacterSet characterSetWithCharactersInStrin
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
-static CGFloat FontSize   = [NSFont systemFontSize];                                                        // Tamaño de la letras estandard del sistema
+static CGFloat FontSize   = [UIFont systemFontSize];                                                        // Tamaño de la letras estandard del sistema
 
-static NSFont* fontReg   = [NSFont systemFontOfSize:     FontSize+1];                                       // Fuente para los significados
-static NSFont* fontBold  = [NSFont boldSystemFontOfSize: FontSize+2];                                       // Fuente para los textos resaltados dentro del significado
-static NSFont* fontSmall = [NSFont boldSystemFontOfSize: FontSize];                                         // Fuente mas pequeña dentro del significado
+static UIFont* fontReg   = [UIFont systemFontOfSize:     FontSize];                                          // Fuente para los significados
+static UIFont* fontBold  = [UIFont boldSystemFontOfSize: FontSize];                                          // Fuente para los textos resaltados dentro del significado
+static UIFont* fontSmall = [UIFont boldSystemFontOfSize: FontSize-1];                                        // Fuente mas pequeña dentro del significado
 
-static NSColor* ColKeys  = [NSColor colorWithRed:0.25 green:0.25 blue:0.25 alpha:1.00];                      // Color para las definiciones del tipo gramatical
-static NSColor* ColBody  = [NSColor blackColor];                                                             // Color para el cuerpo del significado
-static NSColor* ColGray  = [NSColor darkGrayColor];                                                          // Color atenuado para las palabras que pueden cambiar dentro del significado
-static NSColor* ColType  = [NSColor colorWithRed:0.06 green:0.06 blue:0.80 alpha:1.00];                      // Color para las definiciones del tipo gramatical
-static NSColor* ColAttr  = [NSColor colorWithRed:0.20 green:0.40 blue:0.20 alpha:1.00];                      // Color para los atributos asociados al significado
+static UIColor* ColKeys  = [UIColor colorWithRed:0.25 green:0.25 blue:0.25 alpha:1.00];                      // Color para las definiciones del tipo gramatical
+static UIColor* ColBody  = [UIColor blackColor];                                                             // Color para el cuerpo del significado
+static UIColor* ColGray  = [UIColor darkGrayColor];                                                          // Color atenuado para las palabras que pueden cambiar dentro del significado
+static UIColor* ColType  = [UIColor colorWithRed:0.06 green:0.06 blue:0.80 alpha:1.00];                      // Color para las definiciones del tipo gramatical
+static UIColor* ColAttr  = [UIColor colorWithRed:0.20 green:0.40 blue:0.20 alpha:1.00];                      // Color para los atributos asociados al significado
 
 static NSDictionary* attrKey   = @{ NSFontAttributeName:fontBold,  NSForegroundColorAttributeName:ColKeys };
 static NSDictionary* attrBody  = @{ NSFontAttributeName:fontReg,   NSForegroundColorAttributeName:ColBody };

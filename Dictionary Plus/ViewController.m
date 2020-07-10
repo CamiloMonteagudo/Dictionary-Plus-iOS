@@ -15,6 +15,9 @@
 #import "WaitView.h"
 #import "TextQuery.h"
 #import "SortedIndexs.h"
+#import "ZoneDatosView.h"
+#import "DatosView.h"
+#import "BtnsBarView.h"
 
 //=========================================================================================================================================================
 @interface ViewController ()
@@ -30,6 +33,8 @@
   
   SortedIndexs* SortEntries;
   TextQuery* Query;
+  
+  id Observer;
   }
 
 @property (weak, nonatomic) IBOutlet DesplazaView *DictZone;
@@ -38,9 +43,15 @@
 @property (weak, nonatomic) IBOutlet UIView *SearchPlus;
 @property (weak, nonatomic) IBOutlet UIButton *bntSearchPlus;
 @property (weak, nonatomic) IBOutlet UITableView *TableFrases;
+@property (weak, nonatomic) IBOutlet ZoneDatosView *DatosZone;
+@property (weak, nonatomic) IBOutlet UIView *BtnsZoneDown;
+@property (weak, nonatomic) IBOutlet UIView *BtnsZoneRight;
+@property (weak, nonatomic) IBOutlet UILabel *lbNoMeans;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *TopSpace;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *LeftSearchPlus;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *BtnsZoneDownHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *BtnsZoneRightWidth;
 
 - (IBAction)OnAvancedSearch:(id)sender;
 - (IBAction)OnSwapDatos:(id)sender;
@@ -56,6 +67,7 @@
 - (void)viewDidLoad
   {
   Ctrller = self;
+  MakeDictCmdBar();
   
   [super viewDidLoad];
   
@@ -73,9 +85,62 @@
   
   _FindWord.allowsEditingTextAttributes = TRUE;
   
+  NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
+  
   // Notificaciones para cuando se muestra/oculta el teclado
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+  [center addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+  [center addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+
+  [center addObserver:self selector:@selector(OnExecComamd:) name:ExecComamd object:nil];
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+- (void)viewDidLayoutSubviews
+  {
+  if( ![self UpdateRightBarSize] )
+    {
+    _BtnsZoneRightWidth.constant = 5 ;
+    _BtnsZoneDownHeight.constant = 40;
+    
+//    DictCmdBarOnRight(FALSE);
+    DictCmdBarAddToView( _BtnsZoneDown );
+    }
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Si es posible actualiza el tamaño de la barra de botones a la derecha del cuadro de edicción
+- (BOOL) UpdateRightBarSize
+  {
+  CGFloat w = self.view.bounds.size.width;
+  
+  if( w<=500 ) return FALSE;
+  
+  CGFloat wb = DictCmdBarWidth();
+    
+  _BtnsZoneRightWidth.constant = wb + 10;
+  _BtnsZoneDownHeight.constant = 5;
+    
+  [self.view layoutIfNeeded];
+   
+//  DictCmdBarOnRight(TRUE);
+  DictCmdBarAddToView( _BtnsZoneRight );
+  DictCmdBarRefresh();
+  
+  return TRUE;
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Retorna el número de palabras o frases encontradas
+- (int) CountFoundWord
+  {
+  return SortEntries.Count;
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Retorna la cantidad de significados que se estan mostrando
+- (int) CountOfMeans
+  {
+  return _DatosZone.Count;
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -106,6 +171,23 @@
     _TopSpace.constant = 0;
  
     nowEdit = nil;
+    }
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Se llama cuando se ejecuta un comando en cualquier parte la aplicación
+- (void)OnExecComamd:(NSNotification *)notify
+  {
+  NSNumber *idBnt = notify.object;
+  
+  switch( idBnt.integerValue )
+    {
+    case CMD_MENU:      break;
+    case CMD_WRDS:      [_DictZone ShowInMode:MODE_LIST  Animate:YES]; break;
+    case CMD_MEANS:     [_DictZone ShowInMode:MODE_MEANS Animate:YES]; break;
+    case CMD_SPLIT:     [_DictZone ShowInMode:MODE_SPLIT Animate:YES]; break;
+    case CMD_DEL_MEANS: [_DatosZone ClearDatos]; [self CheckNoMeansLabel]; break;
+    case CMD_ALL_MEANS: [self ShowAllMeans]    ; [self CheckNoMeansLabel]; break;
     }
   }
 
@@ -229,6 +311,9 @@
   if( _LeftSearchPlus.constant>=0 ) [self HideAvancedSearch];
   
   [self FindFrases];
+  
+  if( _DictZone.Mode == MODE_MEANS )
+    [_DictZone ShowInMode:MODE_LIST Animate:YES];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -364,19 +449,54 @@ static NSDictionary* attrWrd = @{ NSFontAttributeName:fontBold };
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Se llama cuando cambia la selección de la palabra actual en la lista de palabras del diccionario
-//- (void)tableViewSelectionDidChange:(NSNotification *)aNotification
-//  {
-//  int row = (int)_tableFrases.selectedRow;
-//  if( row==-1 ) return;
-//  
-//  int idx = SortEntries->Entries[row]->Index;
-//
-//  [_ZonaDatos AddDatosAtIndex:idx];
-//
-//  [_ZonaDatos scrollPoint:NSMakePoint(0, 0)];
-//  }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+  {
+	int row = (int)[indexPath row];
+  
+  int idx = SortEntries->Entries[row]->Index;
 
+  [_DatosZone AddDatos: [DatosView DatosForIndex:idx] ];
 
+  if( _DictZone.Mode != MODE_SPLIT )
+    [_DictZone ShowInMode:MODE_MEANS Animate:YES];
+  
+  [self CheckNoMeansLabel];
+  HideKeyboard();
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Muestra todos los significados de los palabras encontradas
+- (void) ShowAllMeans
+  {
+  [_DatosZone ClearDatos];
+
+  NSMutableArray<EntrySort*> *Entries = SortEntries->Entries;
+
+  for( int i=Entries.count-1; i>=0; --i )
+    {
+    int idx = Entries[i]->Index;
+    
+    [_DatosZone AddDatos: [DatosView DatosForIndex:idx] ];
+    }
+
+  if( _DictZone.Mode != MODE_SPLIT )
+    [_DictZone ShowInMode:MODE_MEANS Animate:YES];
+  
+  HideKeyboard();
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Chequea si no hay ningún significado y pone una etiqueta de orientación al usuario
+- (void) CheckNoMeansLabel
+  {
+  BOOL hidden = (_DatosZone.Count==0);
+  
+  _lbNoMeans.hidden = hidden;
+  if( hidden ) return;
+  
+  if( SortEntries.Count>0 ) _lbNoMeans.text = @"Para mostrar un significado aquí:\r\n Seleccione una fila en la lista de palabras o frases encontradas";
+  else                      _lbNoMeans.text = @"Para mostrar un significado aqui:\r\n Escriba la palabra o frase que desea buscar en el cuadro de búsqueda y luego seleccione una fila en la lista";
+  }
 
 @end
 //=========================================================================================================================================================

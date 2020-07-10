@@ -67,6 +67,11 @@ NSDictionary* attrBody2 = @{ NSFontAttributeName:fontMean     , NSForegroundColo
 NSDictionary* attrType  = @{ NSFontAttributeName:fontMeanSmall, NSForegroundColorAttributeName:ColMeanType  };
 NSDictionary* attrAttr  = @{ NSFontAttributeName:fontMeanSmall, NSForegroundColorAttributeName:ColMeanAttr  };
 
+// Menu PopUp de comandos
+UIFont*       fontCmdMnu  = [UIFont systemFontOfSize:0.9*FontSize];
+UIColor*       ColCmdMnu  = [UIColor blackColor];
+NSDictionary* attrCmdMnu  = @{ NSFontAttributeName:fontCmdMnu, NSForegroundColorAttributeName:ColCmdMnu  };
+
 // Números
 UIColor* ColNum1        = [UIColor colorWithRed:0.00 green:0.00 blue:0.00 alpha:1.00];
 UIColor* ColNum2        = [UIColor colorWithRed:0.10 green:0.05 blue:0.75 alpha:1.00];

@@ -38,8 +38,14 @@
 		84DEEF862076908B00F3A8F1 /* SortedIndexs.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF832076908B00F3A8F1 /* SortedIndexs.m */; };
 		84DEEF872076908B00F3A8F1 /* TextQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF852076908B00F3A8F1 /* TextQuery.m */; };
 		84DEEF8A2076941200F3A8F1 /* TextQueryPlus.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF892076941200F3A8F1 /* TextQueryPlus.m */; };
+		84DEEF8F2076C14200F3A8F1 /* DatosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF8C2076C14200F3A8F1 /* DatosView.m */; };
+		84DEEF902076C14200F3A8F1 /* ZoneDatosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF8E2076C14200F3A8F1 /* ZoneDatosView.m */; };
+		84DEEF932076C2F200F3A8F1 /* EntryDesc.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF922076C2F200F3A8F1 /* EntryDesc.m */; };
+		84DEEF962076C37C00F3A8F1 /* MngMarks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF952076C37C00F3A8F1 /* MngMarks.m */; };
 		84E39DD520659CFE00A33EA7 /* PanelRigthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E39DD420659CFE00A33EA7 /* PanelRigthView.m */; };
 		84E39DD820659EC700A33EA7 /* ColAndFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E39DD720659EC700A33EA7 /* ColAndFont.m */; };
+		84E43D83207A8ADA00D80910 /* CmdPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E43D82207A8ADA00D80910 /* CmdPopUpView.m */; };
+		84E43D86207AB90500D80910 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84E43D88207AB90500D80910 /* Localizable.strings */; };
 		84E4BB812059F80200BECE1F /* DesplazaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4BB802059F80200BECE1F /* DesplazaView.m */; };
 		84EB11182058814B00A1DA0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB11172058814B00A1DA0D /* main.m */; };
 		84EB111B2058814B00A1DA0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB111A2058814B00A1DA0D /* AppDelegate.m */; };
@@ -48,6 +54,13 @@
 		84EB11232058814B00A1DA0D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84EB11222058814B00A1DA0D /* Assets.xcassets */; };
 		84EB11262058814B00A1DA0D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EB11242058814B00A1DA0D /* LaunchScreen.storyboard */; };
 		84EB1133205961DD00A1DA0D /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1132205961DD00A1DA0D /* LaunchImage.png */; };
+		84F698D3207930B700327038 /* btnListMeans40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F698CE207930B700327038 /* btnListMeans40@2x.png */; };
+		84F698D4207930B700327038 /* btnListMixss40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F698CF207930B700327038 /* btnListMixss40@2x.png */; };
+		84F698D5207930B700327038 /* btnListWrds40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F698D0207930B700327038 /* btnListWrds40@2x.png */; };
+		84F698D6207930B700327038 /* btnMnuCmds40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F698D1207930B700327038 /* btnMnuCmds40@2x.png */; };
+		84F698D7207930B700327038 /* btnShowAll40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F698D2207930B700327038 /* btnShowAll40@2x.png */; };
+		84F698D920793A0400327038 /* btnDelMeans40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F698D820793A0400327038 /* btnDelMeans40@2x.png */; };
+		84F7563220782DE300424C12 /* BtnsBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F7563120782DE300424C12 /* BtnsBarView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,14 +83,14 @@
 		84A195E0205C966500110EDA /* SelLangsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelLangsView.h; sourceTree = "<group>"; };
 		84A195E1205C966500110EDA /* SelLangsView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = SelLangsView.m; sourceTree = "<group>"; };
 		84A195E3205CB04C00110EDA /* Leading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Leading@2x.png"; path = "Images/Leading@2x.png"; sourceTree = "<group>"; };
-		84A195E7205CB42800110EDA /* AppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppData.h; sourceTree = "<group>"; };
-		84A195E8205CB42800110EDA /* AppData.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = AppData.m; sourceTree = "<group>"; };
-		84B0AF682068627A00C61E6D /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchController.h; sourceTree = "<group>"; };
-		84B0AF692068627A00C61E6D /* SearchController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = SearchController.m; sourceTree = "<group>"; };
+		84A195E7205CB42800110EDA /* AppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppData.h; path = "Dictionary Plus/AppData.h"; sourceTree = "<group>"; };
+		84A195E8205CB42800110EDA /* AppData.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = AppData.m; path = "Dictionary Plus/AppData.m"; sourceTree = "<group>"; };
+		84B0AF682068627A00C61E6D /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchController.h; path = "Dictionary Plus/SearchController.h"; sourceTree = "<group>"; };
+		84B0AF692068627A00C61E6D /* SearchController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = SearchController.m; path = "Dictionary Plus/SearchController.m"; sourceTree = "<group>"; };
 		84B0AF6B2068B8CE00C61E6D /* btnMoveUp50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnMoveUp50@2x.png"; path = "Images/btnMoveUp50@2x.png"; sourceTree = "<group>"; };
 		84B22A1F205D983E007398F8 /* LangPopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangPopUpView.h; sourceTree = "<group>"; };
 		84B22A20205D983E007398F8 /* LangPopUpView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = LangPopUpView.m; sourceTree = "<group>"; };
-		84DEEF6F207657FC00F3A8F1 /* Datos */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Datos; sourceTree = "<group>"; };
+		84DEEF6F207657FC00F3A8F1 /* Datos */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Datos; path = "Dictionary Plus/Datos"; sourceTree = "<group>"; };
 		84DEEF712076589D00F3A8F1 /* DictIndexes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictIndexes.h; path = MngDicts/DictIndexes.h; sourceTree = "<group>"; };
 		84DEEF722076589D00F3A8F1 /* DictIndexes.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = DictIndexes.m; path = MngDicts/DictIndexes.m; sourceTree = "<group>"; };
 		84DEEF732076589D00F3A8F1 /* DictMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictMain.h; path = MngDicts/DictMain.h; sourceTree = "<group>"; };
@@ -94,23 +107,42 @@
 		84DEEF852076908B00F3A8F1 /* TextQuery.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = TextQuery.m; path = MngDicts/TextQuery.m; sourceTree = "<group>"; };
 		84DEEF882076941200F3A8F1 /* TextQueryPlus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextQueryPlus.h; path = MngDicts/TextQueryPlus.h; sourceTree = "<group>"; };
 		84DEEF892076941200F3A8F1 /* TextQueryPlus.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = TextQueryPlus.m; path = MngDicts/TextQueryPlus.m; sourceTree = "<group>"; };
+		84DEEF8B2076C14200F3A8F1 /* DatosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatosView.h; path = "Dictionary Plus/DatosView.h"; sourceTree = "<group>"; };
+		84DEEF8C2076C14200F3A8F1 /* DatosView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = DatosView.m; path = "Dictionary Plus/DatosView.m"; sourceTree = "<group>"; };
+		84DEEF8D2076C14200F3A8F1 /* ZoneDatosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZoneDatosView.h; path = "Dictionary Plus/ZoneDatosView.h"; sourceTree = "<group>"; };
+		84DEEF8E2076C14200F3A8F1 /* ZoneDatosView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = ZoneDatosView.m; path = "Dictionary Plus/ZoneDatosView.m"; sourceTree = "<group>"; };
+		84DEEF912076C2F200F3A8F1 /* EntryDesc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntryDesc.h; path = MngDicts/EntryDesc.h; sourceTree = "<group>"; };
+		84DEEF922076C2F200F3A8F1 /* EntryDesc.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = EntryDesc.m; path = MngDicts/EntryDesc.m; sourceTree = "<group>"; };
+		84DEEF942076C37C00F3A8F1 /* MngMarks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MngMarks.h; path = MngDicts/MngMarks.h; sourceTree = "<group>"; };
+		84DEEF952076C37C00F3A8F1 /* MngMarks.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = MngMarks.m; path = MngDicts/MngMarks.m; sourceTree = "<group>"; };
 		84E39DD320659CFE00A33EA7 /* PanelRigthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelRigthView.h; sourceTree = "<group>"; };
 		84E39DD420659CFE00A33EA7 /* PanelRigthView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = PanelRigthView.m; sourceTree = "<group>"; };
-		84E39DD620659EC700A33EA7 /* ColAndFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColAndFont.h; sourceTree = "<group>"; };
-		84E39DD720659EC700A33EA7 /* ColAndFont.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ColAndFont.m; sourceTree = "<group>"; };
+		84E39DD620659EC700A33EA7 /* ColAndFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColAndFont.h; path = "Dictionary Plus/ColAndFont.h"; sourceTree = "<group>"; };
+		84E39DD720659EC700A33EA7 /* ColAndFont.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = ColAndFont.m; path = "Dictionary Plus/ColAndFont.m"; sourceTree = "<group>"; };
+		84E43D81207A8ADA00D80910 /* CmdPopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CmdPopUpView.h; sourceTree = "<group>"; };
+		84E43D82207A8ADA00D80910 /* CmdPopUpView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = CmdPopUpView.m; sourceTree = "<group>"; };
+		84E43D87207AB90500D80910 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84E4BB7F2059F80200BECE1F /* DesplazaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesplazaView.h; sourceTree = "<group>"; };
 		84E4BB802059F80200BECE1F /* DesplazaView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = DesplazaView.m; sourceTree = "<group>"; };
 		84EB11132058814B00A1DA0D /* Dictionary Plus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dictionary Plus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EB11172058814B00A1DA0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		84EB11192058814B00A1DA0D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		84EB111A2058814B00A1DA0D /* AppDelegate.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = AppDelegate.m; sourceTree = "<group>"; };
-		84EB111C2058814B00A1DA0D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		84EB111D2058814B00A1DA0D /* ViewController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = ViewController.m; sourceTree = "<group>"; };
+		84EB11192058814B00A1DA0D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "Dictionary Plus/AppDelegate.h"; sourceTree = "<group>"; };
+		84EB111A2058814B00A1DA0D /* AppDelegate.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; name = AppDelegate.m; path = "Dictionary Plus/AppDelegate.m"; sourceTree = "<group>"; };
+		84EB111C2058814B00A1DA0D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = "Dictionary Plus/ViewController.h"; sourceTree = "<group>"; };
+		84EB111D2058814B00A1DA0D /* ViewController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; name = ViewController.m; path = "Dictionary Plus/ViewController.m"; sourceTree = "<group>"; };
 		84EB11202058814B00A1DA0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84EB11222058814B00A1DA0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84EB11252058814B00A1DA0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84EB11272058814B00A1DA0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84EB1132205961DD00A1DA0D /* LaunchImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LaunchImage.png; path = Images/LaunchImage.png; sourceTree = "<group>"; };
+		84F698CE207930B700327038 /* btnListMeans40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnListMeans40@2x.png"; path = "Images/btnListMeans40@2x.png"; sourceTree = "<group>"; };
+		84F698CF207930B700327038 /* btnListMixss40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnListMixss40@2x.png"; path = "Images/btnListMixss40@2x.png"; sourceTree = "<group>"; };
+		84F698D0207930B700327038 /* btnListWrds40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnListWrds40@2x.png"; path = "Images/btnListWrds40@2x.png"; sourceTree = "<group>"; };
+		84F698D1207930B700327038 /* btnMnuCmds40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnMnuCmds40@2x.png"; path = "Images/btnMnuCmds40@2x.png"; sourceTree = "<group>"; };
+		84F698D2207930B700327038 /* btnShowAll40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnShowAll40@2x.png"; path = "Images/btnShowAll40@2x.png"; sourceTree = "<group>"; };
+		84F698D820793A0400327038 /* btnDelMeans40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnDelMeans40@2x.png"; path = "Images/btnDelMeans40@2x.png"; sourceTree = "<group>"; };
+		84F7563020782DE300424C12 /* BtnsBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BtnsBarView.h; path = "Dictionary Plus/BtnsBarView.h"; sourceTree = "<group>"; };
+		84F7563120782DE300424C12 /* BtnsBarView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = BtnsBarView.m; path = "Dictionary Plus/BtnsBarView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +159,10 @@
 		84DEEF77207658D400F3A8F1 /* DictMng */ = {
 			isa = PBXGroup;
 			children = (
+				84DEEF942076C37C00F3A8F1 /* MngMarks.h */,
+				84DEEF952076C37C00F3A8F1 /* MngMarks.m */,
+				84DEEF912076C2F200F3A8F1 /* EntryDesc.h */,
+				84DEEF922076C2F200F3A8F1 /* EntryDesc.m */,
 				84DEEF882076941200F3A8F1 /* TextQueryPlus.h */,
 				84DEEF892076941200F3A8F1 /* TextQueryPlus.m */,
 				84DEEF822076908B00F3A8F1 /* SortedIndexs.h */,
@@ -143,11 +179,14 @@
 				84DEEF732076589D00F3A8F1 /* DictMain.h */,
 			);
 			name = DictMng;
+			path = "Dictionary Plus";
 			sourceTree = "<group>";
 		};
 		84DEEF8120768AA400F3A8F1 /* Util Views */ = {
 			isa = PBXGroup;
 			children = (
+				84E43D81207A8ADA00D80910 /* CmdPopUpView.h */,
+				84E43D82207A8ADA00D80910 /* CmdPopUpView.m */,
 				84DEEF7E20767C9E00F3A8F1 /* WaitView.h */,
 				84DEEF7F20767C9E00F3A8F1 /* WaitView.m */,
 				84E39DD320659CFE00A33EA7 /* PanelRigthView.h */,
@@ -160,12 +199,34 @@
 				84B22A20205D983E007398F8 /* LangPopUpView.m */,
 			);
 			name = "Util Views";
+			path = "Dictionary Plus";
 			sourceTree = "<group>";
 		};
 		84EB110A2058814B00A1DA0D = {
 			isa = PBXGroup;
 			children = (
-				84EB11152058814B00A1DA0D /* Dictionary Plus */,
+				84F7563020782DE300424C12 /* BtnsBarView.h */,
+				84F7563120782DE300424C12 /* BtnsBarView.m */,
+				84EB111F2058814B00A1DA0D /* Main.storyboard */,
+				84E39DD620659EC700A33EA7 /* ColAndFont.h */,
+				84E39DD720659EC700A33EA7 /* ColAndFont.m */,
+				84A195E7205CB42800110EDA /* AppData.h */,
+				84A195E8205CB42800110EDA /* AppData.m */,
+				84EB11192058814B00A1DA0D /* AppDelegate.h */,
+				84EB111A2058814B00A1DA0D /* AppDelegate.m */,
+				84EB111C2058814B00A1DA0D /* ViewController.h */,
+				84EB111D2058814B00A1DA0D /* ViewController.m */,
+				84B0AF682068627A00C61E6D /* SearchController.h */,
+				84B0AF692068627A00C61E6D /* SearchController.m */,
+				84DEEF8B2076C14200F3A8F1 /* DatosView.h */,
+				84DEEF8C2076C14200F3A8F1 /* DatosView.m */,
+				84DEEF8D2076C14200F3A8F1 /* ZoneDatosView.h */,
+				84DEEF8E2076C14200F3A8F1 /* ZoneDatosView.m */,
+				84DEEF8120768AA400F3A8F1 /* Util Views */,
+				84DEEF77207658D400F3A8F1 /* DictMng */,
+				84EB112D2059619B00A1DA0D /* Images */,
+				84EB11162058814B00A1DA0D /* Supporting Files */,
+				84DEEF6F207657FC00F3A8F1 /* Datos */,
 				84EB11142058814B00A1DA0D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -178,29 +239,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		84EB11152058814B00A1DA0D /* Dictionary Plus */ = {
-			isa = PBXGroup;
-			children = (
-				84EB111F2058814B00A1DA0D /* Main.storyboard */,
-				84E39DD620659EC700A33EA7 /* ColAndFont.h */,
-				84E39DD720659EC700A33EA7 /* ColAndFont.m */,
-				84A195E7205CB42800110EDA /* AppData.h */,
-				84A195E8205CB42800110EDA /* AppData.m */,
-				84EB11192058814B00A1DA0D /* AppDelegate.h */,
-				84EB111A2058814B00A1DA0D /* AppDelegate.m */,
-				84EB111C2058814B00A1DA0D /* ViewController.h */,
-				84EB111D2058814B00A1DA0D /* ViewController.m */,
-				84B0AF682068627A00C61E6D /* SearchController.h */,
-				84B0AF692068627A00C61E6D /* SearchController.m */,
-				84DEEF8120768AA400F3A8F1 /* Util Views */,
-				84DEEF77207658D400F3A8F1 /* DictMng */,
-				84EB112D2059619B00A1DA0D /* Images */,
-				84EB11162058814B00A1DA0D /* Supporting Files */,
-				84DEEF6F207657FC00F3A8F1 /* Datos */,
-			);
-			path = "Dictionary Plus";
-			sourceTree = "<group>";
-		};
 		84EB11162058814B00A1DA0D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,13 +246,21 @@
 				84EB11272058814B00A1DA0D /* Info.plist */,
 				84EB11242058814B00A1DA0D /* LaunchScreen.storyboard */,
 				84EB11172058814B00A1DA0D /* main.m */,
+				84E43D88207AB90500D80910 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
+			path = "Dictionary Plus";
 			sourceTree = "<group>";
 		};
 		84EB112D2059619B00A1DA0D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				84F698D820793A0400327038 /* btnDelMeans40@2x.png */,
+				84F698CE207930B700327038 /* btnListMeans40@2x.png */,
+				84F698CF207930B700327038 /* btnListMixss40@2x.png */,
+				84F698D0207930B700327038 /* btnListWrds40@2x.png */,
+				84F698D1207930B700327038 /* btnMnuCmds40@2x.png */,
+				84F698D2207930B700327038 /* btnShowAll40@2x.png */,
 				84B0AF6B2068B8CE00C61E6D /* btnMoveUp50@2x.png */,
 				841CBD7B20673C9E0040D178 /* btnRight50@2x.png */,
 				841CBD7320673C5C0040D178 /* btnAdd50@2x.png */,
@@ -236,6 +282,7 @@
 				84EB1132205961DD00A1DA0D /* LaunchImage.png */,
 			);
 			name = Images;
+			path = "Dictionary Plus";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,22 +349,29 @@
 				84A195E4205CB04C00110EDA /* Leading@2x.png in Resources */,
 				84EB1133205961DD00A1DA0D /* LaunchImage.png in Resources */,
 				84EB11262058814B00A1DA0D /* LaunchScreen.storyboard in Resources */,
+				84F698D7207930B700327038 /* btnShowAll40@2x.png in Resources */,
 				84A195D8205C768A00110EDA /* FlagFr50@2x.png in Resources */,
 				841CBD7920673C5C0040D178 /* btnDelAll50@2x.png in Resources */,
 				84EB11232058814B00A1DA0D /* Assets.xcassets in Resources */,
 				84A195DF205C8C7400110EDA /* btnSwap50_@2x.png in Resources */,
+				84F698D3207930B700327038 /* btnListMeans40@2x.png in Resources */,
 				841CBD7720673C5C0040D178 /* btnAdd50@2x.png in Resources */,
+				84F698D920793A0400327038 /* btnDelMeans40@2x.png in Resources */,
 				84A195D4205C768A00110EDA /* btnPopUp50@2x.png in Resources */,
 				84A195D3205C768A00110EDA /* btnMenu.png in Resources */,
 				84DEEF70207657FC00F3A8F1 /* Datos in Resources */,
 				84A195D9205C768A00110EDA /* FlagIt50@2x.png in Resources */,
 				841CBD7A20673C5C0040D178 /* btnLeft50@2x.png in Resources */,
 				841CBD702066DAF40040D178 /* btnFindMinus50@2x.png in Resources */,
+				84F698D4207930B700327038 /* btnListMixss40@2x.png in Resources */,
+				84F698D5207930B700327038 /* btnListWrds40@2x.png in Resources */,
 				841CBD712066DAF40040D178 /* btnFindPlus50@2x.png in Resources */,
 				84A195D6205C768A00110EDA /* FlagEn50@2x.png in Resources */,
 				84EB11212058814B00A1DA0D /* Main.storyboard in Resources */,
+				84E43D86207AB90500D80910 /* Localizable.strings in Resources */,
 				841CBD7820673C5C0040D178 /* btnDel50@2x.png in Resources */,
 				84B0AF6C2068B8CE00C61E6D /* btnMoveUp50@2x.png in Resources */,
+				84F698D6207930B700327038 /* btnMnuCmds40@2x.png in Resources */,
 				84A195D7205C768A00110EDA /* FlagEs50@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,9 +385,13 @@
 			files = (
 				84E39DD820659EC700A33EA7 /* ColAndFont.m in Sources */,
 				84B22A21205D983E007398F8 /* LangPopUpView.m in Sources */,
+				84DEEF8F2076C14200F3A8F1 /* DatosView.m in Sources */,
 				84DEEF7C20765C4900F3A8F1 /* EntryDict.m in Sources */,
+				84DEEF902076C14200F3A8F1 /* ZoneDatosView.m in Sources */,
 				84DEEF8A2076941200F3A8F1 /* TextQueryPlus.m in Sources */,
+				84DEEF932076C2F200F3A8F1 /* EntryDesc.m in Sources */,
 				84E4BB812059F80200BECE1F /* DesplazaView.m in Sources */,
+				84F7563220782DE300424C12 /* BtnsBarView.m in Sources */,
 				84EB111E2058814B00A1DA0D /* ViewController.m in Sources */,
 				84DEEF862076908B00F3A8F1 /* SortedIndexs.m in Sources */,
 				84EB111B2058814B00A1DA0D /* AppDelegate.m in Sources */,
@@ -345,6 +403,8 @@
 				84EB11182058814B00A1DA0D /* main.m in Sources */,
 				84A195E2205C966500110EDA /* SelLangsView.m in Sources */,
 				84DEEF8020767C9E00F3A8F1 /* WaitView.m in Sources */,
+				84E43D83207A8ADA00D80910 /* CmdPopUpView.m in Sources */,
+				84DEEF962076C37C00F3A8F1 /* MngMarks.m in Sources */,
 				84B0AF6A2068627A00C61E6D /* SearchController.m in Sources */,
 				84DEEF742076589D00F3A8F1 /* DictIndexes.m in Sources */,
 			);
@@ -353,12 +413,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		84E43D88207AB90500D80910 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84E43D87207AB90500D80910 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		84EB111F2058814B00A1DA0D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				84EB11202058814B00A1DA0D /* Base */,
 			);
 			name = Main.storyboard;
+			path = "Dictionary Plus";
 			sourceTree = "<group>";
 		};
 		84EB11242058814B00A1DA0D /* LaunchScreen.storyboard */ = {

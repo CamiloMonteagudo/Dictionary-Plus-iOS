@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "::-[BtnsBarView layoutSubviews]():BtnsBarView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "btn.tag">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "::-[BtnsBarView Enable:](int):BtnsBarView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "Actives">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "::-[BtnsBarView layoutToRigth]():BtnsBarView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "Actives">
+            </PersistentString>
+            <PersistentString
+               value = "Actives &amp; (bit&gt;&gt;i)">
+            </PersistentString>
+            <PersistentString
+               value = "(bit&lt;&lt;i)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "::-[DatosView ResizeWithWidth:](CGFloat):DatosView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "HText">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "::-[BtnsBarView Disable:](int):BtnsBarView.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "Actives">
+            </PersistentString>
+            <PersistentString
+               value = "~sw">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

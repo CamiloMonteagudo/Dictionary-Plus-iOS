@@ -359,18 +359,6 @@
   return TRUE;
   }
 
-//---------------------------------------------------------------------------------------------------------------------------------------------
-// Se llama cuando comienza la edicion de un campo de texto
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-  {
-  }
-
-//---------------------------------------------------------------------------------------------------------------------------------------------
-//
-- (void)textFieldDidEndEditing:(UITextField *)textField
-  {
-  }
-
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Evento que se produce cuando se va ha mostrar el teclado
 - (void)keyboardWillShow:(NSNotification *)notification 

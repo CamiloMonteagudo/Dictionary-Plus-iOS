@@ -1,0 +1,8 @@
+"UserLang" = "1";
+
+"CmdSplitTitle"    = "Divide la pantalla";
+"CmdWordsTitle"    = "Muestra lista de palabras";
+"CmdMeansTilte"    = "Muestra lista de significados";
+"CmdAllMeansTitle" = "Busca todos los significados";
+"CmdDelMeansTitle" = "Borra todos los significados";
+

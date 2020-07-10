@@ -8,6 +8,7 @@
 
 #import "DesplazaView.h"
 #import "AppData.h"
+#import "BtnsBarView.h"
 
 //=========================================================================================================================================================
 @interface DesplazaView ()
@@ -16,9 +17,6 @@
   UIView* Panel2;
 
   CGFloat xIni;
-
-//  int nowPanel;
-  int viewMode;                // 0 -Listado de palabras 1 -Pantalla dividida 2 - Significados
   }
 @end
 
@@ -48,6 +46,8 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)initDatos
   {
+  _Mode = -1;       // Para forzar a un cambio de modo al inicio
+  
   // Crea un gesto para ocultar o mostrar el nombre de idioma para ganar espacio
   UIPanGestureRecognizer *gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(OnGeture:)];
   [self addGestureRecognizer:gesture];
@@ -59,35 +59,78 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)layoutSubviews
   {
-  if( viewMode==1 && self.frame.size.width<400 )
-    viewMode=0;
+  int nowMode = _Mode;
   
-  [self ShowInMode:viewMode Animate:FALSE];
+  if( (nowMode == MODE_SPLIT && self.frame.size.width<400) || nowMode<MODE_LIST || nowMode>MODE_MEANS )
+    nowMode = MODE_LIST;
+  
+  [self ShowInMode:nowMode Animate:FALSE];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)TogglePanel
   {
-  int nowMode = ++viewMode;
+  int nowMode = _Mode+1;
   
-  if( nowMode==1 && self.frame.size.width<400 )
-    ++nowMode;
+  if( nowMode == MODE_SPLIT && self.frame.size.width<400 )
+    nowMode = MODE_MEANS;
   
-  if( nowMode>2 ) nowMode = 0;
+  if( nowMode<MODE_LIST || nowMode>MODE_MEANS )
+    nowMode = MODE_LIST;
   
   [self ShowInMode:nowMode Animate:TRUE];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Actualiza el modo de mostrar los datos del diccionario y la interface de usuario asocida a el
+- (void) UpdateMode:(int) newMode
+  {
+  _Mode = newMode;
+  
+  int setAct = 0;  int desAct = 0;
+  
+  int ActSpit = CMD_SPLIT; int desSpit = 0;
+  if( self.frame.size.width<400 ) { ActSpit = 0; desSpit = CMD_SPLIT; }
+
+  int ActDel = CMD_DEL_MEANS; int desDel = 0;
+  if( !Ctrller.CountOfMeans ) { ActDel = 0; desDel = CMD_DEL_MEANS; }
+
+  int ActAll = CMD_ALL_MEANS; int desAll = 0;
+  if( !Ctrller.CountFoundWord ) { ActAll = 0; desAll = CMD_ALL_MEANS; }
+
+  switch (_Mode)
+    {
+    case MODE_LIST:
+      setAct = CMD_MEANS | ActAll | ActSpit;
+      desAct = CMD_WRDS  | CMD_DEL_MEANS | desAll | desSpit;
+      break;
+    case MODE_MEANS:
+      setAct = CMD_WRDS  | ActDel | ActSpit;
+      desAct = CMD_MEANS | CMD_ALL_MEANS | desDel | desSpit;
+      break;
+    case MODE_SPLIT:
+      setAct = CMD_MEANS | CMD_WRDS | ActDel | ActAll;
+      desAct = CMD_SPLIT | desDel | desAll;
+      break;
+    }
+
+  DictCmdBarEnable( setAct );
+  DictCmdBarDisable( desAct );
+  DictCmdBarRefresh();
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)ShowInMode:(int) mode Animate:(BOOL) anim
   {
+  //if( mode== _Mode ) return;
+  
   CGFloat  w = self.frame.size.width;
   CGRect rc1 = Panel1.frame;
   CGRect rc2 = Panel2.frame;
 
   switch( mode )
     {
-    case 0:
+    case MODE_LIST:
       rc1.origin.x = -w;
       Panel1.frame = rc1;
     
@@ -97,10 +140,10 @@
       rc1.size.width = w;
       rc2.size.width = w;
       
-      viewMode = 0;
+      [self UpdateMode:MODE_LIST];
       break;
       
-    case 1:
+    case MODE_SPLIT:
       rc2.origin.x = rc1.origin.x + rc1.size.width;
       Panel2.frame = rc2;
     
@@ -110,10 +153,10 @@
       rc1.size.width = w/2;
       rc2.size.width = w/2;
       
-      viewMode = 1;
+      [self UpdateMode:MODE_SPLIT];
       break;
       
-    case 2:
+    case MODE_MEANS:
       rc2.origin.x = rc1.origin.x + rc1.size.width;
       Panel2.frame = rc2;
     
@@ -123,7 +166,7 @@
       rc1.size.width = w;
       rc2.size.width = w;
       
-      viewMode = 2;
+      [self UpdateMode:MODE_MEANS];
       break;
     }
   
@@ -145,7 +188,7 @@
 // Permite desplazar hacia el lado la ventana
 - (void) OnGeture:(UIPanGestureRecognizer *)sender
   {
-  if( viewMode==1 ) return;
+  if( _Mode == MODE_SPLIT ) return;
   
   CGRect rc1 = Panel1.frame;
   CGRect rc2 = Panel2.frame;
@@ -154,7 +197,7 @@
      {
      CGFloat x = [sender translationInView: self.superview].x;
      
-     if( viewMode==0 )
+     if( _Mode == MODE_LIST )
        {
        rc1.origin.x = xIni + x;
        if( rc1.origin.x < 0 ) rc2.origin.x = rc1.origin.x + rc1.size.width;
@@ -176,19 +219,19 @@
      CGFloat x = [sender translationInView: self.superview].x;
      
      CGFloat dx = (x<0)? -x : x;
-     if( viewMode==0 )
+     if( _Mode == MODE_LIST )
        {
        if( dx > w/2 )
           {
           rc2.origin.x = 0;
           rc1.origin.x = (x<0)? -w : w;
-          viewMode = 2;
+          
+          [self UpdateMode:MODE_MEANS];
           }
        else
           {
           rc1.origin.x = 0;
           rc2.origin.x = (x<0)? w : -w;
-          viewMode = 0;
           }
        }
      else
@@ -197,13 +240,13 @@
           {
           rc1.origin.x = 0;
           rc2.origin.x = (x<0)? -w : w;
-          viewMode = 0;
+          
+          [self UpdateMode:MODE_LIST];
           }
        else
           {
           rc2.origin.x = 0;
           rc1.origin.x = (x<0)? w : -w;
-          viewMode = 2;
           }
        }
     

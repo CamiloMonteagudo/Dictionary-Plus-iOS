@@ -1,21 +1,22 @@
 //=========================================================================================================================================================
-//  ViewController.h
+//  LangPopUpView.h
 //  Dictionary Plus
 //
-//  Created by Admin on 13/3/18.
+//  Created by Admin on 17/3/18.
 //  Copyright © 2018 bigxsoft. All rights reserved.
 //=========================================================================================================================================================
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
+//=========================================================================================================================================================
+@interface CmdPopUpView : UIView
 
-- (BOOL) LoadDictWithSrc:(int) src AndDes:(int) des;
-- (BOOL) UpdateRightBarSize;
+@property (nonatomic, readonly) int SelectedCmd;
 
-- (int) CountFoundWord;
-- (int) CountOfMeans;
+- (instancetype)initWithBtnsBar:(UIView*) view DeltaX:(int) dx DeltaY:(int) dy;
+
+- (void) ShowWithCallBack:(SEL) callBck Target:(id) target;
+- (void) HidePopUp;
 
 @end
 //=========================================================================================================================================================
-

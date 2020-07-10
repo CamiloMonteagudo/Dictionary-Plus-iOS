@@ -17,8 +17,6 @@ UIView* nowEdit;
 
 __strong DictMain*     Dict;
 __strong DictIndexes*  DictIdx;
-
-
 __strong ViewController* Ctrller;
 
 //=========================================================================================================================================================
@@ -34,9 +32,9 @@ NSCharacterSet* TrimSpc  = [NSCharacterSet characterSetWithCharactersInString:@"
 
 NSCharacterSet* wrdSep = [NSCharacterSet characterSetWithCharactersInString:@" -()\"¿?!¡$,/+*="];
 
-//UIColor* SelColor  = [UIColor colorWithCalibratedRed:0.9 green:0.98 blue:1   alpha:1];
-//UIColor* SustColor = [UIColor colorWithCalibratedRed:0.95 green:0.95  blue:0.95 alpha:1];
-//UIColor* BackColor = [UIColor colorWithCalibratedRed:1.0 green:1.0  blue:1.0 alpha:1];
+UIColor* SelColor  = [UIColor colorWithRed:0.9  green:0.98 blue:1    alpha:1];
+UIColor* SustColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1];
+UIColor* BackColor = [UIColor colorWithRed:1.0  green:1.0  blue:1.0  alpha:1];
 
 //===================================================================================================================================================
 // Abreviatura de de los idiomas segun el codigo ISO
