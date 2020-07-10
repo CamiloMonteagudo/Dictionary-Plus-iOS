@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "84F7A5E121022C8C00F431A4"
-               BuildableName = "Diccionario Plus Espan&#x303;ol.app"
-               BlueprintName = "Diccionario Plus Espa&#xf1;ol"
+               BlueprintIdentifier = "84A642B7214EE773002029AE"
+               BuildableName = "Dizionario Plus Italiano.app"
+               BlueprintName = "Dizionario Plus Italiano"
                ReferencedContainer = "container:Dictionary Plus.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "84F7A5E121022C8C00F431A4"
-            BuildableName = "Diccionario Plus Espan&#x303;ol.app"
-            BlueprintName = "Diccionario Plus Espa&#xf1;ol"
+            BlueprintIdentifier = "84A642B7214EE773002029AE"
+            BuildableName = "Dizionario Plus Italiano.app"
+            BlueprintName = "Dizionario Plus Italiano"
             ReferencedContainer = "container:Dictionary Plus.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -55,9 +55,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "84F7A5E121022C8C00F431A4"
-            BuildableName = "Diccionario Plus Espan&#x303;ol.app"
-            BlueprintName = "Diccionario Plus Espa&#xf1;ol"
+            BlueprintIdentifier = "84A642B7214EE773002029AE"
+            BuildableName = "Dizionario Plus Italiano.app"
+            BlueprintName = "Dizionario Plus Italiano"
             ReferencedContainer = "container:Dictionary Plus.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -74,9 +74,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "84F7A5E121022C8C00F431A4"
-            BuildableName = "Diccionario Plus Espan&#x303;ol.app"
-            BlueprintName = "Diccionario Plus Espa&#xf1;ol"
+            BlueprintIdentifier = "84A642B7214EE773002029AE"
+            BuildableName = "Dizionario Plus Italiano.app"
+            BlueprintName = "Dizionario Plus Italiano"
             ReferencedContainer = "container:Dictionary Plus.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

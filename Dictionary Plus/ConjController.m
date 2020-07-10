@@ -273,10 +273,5 @@
   return [_FindVerb.text stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet] ];
   }
 
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration
-  {
-  }
-
 @end
 //=========================================================================================================================================================

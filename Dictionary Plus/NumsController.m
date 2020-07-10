@@ -75,12 +75,6 @@
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
-// Se llama cuando se gira la pantalla
-- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation duration:(NSTimeInterval)duration
-  {
-  }
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Se llama cuando se oprime el botón de retroceder
 - (IBAction)OnBtnBack:(id)sender
   {

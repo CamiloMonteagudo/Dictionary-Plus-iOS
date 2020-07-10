@@ -76,6 +76,14 @@ static int _InstDes[] = {   1,    2,    3,    0,    0,    0 };
 static int _InstConj[] ={ 0, 1, 2, 3 };
 #endif
 
+#ifdef DictIOSIt
+//                       ItEn, ItEs, ItFr, EnIt, EsIt, FrIt
+static int _InstSrc[] = {   2,    2,    2,    1,    0,    3 };
+static int _InstDes[] = {   1,    0,    3,    2,    2,    2 };
+
+static int _InstConj[] ={ 0, 1, 2, 3 };
+#endif
+
 //=========================================================================================================================================================
 
 int DIRCount()

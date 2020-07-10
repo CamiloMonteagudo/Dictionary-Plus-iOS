@@ -178,8 +178,8 @@
   if( anim )
     [UIView animateWithDuration:0.4
                    animations:^{
-                               Panel1.frame = rc1;
-                               Panel2.frame = rc2;
+                                self->Panel1.frame = rc1;
+                                self->Panel2.frame = rc2;
                                }];
   else
     {
@@ -258,8 +258,8 @@
     
      [UIView animateWithDuration:0.15
                       animations:^{
-                                  Panel1.frame = rc1;
-                                  Panel2.frame = rc2;
+                                    self->Panel1.frame = rc1;
+                                    self->Panel2.frame = rc2;
                                   }];
     
      }

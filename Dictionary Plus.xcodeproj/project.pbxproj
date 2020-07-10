@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		84100C0D211A35FA009B86FB /* AssetsEs.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84100C0B211A35E4009B86FB /* AssetsEs.xcassets */; };
 		8416A9E420CF4835004EA1C4 /* LeftArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8416A9E320CF4835004EA1C4 /* LeftArrow.png */; };
 		8416A9E720CF62CA004EA1C4 /* DirPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8416A9E620CF62C9004EA1C4 /* DirPopUpView.m */; };
 		8417E1C420FBC61500B23D92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8417E1C220FBC61500B23D92 /* InfoPlist.strings */; };
@@ -119,6 +118,135 @@
 		84A558CB20AA23F300D8B0F8 /* NumResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A558C520AA23F300D8B0F8 /* NumResultView.m */; };
 		84A558CC20AA23F300D8B0F8 /* NumsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A558C720AA23F300D8B0F8 /* NumsController.m */; };
 		84A558CD20AA23F300D8B0F8 /* ReadNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A558C920AA23F300D8B0F8 /* ReadNumber.m */; };
+		84A642B9214EE773002029AE /* ColAndFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E39DD720659EC700A33EA7 /* ColAndFont.m */; };
+		84A642BA214EE773002029AE /* ConjController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849912C1208BFC09001F0B0F /* ConjController.m */; };
+		84A642BB214EE773002029AE /* LangPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B22A20205D983E007398F8 /* LangPopUpView.m */; };
+		84A642BC214EE773002029AE /* DatosMean.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF8C2076C14200F3A8F1 /* DatosMean.m */; };
+		84A642BD214EE773002029AE /* NumResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A558C520AA23F300D8B0F8 /* NumResultView.m */; };
+		84A642BE214EE773002029AE /* FastHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84991289208BF495001F0B0F /* FastHeap.cpp */; };
+		84A642BF214EE773002029AE /* EntryDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF7920765C4900F3A8F1 /* EntryDict.m */; };
+		84A642C0214EE773002029AE /* ZoneDatosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF8E2076C14200F3A8F1 /* ZoneDatosView.m */; };
+		84A642C1214EE773002029AE /* TextQueryPlus.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF892076941200F3A8F1 /* TextQueryPlus.m */; };
+		84A642C2214EE773002029AE /* ConjCore.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84991249208BF39A001F0B0F /* ConjCore.mm */; };
+		84A642C3214EE773002029AE /* RefTabla.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 849912AF208BF4F5001F0B0F /* RefTabla.cpp */; };
+		84A642C4214EE773002029AE /* ConjDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 849912C3208BFC09001F0B0F /* ConjDataView.m */; };
+		84A642C5214EE773002029AE /* EntryDesc.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF922076C2F200F3A8F1 /* EntryDesc.m */; };
+		84A642C6214EE773002029AE /* DesplazaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4BB802059F80200BECE1F /* DesplazaView.m */; };
+		84A642C7214EE773002029AE /* DictLoad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8499124C208BF3BA001F0B0F /* DictLoad.cpp */; };
+		84A642C8214EE773002029AE /* BtnsBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F7563120782DE300424C12 /* BtnsBarView.m */; };
+		84A642C9214EE773002029AE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB111D2058814B00A1DA0D /* ViewController.m */; };
+		84A642CA214EE773002029AE /* ConjHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 849912C5208BFC09001F0B0F /* ConjHeaderView.m */; };
+		84A642CB214EE773002029AE /* SortedIndexs.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF832076908B00F3A8F1 /* SortedIndexs.m */; };
+		84A642CC214EE773002029AE /* DatosConjs.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF1FB2208FF1D000DD0FE8 /* DatosConjs.m */; };
+		84A642CD214EE773002029AE /* FindMeans.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D192AD20950B89006D8002 /* FindMeans.m */; };
+		84A642CE214EE773002029AE /* DictRed.m in Sources */ = {isa = PBXBuildFile; fileRef = 849912BE208BF9A4001F0B0F /* DictRed.m */; };
+		84A642CF214EE773002029AE /* ConjVerb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 849912A9208BF4F5001F0B0F /* ConjVerb.cpp */; };
+		84A642D0214EE773002029AE /* SelLangView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E806A3208CF6D200D78C38 /* SelLangView.m */; };
+		84A642D1214EE773002029AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB111A2058814B00A1DA0D /* AppDelegate.m */; };
+		84A642D2214EE773002029AE /* PanelRigthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E39DD420659CFE00A33EA7 /* PanelRigthView.m */; };
+		84A642D3214EE773002029AE /* ArrayUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84991283208BF495001F0B0F /* ArrayUtil.cpp */; };
+		84A642D4214EE773002029AE /* RWDefn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 849912A3208BF4D7001F0B0F /* RWDefn.cpp */; };
+		84A642D5214EE773002029AE /* UtilFun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84991293208BF495001F0B0F /* UtilFun.cpp */; };
+		84A642D6214EE773002029AE /* CString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84991286208BF495001F0B0F /* CString.cpp */; };
+		84A642D7214EE773002029AE /* CVDefn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 849912AD208BF4F5001F0B0F /* CVDefn.cpp */; };
+		84A642D8214EE773002029AE /* DictMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF75207658B900F3A8F1 /* DictMain.m */; };
+		84A642D9214EE773002029AE /* NumsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A558C720AA23F300D8B0F8 /* NumsController.m */; };
+		84A642DA214EE773002029AE /* ApiConj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 849912A8208BF4F5001F0B0F /* ApiConj.cpp */; };
+		84A642DB214EE773002029AE /* AppData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A195E8205CB42800110EDA /* AppData.m */; };
+		84A642DC214EE773002029AE /* EntryIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF7B20765C4900F3A8F1 /* EntryIndex.m */; };
+		84A642DD214EE773002029AE /* TextQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF852076908B00F3A8F1 /* TextQuery.m */; };
+		84A642DE214EE773002029AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB11172058814B00A1DA0D /* main.m */; };
+		84A642DF214EE773002029AE /* SelDirView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A195E1205C966500110EDA /* SelDirView.m */; };
+		84A642E0214EE773002029AE /* FileUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8499128B208BF495001F0B0F /* FileUtil.cpp */; };
+		84A642E1214EE773002029AE /* ReadNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A558C920AA23F300D8B0F8 /* ReadNumber.m */; };
+		84A642E2214EE773002029AE /* Ctabla.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 849912AB208BF4F5001F0B0F /* Ctabla.cpp */; };
+		84A642E3214EE773002029AE /* NumGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A558C320AA23F300D8B0F8 /* NumGroupView.m */; };
+		84A642E4214EE773002029AE /* StrUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84991291208BF495001F0B0F /* StrUtil.cpp */; };
+		84A642E5214EE773002029AE /* WaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF7F20767C9E00F3A8F1 /* WaitView.m */; };
+		84A642E6214EE773002029AE /* ParseMeans.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE9EB8207FFDCB004E90AF /* ParseMeans.m */; };
+		84A642E7214EE773002029AE /* RedWord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 849912A1208BF4D7001F0B0F /* RedWord.cpp */; };
+		84A642E8214EE773002029AE /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8499128E208BF495001F0B0F /* Logger.cpp */; };
+		84A642E9214EE773002029AE /* CmdPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E43D82207A8ADA00D80910 /* CmdPopUpView.m */; };
+		84A642EA214EE773002029AE /* MngMarks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF952076C37C00F3A8F1 /* MngMarks.m */; };
+		84A642EB214EE773002029AE /* ApiRed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 849912A0208BF4D7001F0B0F /* ApiRed.cpp */; };
+		84A642EC214EE773002029AE /* WinUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84991295208BF495001F0B0F /* WinUtil.cpp */; };
+		84A642ED214EE773002029AE /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AF692068627A00C61E6D /* SearchController.m */; };
+		84A642EE214EE773002029AE /* DirPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8416A9E620CF62C9004EA1C4 /* DirPopUpView.m */; };
+		84A642EF214EE773002029AE /* DictIndexes.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF722076589D00F3A8F1 /* DictIndexes.m */; };
+		84A642F2214EE773002029AE /* btnRight50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 841CBD7B20673C9E0040D178 /* btnRight50@2x.png */; };
+		84A642F3214EE773002029AE /* Leading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A195E3205CB04C00110EDA /* Leading@2x.png */; };
+		84A642F4214EE773002029AE /* BtnGroup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849911F3208BC27F001F0B0F /* BtnGroup@2x.png */; };
+		84A642F5214EE773002029AE /* LaunchImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 84EB1132205961DD00A1DA0D /* LaunchImage.png */; };
+		84A642F6214EE773002029AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EB11242058814B00A1DA0D /* LaunchScreen.storyboard */; };
+		84A642F7214EE773002029AE /* btnShowAll40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F698D2207930B700327038 /* btnShowAll40@2x.png */; };
+		84A642F8214EE773002029AE /* btnFindWord40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FBFE2C207EFD8B009C410C /* btnFindWord40@2x.png */; };
+		84A642F9214EE773002029AE /* Es2It.dcv in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5ED2117913200E18C51 /* Es2It.dcv */; };
+		84A642FA214EE773002029AE /* FlagFr50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A195D1205C768A00110EDA /* FlagFr50@2x.png */; };
+		84A642FB214EE773002029AE /* FlagFr30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849911F9208BC399001F0B0F /* FlagFr30@2x.png */; };
+		84A642FC214EE773002029AE /* btnDelAll50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 841CBD7520673C5C0040D178 /* btnDelAll50@2x.png */; };
+		84A642FD214EE773002029AE /* It2EsIdx.wrds in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5D92117913100E18C51 /* It2EsIdx.wrds */; };
+		84A642FE214EE773002029AE /* BntCloseMod@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84651316208EA3C000250E21 /* BntCloseMod@2x.png */; };
+		84A64300214EE773002029AE /* btnSwap50_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A195DE205C8C7400110EDA /* btnSwap50_@2x.png */; };
+		84A64301214EE773002029AE /* BtnShowFindPlus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84651319208EA3C000250E21 /* BtnShowFindPlus@2x.png */; };
+		84A64302214EE773002029AE /* btnListMeans40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F698CE207930B700327038 /* btnListMeans40@2x.png */; };
+		84A64303214EE773002029AE /* EnRedS.rwd in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5F12117913200E18C51 /* EnRedS.rwd */; };
+		84A64305214EE773002029AE /* btnAdd50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 841CBD7320673C5C0040D178 /* btnAdd50@2x.png */; };
+		84A64306214EE773002029AE /* CVDataEs.dat in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5D12117913000E18C51 /* CVDataEs.dat */; };
+		84A64307214EE773002029AE /* btnDelMeans40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F698D820793A0400327038 /* btnDelMeans40@2x.png */; };
+		84A64308214EE773002029AE /* btnDelMean40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FBFE2B207EFD8B009C410C /* btnDelMean40@2x.png */; };
+		84A64309214EE773002029AE /* Marcas.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5DF2117913100E18C51 /* Marcas.txt */; };
+		84A6430A214EE773002029AE /* RWDataIt.dat in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5E82117913200E18C51 /* RWDataIt.dat */; };
+		84A6430B214EE773002029AE /* FlagEs30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849911F8208BC399001F0B0F /* FlagEs30@2x.png */; };
+		84A6430C214EE773002029AE /* BtnMeans2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849911F6208BC399001F0B0F /* BtnMeans2@2x.png */; };
+		84A6430F214EE773002029AE /* RWDataFr.dat in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5EA2117913200E18C51 /* RWDataFr.dat */; };
+		84A64310214EE773002029AE /* BtnClose1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8434E8A920D40F8B00520157 /* BtnClose1@2x.png */; };
+		84A64311214EE773002029AE /* RWDataEs.dat in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5E52117913100E18C51 /* RWDataEs.dat */; };
+		84A64312214EE773002029AE /* FlagIt30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849911FA208BC399001F0B0F /* FlagIt30@2x.png */; };
+		84A64314214EE773002029AE /* btnPrevWord40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FBFE2E207EFD8B009C410C /* btnPrevWord40@2x.png */; };
+		84A64316214EE773002029AE /* btnConjWord40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FBFE2A207EFD8B009C410C /* btnConjWord40@2x.png */; };
+		84A64317214EE773002029AE /* BtnNums@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84651318208EA3C000250E21 /* BtnNums@2x.png */; };
+		84A64318214EE773002029AE /* btnMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A195CC205C768A00110EDA /* btnMenu.png */; };
+		84A64319214EE773002029AE /* btnPopUp50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8434E8AB20D412D900520157 /* btnPopUp50@2x.png */; };
+		84A6431B214EE773002029AE /* FlagIt50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A195D2205C768A00110EDA /* FlagIt50@2x.png */; };
+		84A6431C214EE773002029AE /* BtnConj@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84651317208EA3C000250E21 /* BtnConj@2x.png */; };
+		84A6431D214EE773002029AE /* Es2ItIdx.wrds in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5DB2117913100E18C51 /* Es2ItIdx.wrds */; };
+		84A6431E214EE773002029AE /* btnLeft50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 841CBD7620673C5C0040D178 /* btnLeft50@2x.png */; };
+		84A6431F214EE773002029AE /* btnFindMinus50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 841CBD6D2066DAF40040D178 /* btnFindMinus50@2x.png */; };
+		84A64320214EE773002029AE /* ItRedS.rwd in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5D52117913000E18C51 /* ItRedS.rwd */; };
+		84A64321214EE773002029AE /* btnListMixss40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F698CF207930B700327038 /* btnListMixss40@2x.png */; };
+		84A64322214EE773002029AE /* BtnHideFindPlus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8434E8A720D40EFE00520157 /* BtnHideFindPlus@2x.png */; };
+		84A64323214EE773002029AE /* btnListWrds40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F698D0207930B700327038 /* btnListWrds40@2x.png */; };
+		84A64325214EE773002029AE /* It2Es.dcv in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5E22117913100E18C51 /* It2Es.dcv */; };
+		84A64326214EE773002029AE /* RWDataEn.dat in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5E62117913200E18C51 /* RWDataEn.dat */; };
+		84A64327214EE773002029AE /* CVDataIt.dat in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5D42117913000E18C51 /* CVDataIt.dat */; };
+		84A64328214EE773002029AE /* CVDataEn.dat in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5EC2117913200E18C51 /* CVDataEn.dat */; };
+		84A64329214EE773002029AE /* btnFindPlus50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 841CBD6E2066DAF40040D178 /* btnFindPlus50@2x.png */; };
+		84A6432A214EE773002029AE /* EsRedS.rwd in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5E02117913100E18C51 /* EsRedS.rwd */; };
+		84A6432B214EE773002029AE /* LeftArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8416A9E320CF4835004EA1C4 /* LeftArrow.png */; };
+		84A6432C214EE773002029AE /* FlagEn50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A195CF205C768A00110EDA /* FlagEn50@2x.png */; };
+		84A6432D214EE773002029AE /* BntFind@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849911F2208BC27F001F0B0F /* BntFind@2x.png */; };
+		84A6432E214EE773002029AE /* FrRedS.rwd in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5F32117913300E18C51 /* FrRedS.rwd */; };
+		84A6432F214EE773002029AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EB111F2058814B00A1DA0D /* Main.storyboard */; };
+		84A64330214EE773002029AE /* CVDataFr.dat in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5EF2117913200E18C51 /* CVDataFr.dat */; };
+		84A64331214EE773002029AE /* btnNextWord40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FBFE2D207EFD8B009C410C /* btnNextWord40@2x.png */; };
+		84A64332214EE773002029AE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84E43D88207AB90500D80910 /* Localizable.strings */; };
+		84A64333214EE773002029AE /* FlagEn30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849911F7208BC399001F0B0F /* FlagEn30@2x.png */; };
+		84A64334214EE773002029AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8417E1C220FBC61500B23D92 /* InfoPlist.strings */; };
+		84A64335214EE773002029AE /* ArrayUtil.inl in Resources */ = {isa = PBXBuildFile; fileRef = 84991285208BF495001F0B0F /* ArrayUtil.inl */; };
+		84A64336214EE773002029AE /* btnDel50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 841CBD7420673C5C0040D178 /* btnDel50@2x.png */; };
+		84A64338214EE773002029AE /* btnMoveUp50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B0AF6B2068B8CE00C61E6D /* btnMoveUp50@2x.png */; };
+		84A64339214EE773002029AE /* btnMnuCmds40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F698D1207930B700327038 /* btnMnuCmds40@2x.png */; };
+		84A6433A214EE773002029AE /* FlagEs50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A195D0205C768A00110EDA /* FlagEs50@2x.png */; };
+		84A64340214F3471002029AE /* En2It.dcv in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5E12117913100E18C51 /* En2It.dcv */; };
+		84A64341214F3476002029AE /* En2ItIdx.wrds in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5D32117913000E18C51 /* En2ItIdx.wrds */; };
+		84A64342214F34AD002029AE /* Fr2It.dcv in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5E72117913200E18C51 /* Fr2It.dcv */; };
+		84A64343214F34B4002029AE /* Fr2ItIdx.wrds in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5DC2117913100E18C51 /* Fr2ItIdx.wrds */; };
+		84A64344214F34B9002029AE /* It2En.dcv in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5E42117913100E18C51 /* It2En.dcv */; };
+		84A64345214F34BD002029AE /* It2EnIdx.wrds in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5CF2117913000E18C51 /* It2EnIdx.wrds */; };
+		84A64346214F34C7002029AE /* It2Fr.dcv in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5D22117913000E18C51 /* It2Fr.dcv */; };
+		84A64347214F34CD002029AE /* It2FrIdx.wrds in Resources */ = {isa = PBXBuildFile; fileRef = 8429D5F02117913200E18C51 /* It2FrIdx.wrds */; };
+		84A64349214F43B2002029AE /* AssetsIt.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A64348214F43B2002029AE /* AssetsIt.xcassets */; };
+		84A6434A214F4504002029AE /* AssetsEs.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84100C0B211A35E4009B86FB /* AssetsEs.xcassets */; };
 		84B0AF6A2068627A00C61E6D /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AF692068627A00C61E6D /* SearchController.m */; };
 		84B0AF6C2068B8CE00C61E6D /* btnMoveUp50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B0AF6B2068B8CE00C61E6D /* btnMoveUp50@2x.png */; };
 		84B22A21205D983E007398F8 /* LangPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B22A20205D983E007398F8 /* LangPopUpView.m */; };
@@ -420,6 +548,9 @@
 		84A558C720AA23F300D8B0F8 /* NumsController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = NumsController.m; path = "Dictionary Plus/NumsController.m"; sourceTree = "<group>"; };
 		84A558C820AA23F300D8B0F8 /* ReadNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReadNumber.h; path = "Dictionary Plus/ReadNumber.h"; sourceTree = "<group>"; };
 		84A558C920AA23F300D8B0F8 /* ReadNumber.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = ReadNumber.m; path = "Dictionary Plus/ReadNumber.m"; sourceTree = "<group>"; };
+		84A6433E214EE773002029AE /* Dizionario Plus Italiano.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dizionario Plus Italiano.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84A6433F214EE774002029AE /* Diccionario Plus Español copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Diccionario Plus Español copy-Info.plist"; path = "/Users/admin/Documents/Proyectos/Dictionary Plus iOS (2018-08-07)/Diccionario Plus Español copy-Info.plist"; sourceTree = "<absolute>"; };
+		84A64348214F43B2002029AE /* AssetsIt.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AssetsIt.xcassets; sourceTree = "<group>"; };
 		84B0AF682068627A00C61E6D /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchController.h; path = "Dictionary Plus/SearchController.h"; sourceTree = "<group>"; };
 		84B0AF692068627A00C61E6D /* SearchController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = SearchController.m; path = "Dictionary Plus/SearchController.m"; sourceTree = "<group>"; };
 		84B0AF6B2068B8CE00C61E6D /* btnMoveUp50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnMoveUp50@2x.png"; path = "Images/btnMoveUp50@2x.png"; sourceTree = "<group>"; };
@@ -494,6 +625,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		84A642F0214EE773002029AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84EB11102058814B00A1DA0D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -741,6 +879,7 @@
 				84EB112D2059619B00A1DA0D /* Images */,
 				84EB11162058814B00A1DA0D /* Supporting Files */,
 				84EB11142058814B00A1DA0D /* Products */,
+				84A6433F214EE774002029AE /* Diccionario Plus Español copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -749,6 +888,7 @@
 			children = (
 				84EB11132058814B00A1DA0D /* Dictionary Plus English.app */,
 				84F7A65021022C8C00F431A4 /* Diccionario Plus Español.app */,
+				84A6433E214EE773002029AE /* Dizionario Plus Italiano.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -756,6 +896,7 @@
 		84EB11162058814B00A1DA0D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				84A64348214F43B2002029AE /* AssetsIt.xcassets */,
 				84EB11222058814B00A1DA0D /* AssetsEn.xcassets */,
 				84100C0B211A35E4009B86FB /* AssetsEs.xcassets */,
 				84EB11272058814B00A1DA0D /* InfoEn.plist */,
@@ -822,6 +963,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		84A642B7214EE773002029AE /* Dizionario Plus Italiano */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 84A6433B214EE773002029AE /* Build configuration list for PBXNativeTarget "Dizionario Plus Italiano" */;
+			buildPhases = (
+				84A642B8214EE773002029AE /* Sources */,
+				84A642F0214EE773002029AE /* Frameworks */,
+				84A642F1214EE773002029AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Dizionario Plus Italiano";
+			productName = "Dictionary Plus";
+			productReference = 84A6433E214EE773002029AE /* Dizionario Plus Italiano.app */;
+			productType = "com.apple.product-type.application";
+		};
 		84EB11122058814B00A1DA0D /* Dictionary Plus English */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84EB112A2058814B00A1DA0D /* Build configuration list for PBXNativeTarget "Dictionary Plus English" */;
@@ -862,7 +1020,7 @@
 		84EB110B2058814B00A1DA0D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = bigxsoft;
 				TargetAttributes = {
 					84EB11122058814B00A1DA0D = {
@@ -889,11 +1047,92 @@
 			targets = (
 				84EB11122058814B00A1DA0D /* Dictionary Plus English */,
 				84F7A5E121022C8C00F431A4 /* Diccionario Plus Español */,
+				84A642B7214EE773002029AE /* Dizionario Plus Italiano */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		84A642F1214EE773002029AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84A642F2214EE773002029AE /* btnRight50@2x.png in Resources */,
+				84A642F3214EE773002029AE /* Leading@2x.png in Resources */,
+				84A642F4214EE773002029AE /* BtnGroup@2x.png in Resources */,
+				84A642F5214EE773002029AE /* LaunchImage.png in Resources */,
+				84A642F6214EE773002029AE /* LaunchScreen.storyboard in Resources */,
+				84A642F7214EE773002029AE /* btnShowAll40@2x.png in Resources */,
+				84A642F8214EE773002029AE /* btnFindWord40@2x.png in Resources */,
+				84A642F9214EE773002029AE /* Es2It.dcv in Resources */,
+				84A642FA214EE773002029AE /* FlagFr50@2x.png in Resources */,
+				84A642FB214EE773002029AE /* FlagFr30@2x.png in Resources */,
+				84A642FC214EE773002029AE /* btnDelAll50@2x.png in Resources */,
+				84A64349214F43B2002029AE /* AssetsIt.xcassets in Resources */,
+				84A642FD214EE773002029AE /* It2EsIdx.wrds in Resources */,
+				84A642FE214EE773002029AE /* BntCloseMod@2x.png in Resources */,
+				84A64300214EE773002029AE /* btnSwap50_@2x.png in Resources */,
+				84A64301214EE773002029AE /* BtnShowFindPlus@2x.png in Resources */,
+				84A64302214EE773002029AE /* btnListMeans40@2x.png in Resources */,
+				84A64303214EE773002029AE /* EnRedS.rwd in Resources */,
+				84A64305214EE773002029AE /* btnAdd50@2x.png in Resources */,
+				84A64344214F34B9002029AE /* It2En.dcv in Resources */,
+				84A64306214EE773002029AE /* CVDataEs.dat in Resources */,
+				84A64343214F34B4002029AE /* Fr2ItIdx.wrds in Resources */,
+				84A64307214EE773002029AE /* btnDelMeans40@2x.png in Resources */,
+				84A64308214EE773002029AE /* btnDelMean40@2x.png in Resources */,
+				84A64309214EE773002029AE /* Marcas.txt in Resources */,
+				84A6430A214EE773002029AE /* RWDataIt.dat in Resources */,
+				84A6430B214EE773002029AE /* FlagEs30@2x.png in Resources */,
+				84A64341214F3476002029AE /* En2ItIdx.wrds in Resources */,
+				84A6430C214EE773002029AE /* BtnMeans2@2x.png in Resources */,
+				84A6430F214EE773002029AE /* RWDataFr.dat in Resources */,
+				84A64310214EE773002029AE /* BtnClose1@2x.png in Resources */,
+				84A64340214F3471002029AE /* En2It.dcv in Resources */,
+				84A64311214EE773002029AE /* RWDataEs.dat in Resources */,
+				84A64312214EE773002029AE /* FlagIt30@2x.png in Resources */,
+				84A64345214F34BD002029AE /* It2EnIdx.wrds in Resources */,
+				84A64314214EE773002029AE /* btnPrevWord40@2x.png in Resources */,
+				84A64316214EE773002029AE /* btnConjWord40@2x.png in Resources */,
+				84A64317214EE773002029AE /* BtnNums@2x.png in Resources */,
+				84A64318214EE773002029AE /* btnMenu.png in Resources */,
+				84A64342214F34AD002029AE /* Fr2It.dcv in Resources */,
+				84A64319214EE773002029AE /* btnPopUp50@2x.png in Resources */,
+				84A6431B214EE773002029AE /* FlagIt50@2x.png in Resources */,
+				84A6431C214EE773002029AE /* BtnConj@2x.png in Resources */,
+				84A6431D214EE773002029AE /* Es2ItIdx.wrds in Resources */,
+				84A6431E214EE773002029AE /* btnLeft50@2x.png in Resources */,
+				84A6431F214EE773002029AE /* btnFindMinus50@2x.png in Resources */,
+				84A64320214EE773002029AE /* ItRedS.rwd in Resources */,
+				84A64321214EE773002029AE /* btnListMixss40@2x.png in Resources */,
+				84A64347214F34CD002029AE /* It2FrIdx.wrds in Resources */,
+				84A64322214EE773002029AE /* BtnHideFindPlus@2x.png in Resources */,
+				84A64323214EE773002029AE /* btnListWrds40@2x.png in Resources */,
+				84A64325214EE773002029AE /* It2Es.dcv in Resources */,
+				84A64326214EE773002029AE /* RWDataEn.dat in Resources */,
+				84A64346214F34C7002029AE /* It2Fr.dcv in Resources */,
+				84A64327214EE773002029AE /* CVDataIt.dat in Resources */,
+				84A64328214EE773002029AE /* CVDataEn.dat in Resources */,
+				84A64329214EE773002029AE /* btnFindPlus50@2x.png in Resources */,
+				84A6432A214EE773002029AE /* EsRedS.rwd in Resources */,
+				84A6432B214EE773002029AE /* LeftArrow.png in Resources */,
+				84A6432C214EE773002029AE /* FlagEn50@2x.png in Resources */,
+				84A6432D214EE773002029AE /* BntFind@2x.png in Resources */,
+				84A6432E214EE773002029AE /* FrRedS.rwd in Resources */,
+				84A6432F214EE773002029AE /* Main.storyboard in Resources */,
+				84A64330214EE773002029AE /* CVDataFr.dat in Resources */,
+				84A64331214EE773002029AE /* btnNextWord40@2x.png in Resources */,
+				84A64332214EE773002029AE /* Localizable.strings in Resources */,
+				84A64333214EE773002029AE /* FlagEn30@2x.png in Resources */,
+				84A64334214EE773002029AE /* InfoPlist.strings in Resources */,
+				84A64335214EE773002029AE /* ArrayUtil.inl in Resources */,
+				84A64336214EE773002029AE /* btnDel50@2x.png in Resources */,
+				84A64338214EE773002029AE /* btnMoveUp50@2x.png in Resources */,
+				84A64339214EE773002029AE /* btnMnuCmds40@2x.png in Resources */,
+				84A6433A214EE773002029AE /* FlagEs50@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84EB11112058814B00A1DA0D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1048,7 +1287,7 @@
 				84F7A64721022C8C00F431A4 /* InfoPlist.strings in Resources */,
 				84F7A64821022C8C00F431A4 /* ArrayUtil.inl in Resources */,
 				84F7A64921022C8C00F431A4 /* btnDel50@2x.png in Resources */,
-				84100C0D211A35FA009B86FB /* AssetsEs.xcassets in Resources */,
+				84A6434A214F4504002029AE /* AssetsEs.xcassets in Resources */,
 				84F7A64A21022C8C00F431A4 /* btnMoveUp50@2x.png in Resources */,
 				84F7A64B21022C8C00F431A4 /* btnMnuCmds40@2x.png in Resources */,
 				84F7A64C21022C8C00F431A4 /* FlagEs50@2x.png in Resources */,
@@ -1058,6 +1297,68 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		84A642B8214EE773002029AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84A642B9214EE773002029AE /* ColAndFont.m in Sources */,
+				84A642BA214EE773002029AE /* ConjController.m in Sources */,
+				84A642BB214EE773002029AE /* LangPopUpView.m in Sources */,
+				84A642BC214EE773002029AE /* DatosMean.m in Sources */,
+				84A642BD214EE773002029AE /* NumResultView.m in Sources */,
+				84A642BE214EE773002029AE /* FastHeap.cpp in Sources */,
+				84A642BF214EE773002029AE /* EntryDict.m in Sources */,
+				84A642C0214EE773002029AE /* ZoneDatosView.m in Sources */,
+				84A642C1214EE773002029AE /* TextQueryPlus.m in Sources */,
+				84A642C2214EE773002029AE /* ConjCore.mm in Sources */,
+				84A642C3214EE773002029AE /* RefTabla.cpp in Sources */,
+				84A642C4214EE773002029AE /* ConjDataView.m in Sources */,
+				84A642C5214EE773002029AE /* EntryDesc.m in Sources */,
+				84A642C6214EE773002029AE /* DesplazaView.m in Sources */,
+				84A642C7214EE773002029AE /* DictLoad.cpp in Sources */,
+				84A642C8214EE773002029AE /* BtnsBarView.m in Sources */,
+				84A642C9214EE773002029AE /* ViewController.m in Sources */,
+				84A642CA214EE773002029AE /* ConjHeaderView.m in Sources */,
+				84A642CB214EE773002029AE /* SortedIndexs.m in Sources */,
+				84A642CC214EE773002029AE /* DatosConjs.m in Sources */,
+				84A642CD214EE773002029AE /* FindMeans.m in Sources */,
+				84A642CE214EE773002029AE /* DictRed.m in Sources */,
+				84A642CF214EE773002029AE /* ConjVerb.cpp in Sources */,
+				84A642D0214EE773002029AE /* SelLangView.m in Sources */,
+				84A642D1214EE773002029AE /* AppDelegate.m in Sources */,
+				84A642D2214EE773002029AE /* PanelRigthView.m in Sources */,
+				84A642D3214EE773002029AE /* ArrayUtil.cpp in Sources */,
+				84A642D4214EE773002029AE /* RWDefn.cpp in Sources */,
+				84A642D5214EE773002029AE /* UtilFun.cpp in Sources */,
+				84A642D6214EE773002029AE /* CString.cpp in Sources */,
+				84A642D7214EE773002029AE /* CVDefn.cpp in Sources */,
+				84A642D8214EE773002029AE /* DictMain.m in Sources */,
+				84A642D9214EE773002029AE /* NumsController.m in Sources */,
+				84A642DA214EE773002029AE /* ApiConj.cpp in Sources */,
+				84A642DB214EE773002029AE /* AppData.m in Sources */,
+				84A642DC214EE773002029AE /* EntryIndex.m in Sources */,
+				84A642DD214EE773002029AE /* TextQuery.m in Sources */,
+				84A642DE214EE773002029AE /* main.m in Sources */,
+				84A642DF214EE773002029AE /* SelDirView.m in Sources */,
+				84A642E0214EE773002029AE /* FileUtil.cpp in Sources */,
+				84A642E1214EE773002029AE /* ReadNumber.m in Sources */,
+				84A642E2214EE773002029AE /* Ctabla.cpp in Sources */,
+				84A642E3214EE773002029AE /* NumGroupView.m in Sources */,
+				84A642E4214EE773002029AE /* StrUtil.cpp in Sources */,
+				84A642E5214EE773002029AE /* WaitView.m in Sources */,
+				84A642E6214EE773002029AE /* ParseMeans.m in Sources */,
+				84A642E7214EE773002029AE /* RedWord.cpp in Sources */,
+				84A642E8214EE773002029AE /* Logger.cpp in Sources */,
+				84A642E9214EE773002029AE /* CmdPopUpView.m in Sources */,
+				84A642EA214EE773002029AE /* MngMarks.m in Sources */,
+				84A642EB214EE773002029AE /* ApiRed.cpp in Sources */,
+				84A642EC214EE773002029AE /* WinUtil.cpp in Sources */,
+				84A642ED214EE773002029AE /* SearchController.m in Sources */,
+				84A642EE214EE773002029AE /* DirPopUpView.m in Sources */,
+				84A642EF214EE773002029AE /* DictIndexes.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84EB110F2058814B00A1DA0D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1235,6 +1536,37 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		84A6433C214EE773002029AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libstdc++";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DictIOSIt=1;",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Diccionario Plus Español copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bigxsoft.DictIOSIt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		84A6433D214EE773002029AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libstdc++";
+				GCC_PREPROCESSOR_DEFINITIONS = "DictIOSIt=1;";
+				INFOPLIST_FILE = "Diccionario Plus Español copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.bigxsoft.DictIOSIt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		84EB11282058814B00A1DA0D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1250,6 +1582,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1257,6 +1590,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1306,6 +1640,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1313,6 +1648,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1406,6 +1742,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		84A6433B214EE773002029AE /* Build configuration list for PBXNativeTarget "Dizionario Plus Italiano" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				84A6433C214EE773002029AE /* Debug */,
+				84A6433D214EE773002029AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		84EB110E2058814B00A1DA0D /* Build configuration list for PBXProject "Dictionary Plus" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

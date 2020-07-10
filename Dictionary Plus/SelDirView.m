@@ -200,13 +200,13 @@
   rcTxt1.origin.x = x + wSwap + wIcon;
 
   [UIView animateWithDuration:0.5 animations:^{
-    srcIcon.frame  = rcIcn1;
-    srcLabel.frame = rcTxt1;
+      self->srcIcon.frame  = rcIcn1;
+      self->srcLabel.frame = rcTxt1;
 
-    SwapIcon.frame = rcSwap;
+      self->SwapIcon.frame = rcSwap;
     
-    desIcon.frame  = rcIcn2;
-    desLabel.frame = rcTxt2;
+      self->desIcon.frame  = rcIcn2;
+      self->desLabel.frame = rcTxt2;
     }
   completion:^(BOOL finished) {
     [self SetDictWithSrc:LGDes AndDes:LGSrc];

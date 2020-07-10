@@ -73,7 +73,7 @@ static float PopUpWidth;                 // Ancho del mené
   CGPoint pnt = Panel.center;
   pnt.x = pnt.x - Panel.frame.size.width;
     
-  [UIView animateWithDuration: 0.6 animations:^{  Panel.center = pnt;}];     // Muestra menú animado, con la altura final
+  [UIView animateWithDuration: 0.6 animations:^{  self->Panel.center = pnt;}];     // Muestra menú animado, con la altura final
 
   _SelectedItem = -1;                                                         // Por defecto no se selecciono ningun item
   return self;
@@ -126,11 +126,11 @@ static float PopUpWidth;                 // Ancho del mené
   CGPoint cnt = Panel.center;
   cnt.x = cnt.x + Panel.frame.size.width;
 
-  [UIView animateWithDuration:0.6 animations:^{ Panel.center = cnt; }          // Anina como disminulle la altura del menú hasta desaparecer
+      [UIView animateWithDuration:0.6 animations:^{ self->Panel.center = cnt; }          // Anina como disminulle la altura del menú hasta desaparecer
                                   completion:^(BOOL finished)
                                     {
                                     [self removeFromSuperview];               // Quita la ventada de fondo (el menú)
-                                    [Panel removeFromSuperview];
+                                    [self->Panel removeFromSuperview];
                                     [self NotifySelMenuItem];                 // Notifica si se toco algun item del menú
                                     }];
   }

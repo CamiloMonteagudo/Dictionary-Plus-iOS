@@ -148,7 +148,7 @@
   rc.size.height = HPOP_UP;
   
   [UIView animateWithDuration:0.5 animations:^{
-    popUp.frame = rc;
+   self->popUp.frame = rc;
   }];
   }
 
@@ -174,11 +174,11 @@
   [UIView animateWithDuration:0.5
     animations:^
       {
-      popUp.frame = rc;
+      self->popUp.frame = rc;
       }
     completion:^(BOOL finished)
       {
-      [InfoObj performSelector:OnSelLang withObject:self afterDelay:0.0];
+      [self->InfoObj performSelector:self->OnSelLang withObject:self afterDelay:0.0];
   
       [self removeFromSuperview];
       }];

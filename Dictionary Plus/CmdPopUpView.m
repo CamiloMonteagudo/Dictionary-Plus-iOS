@@ -192,7 +192,7 @@
   rc.size.height = nRows * (SEP_ + H_ROW) + SEP_;
   
   [UIView animateWithDuration:0.5 animations:^{
-    popUp.frame = rc;
+      self->popUp.frame = rc;
   }];
   }
 
@@ -206,11 +206,11 @@
   [UIView animateWithDuration:0.5
     animations:^
       {
-      popUp.frame = rc;
+      self->popUp.frame = rc;
       }
     completion:^(BOOL finished)
       {
-      [InfoObj performSelector:OnSelLang withObject:self afterDelay:0.0];
+      [self->InfoObj performSelector:self->OnSelLang withObject:self afterDelay:0.0];
   
       [self removeFromSuperview];
       }];

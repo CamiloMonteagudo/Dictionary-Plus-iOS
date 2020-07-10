@@ -306,7 +306,7 @@
   _SearchPlus.hidden = false;
   [UIView animateWithDuration:0.3 animations:^
     {
-    _LeftSearchPlus.constant = 0;
+     self->_LeftSearchPlus.constant = 0;
     [self.view setNeedsUpdateConstraints];
   
     [self.view layoutIfNeeded];
@@ -325,7 +325,7 @@
   
   [UIView animateWithDuration:0.3 animations:^
     {
-    _LeftSearchPlus.constant = -_SearchPlus.frame.size.width;
+    self->_LeftSearchPlus.constant = -self->_SearchPlus.frame.size.width;
     
     [self.view setNeedsUpdateConstraints];
   
@@ -333,9 +333,9 @@
     }
   completion:^(BOOL finished)
     {
-    _SearchPlus.hidden = true;
+    self->_SearchPlus.hidden = true;
     
-    [FindPlusCtrller CloseFindPlus];
+    [self->FindPlusCtrller CloseFindPlus];
     }];
   
   [_bntSearchPlus setImage:imgPlus forState:UIControlStateNormal ];
