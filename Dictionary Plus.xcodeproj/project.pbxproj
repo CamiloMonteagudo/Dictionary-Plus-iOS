@@ -29,6 +29,7 @@
 		84B0AF6A2068627A00C61E6D /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AF692068627A00C61E6D /* SearchController.m */; };
 		84B0AF6C2068B8CE00C61E6D /* btnMoveUp50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B0AF6B2068B8CE00C61E6D /* btnMoveUp50@2x.png */; };
 		84B22A21205D983E007398F8 /* LangPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B22A20205D983E007398F8 /* LangPopUpView.m */; };
+		84DE9EB9207FFDCB004E90AF /* ParseMeans.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE9EB8207FFDCB004E90AF /* ParseMeans.m */; };
 		84DEEF70207657FC00F3A8F1 /* Datos in Resources */ = {isa = PBXBuildFile; fileRef = 84DEEF6F207657FC00F3A8F1 /* Datos */; };
 		84DEEF742076589D00F3A8F1 /* DictIndexes.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF722076589D00F3A8F1 /* DictIndexes.m */; };
 		84DEEF76207658B900F3A8F1 /* DictMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF75207658B900F3A8F1 /* DictMain.m */; };
@@ -38,7 +39,7 @@
 		84DEEF862076908B00F3A8F1 /* SortedIndexs.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF832076908B00F3A8F1 /* SortedIndexs.m */; };
 		84DEEF872076908B00F3A8F1 /* TextQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF852076908B00F3A8F1 /* TextQuery.m */; };
 		84DEEF8A2076941200F3A8F1 /* TextQueryPlus.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF892076941200F3A8F1 /* TextQueryPlus.m */; };
-		84DEEF8F2076C14200F3A8F1 /* DatosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF8C2076C14200F3A8F1 /* DatosView.m */; };
+		84DEEF8F2076C14200F3A8F1 /* DatosMean.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF8C2076C14200F3A8F1 /* DatosMean.m */; };
 		84DEEF902076C14200F3A8F1 /* ZoneDatosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF8E2076C14200F3A8F1 /* ZoneDatosView.m */; };
 		84DEEF932076C2F200F3A8F1 /* EntryDesc.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF922076C2F200F3A8F1 /* EntryDesc.m */; };
 		84DEEF962076C37C00F3A8F1 /* MngMarks.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF952076C37C00F3A8F1 /* MngMarks.m */; };
@@ -61,6 +62,11 @@
 		84F698D7207930B700327038 /* btnShowAll40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F698D2207930B700327038 /* btnShowAll40@2x.png */; };
 		84F698D920793A0400327038 /* btnDelMeans40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84F698D820793A0400327038 /* btnDelMeans40@2x.png */; };
 		84F7563220782DE300424C12 /* BtnsBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F7563120782DE300424C12 /* BtnsBarView.m */; };
+		84FBFE2F207EFD8B009C410C /* btnConjWord40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FBFE2A207EFD8B009C410C /* btnConjWord40@2x.png */; };
+		84FBFE30207EFD8B009C410C /* btnDelMean40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FBFE2B207EFD8B009C410C /* btnDelMean40@2x.png */; };
+		84FBFE31207EFD8B009C410C /* btnFindWord40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FBFE2C207EFD8B009C410C /* btnFindWord40@2x.png */; };
+		84FBFE32207EFD8B009C410C /* btnNextWord40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FBFE2D207EFD8B009C410C /* btnNextWord40@2x.png */; };
+		84FBFE33207EFD8B009C410C /* btnPrevWord40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84FBFE2E207EFD8B009C410C /* btnPrevWord40@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +96,8 @@
 		84B0AF6B2068B8CE00C61E6D /* btnMoveUp50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnMoveUp50@2x.png"; path = "Images/btnMoveUp50@2x.png"; sourceTree = "<group>"; };
 		84B22A1F205D983E007398F8 /* LangPopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangPopUpView.h; sourceTree = "<group>"; };
 		84B22A20205D983E007398F8 /* LangPopUpView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = LangPopUpView.m; sourceTree = "<group>"; };
+		84DE9EB7207FFDCB004E90AF /* ParseMeans.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParseMeans.h; path = "Dictionary Plus/ParseMeans.h"; sourceTree = "<group>"; };
+		84DE9EB8207FFDCB004E90AF /* ParseMeans.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = ParseMeans.m; path = "Dictionary Plus/ParseMeans.m"; sourceTree = "<group>"; };
 		84DEEF6F207657FC00F3A8F1 /* Datos */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Datos; path = "Dictionary Plus/Datos"; sourceTree = "<group>"; };
 		84DEEF712076589D00F3A8F1 /* DictIndexes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictIndexes.h; path = MngDicts/DictIndexes.h; sourceTree = "<group>"; };
 		84DEEF722076589D00F3A8F1 /* DictIndexes.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = DictIndexes.m; path = MngDicts/DictIndexes.m; sourceTree = "<group>"; };
@@ -107,8 +115,8 @@
 		84DEEF852076908B00F3A8F1 /* TextQuery.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = TextQuery.m; path = MngDicts/TextQuery.m; sourceTree = "<group>"; };
 		84DEEF882076941200F3A8F1 /* TextQueryPlus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextQueryPlus.h; path = MngDicts/TextQueryPlus.h; sourceTree = "<group>"; };
 		84DEEF892076941200F3A8F1 /* TextQueryPlus.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = TextQueryPlus.m; path = MngDicts/TextQueryPlus.m; sourceTree = "<group>"; };
-		84DEEF8B2076C14200F3A8F1 /* DatosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatosView.h; path = "Dictionary Plus/DatosView.h"; sourceTree = "<group>"; };
-		84DEEF8C2076C14200F3A8F1 /* DatosView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = DatosView.m; path = "Dictionary Plus/DatosView.m"; sourceTree = "<group>"; };
+		84DEEF8B2076C14200F3A8F1 /* DatosMean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatosMean.h; path = "Dictionary Plus/DatosMean.h"; sourceTree = "<group>"; };
+		84DEEF8C2076C14200F3A8F1 /* DatosMean.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = DatosMean.m; path = "Dictionary Plus/DatosMean.m"; sourceTree = "<group>"; };
 		84DEEF8D2076C14200F3A8F1 /* ZoneDatosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZoneDatosView.h; path = "Dictionary Plus/ZoneDatosView.h"; sourceTree = "<group>"; };
 		84DEEF8E2076C14200F3A8F1 /* ZoneDatosView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = ZoneDatosView.m; path = "Dictionary Plus/ZoneDatosView.m"; sourceTree = "<group>"; };
 		84DEEF912076C2F200F3A8F1 /* EntryDesc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntryDesc.h; path = MngDicts/EntryDesc.h; sourceTree = "<group>"; };
@@ -143,6 +151,11 @@
 		84F698D820793A0400327038 /* btnDelMeans40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnDelMeans40@2x.png"; path = "Images/btnDelMeans40@2x.png"; sourceTree = "<group>"; };
 		84F7563020782DE300424C12 /* BtnsBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BtnsBarView.h; path = "Dictionary Plus/BtnsBarView.h"; sourceTree = "<group>"; };
 		84F7563120782DE300424C12 /* BtnsBarView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = BtnsBarView.m; path = "Dictionary Plus/BtnsBarView.m"; sourceTree = "<group>"; };
+		84FBFE2A207EFD8B009C410C /* btnConjWord40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnConjWord40@2x.png"; path = "Images/btnConjWord40@2x.png"; sourceTree = "<group>"; };
+		84FBFE2B207EFD8B009C410C /* btnDelMean40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnDelMean40@2x.png"; path = "Images/btnDelMean40@2x.png"; sourceTree = "<group>"; };
+		84FBFE2C207EFD8B009C410C /* btnFindWord40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnFindWord40@2x.png"; path = "Images/btnFindWord40@2x.png"; sourceTree = "<group>"; };
+		84FBFE2D207EFD8B009C410C /* btnNextWord40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnNextWord40@2x.png"; path = "Images/btnNextWord40@2x.png"; sourceTree = "<group>"; };
+		84FBFE2E207EFD8B009C410C /* btnPrevWord40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnPrevWord40@2x.png"; path = "Images/btnPrevWord40@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +218,8 @@
 		84EB110A2058814B00A1DA0D = {
 			isa = PBXGroup;
 			children = (
+				84DE9EB7207FFDCB004E90AF /* ParseMeans.h */,
+				84DE9EB8207FFDCB004E90AF /* ParseMeans.m */,
 				84F7563020782DE300424C12 /* BtnsBarView.h */,
 				84F7563120782DE300424C12 /* BtnsBarView.m */,
 				84EB111F2058814B00A1DA0D /* Main.storyboard */,
@@ -218,8 +233,8 @@
 				84EB111D2058814B00A1DA0D /* ViewController.m */,
 				84B0AF682068627A00C61E6D /* SearchController.h */,
 				84B0AF692068627A00C61E6D /* SearchController.m */,
-				84DEEF8B2076C14200F3A8F1 /* DatosView.h */,
-				84DEEF8C2076C14200F3A8F1 /* DatosView.m */,
+				84DEEF8B2076C14200F3A8F1 /* DatosMean.h */,
+				84DEEF8C2076C14200F3A8F1 /* DatosMean.m */,
 				84DEEF8D2076C14200F3A8F1 /* ZoneDatosView.h */,
 				84DEEF8E2076C14200F3A8F1 /* ZoneDatosView.m */,
 				84DEEF8120768AA400F3A8F1 /* Util Views */,
@@ -255,6 +270,11 @@
 		84EB112D2059619B00A1DA0D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				84FBFE2A207EFD8B009C410C /* btnConjWord40@2x.png */,
+				84FBFE2B207EFD8B009C410C /* btnDelMean40@2x.png */,
+				84FBFE2C207EFD8B009C410C /* btnFindWord40@2x.png */,
+				84FBFE2D207EFD8B009C410C /* btnNextWord40@2x.png */,
+				84FBFE2E207EFD8B009C410C /* btnPrevWord40@2x.png */,
 				84F698D820793A0400327038 /* btnDelMeans40@2x.png */,
 				84F698CE207930B700327038 /* btnListMeans40@2x.png */,
 				84F698CF207930B700327038 /* btnListMixss40@2x.png */,
@@ -350,6 +370,7 @@
 				84EB1133205961DD00A1DA0D /* LaunchImage.png in Resources */,
 				84EB11262058814B00A1DA0D /* LaunchScreen.storyboard in Resources */,
 				84F698D7207930B700327038 /* btnShowAll40@2x.png in Resources */,
+				84FBFE31207EFD8B009C410C /* btnFindWord40@2x.png in Resources */,
 				84A195D8205C768A00110EDA /* FlagFr50@2x.png in Resources */,
 				841CBD7920673C5C0040D178 /* btnDelAll50@2x.png in Resources */,
 				84EB11232058814B00A1DA0D /* Assets.xcassets in Resources */,
@@ -357,7 +378,10 @@
 				84F698D3207930B700327038 /* btnListMeans40@2x.png in Resources */,
 				841CBD7720673C5C0040D178 /* btnAdd50@2x.png in Resources */,
 				84F698D920793A0400327038 /* btnDelMeans40@2x.png in Resources */,
+				84FBFE30207EFD8B009C410C /* btnDelMean40@2x.png in Resources */,
 				84A195D4205C768A00110EDA /* btnPopUp50@2x.png in Resources */,
+				84FBFE33207EFD8B009C410C /* btnPrevWord40@2x.png in Resources */,
+				84FBFE2F207EFD8B009C410C /* btnConjWord40@2x.png in Resources */,
 				84A195D3205C768A00110EDA /* btnMenu.png in Resources */,
 				84DEEF70207657FC00F3A8F1 /* Datos in Resources */,
 				84A195D9205C768A00110EDA /* FlagIt50@2x.png in Resources */,
@@ -368,6 +392,7 @@
 				841CBD712066DAF40040D178 /* btnFindPlus50@2x.png in Resources */,
 				84A195D6205C768A00110EDA /* FlagEn50@2x.png in Resources */,
 				84EB11212058814B00A1DA0D /* Main.storyboard in Resources */,
+				84FBFE32207EFD8B009C410C /* btnNextWord40@2x.png in Resources */,
 				84E43D86207AB90500D80910 /* Localizable.strings in Resources */,
 				841CBD7820673C5C0040D178 /* btnDel50@2x.png in Resources */,
 				84B0AF6C2068B8CE00C61E6D /* btnMoveUp50@2x.png in Resources */,
@@ -385,7 +410,7 @@
 			files = (
 				84E39DD820659EC700A33EA7 /* ColAndFont.m in Sources */,
 				84B22A21205D983E007398F8 /* LangPopUpView.m in Sources */,
-				84DEEF8F2076C14200F3A8F1 /* DatosView.m in Sources */,
+				84DEEF8F2076C14200F3A8F1 /* DatosMean.m in Sources */,
 				84DEEF7C20765C4900F3A8F1 /* EntryDict.m in Sources */,
 				84DEEF902076C14200F3A8F1 /* ZoneDatosView.m in Sources */,
 				84DEEF8A2076941200F3A8F1 /* TextQueryPlus.m in Sources */,
@@ -403,6 +428,7 @@
 				84EB11182058814B00A1DA0D /* main.m in Sources */,
 				84A195E2205C966500110EDA /* SelLangsView.m in Sources */,
 				84DEEF8020767C9E00F3A8F1 /* WaitView.m in Sources */,
+				84DE9EB9207FFDCB004E90AF /* ParseMeans.m in Sources */,
 				84E43D83207A8ADA00D80910 /* CmdPopUpView.m in Sources */,
 				84DEEF962076C37C00F3A8F1 /* MngMarks.m in Sources */,
 				84B0AF6A2068627A00C61E6D /* SearchController.m in Sources */,

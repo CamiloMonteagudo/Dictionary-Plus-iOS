@@ -11,6 +11,7 @@
 #import "CmdPopUpView.h"
 
 BtnsBarView* DictCmdBar;
+BtnsBarView* DataCmdBar;
 
 #define wBTN    40
 #define hBTN    40
@@ -50,12 +51,8 @@ BtnsBarView* DictCmdBar;
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)initDatos
   {
-  // Crea un gesto para ocultar o mostrar el nombre de idioma para ganar espacio
-  UIPanGestureRecognizer *gesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(OnGeture:)];
-  [self addGestureRecognizer:gesture];
-
   //self.backgroundColor = [UIColor redColor];
-  _Left = FALSE;
+  _Left = 1000;                                   // Asume todos los botones pegados a la izquierda
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -73,8 +70,16 @@ BtnsBarView* DictCmdBar;
   UIImage* img = [UIImage imageNamed:sImg ];
   [btn setImage:img forState:UIControlStateNormal ];
   
+  btn.showsTouchWhenHighlighted = true;
   //btn.backgroundColor = [UIColor blueColor];
   [self addSubview:btn];
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Determina si los comandos en 'sw' estan avilitados o no
+- (BOOL) IsEnable:(int) sw
+  {
+  return ((Actives & sw) == sw);
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -171,85 +176,42 @@ BtnsBarView* DictCmdBar;
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)layoutSubviews
   {
-  if( _Left ) [self layoutToLeft ];
-  else        [self layoutToRigth];
-  }
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
-// Organiza los botones hacia la derecha
-- (void)layoutToRigth
-  {
-  CGFloat   y = self.bounds.size.height / 2;
-  CGFloat   x = wBTN/2;
+  CGSize  sz = self.bounds.size;
+  CGFloat xl = wBTN/2;
+  CGFloat xr = sz.width - (wBTN/2);
+  CGFloat y  = sz.height / 2;
+  CGFloat w  = 0;
   
-  for( UIView* btn in self.subviews )
+  for( NSInteger i=0; i<self.subviews.count; ++i  )
     {
+    UIView* btn = self.subviews[i];
+    
     if( Actives & (btn.tag) )
       {
-      btn.center = CGPointMake(x, y);
+      if( i>=_Left )
+        {
+        btn.center = CGPointMake(xr, y);
+        xr -= wBTN;
+        }
+      else
+        {
+        btn.center = CGPointMake(xl, y);
+        xl += wBTN;
+        }
+      
       btn.hidden = FALSE;
-    
-      x += wBTN;
+      w += wBTN;
       }
     else
       btn.hidden = TRUE;
     }
   
-  if( x != lastWidth )
+  if( w != lastWidth )
     {
-    lastWidth = x;
-    [Ctrller UpdateRightBarSize];
+    lastWidth = w;
+    [Ctrller UpdateBarSizeAndPos];
     }
   }
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
-// Organiza los botones hacia la izquierda
-- (void)layoutToLeft
-  {
-  CGSize sz   = self.bounds.size;
-  
-  CGFloat w = sz.width;
-  CGFloat y = sz.height / 2;
-  CGFloat x = w - (wBTN/2);
-  
-  for( UIView* btn in self.subviews )
-    {
-    if( Actives & (btn.tag) )
-      {
-      btn.center = CGPointMake(x, y);
-      btn.hidden = FALSE;
-
-      x -= wBTN;
-      }
-    else
-      btn.hidden = TRUE;
-    }
-  
-  if( x != lastWidth )
-    {
-    lastWidth = x;
-    [Ctrller UpdateRightBarSize];
-    }
-  }
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
-// Permite desplazar hacia el lado la ventana
-- (void) OnGeture:(UIPanGestureRecognizer *)sender
-  {
-  if( sender.state == UIGestureRecognizerStateChanged )
-     {
-     }
-  else if( sender.state == UIGestureRecognizerStateEnded )
-     {
-   
-     [UIView animateWithDuration:0.15
-                      animations:^{
-                                  }];
-    
-     }
-  
-  }
-
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -300,14 +262,15 @@ void DictCmdBarDisable( int sw )
 // Adiciona la barra de botones a una vista especificada por 'view'
 void DictCmdBarAddToView( UIView* view )
   {
-  CGSize sz = view.bounds.size;
-  
   if( DictCmdBar.superview != view )
     {
     [DictCmdBar removeFromSuperview];
+    if( view==nil ) return;
+    
     [view addSubview:DictCmdBar];
     }
   
+  CGSize sz = view.bounds.size;
   DictCmdBar.frame = CGRectMake(0, 0, sz.width, sz.height);
   }
 
@@ -354,6 +317,78 @@ NSString* TitleForComand( int ID )
     }
   
   return @"";
+  }
+
+//=========================================================================================================================================================
+// Crea la barra de botones para los datos del diccionario
+void MakeDataCmdBar()
+  {
+  DataCmdBar = [[BtnsBarView alloc] initWithFrame:CGRectMake(0, 0, 3*wBTN, hBTN)];
+  
+  [DataCmdBar AddBtn: CMD_PREV_WRD WithImage:@"btnPrevWord40"];
+  [DataCmdBar AddBtn: CMD_NEXT_WRD WithImage:@"btnNextWord40" ];
+  [DataCmdBar AddBtn: CMD_DEL_MEAN WithImage:@"btnDelMean40" ];
+  [DataCmdBar AddBtn: CMD_CONJ_WRD WithImage:@"btnConjWord40"  ];
+  [DataCmdBar AddBtn: CMD_FIND_WRD WithImage:@"btnFindWord40"];
+  
+  DataCmdBar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+  
+  [DataCmdBar Enable: CMD_PREV_WRD | CMD_NEXT_WRD | CMD_DEL_MEAN];
+  DataCmdBar.Left = 2;
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Habilita los comandos especificado con 'sw' en la barra de botones del diccionario
+void DataCmdBarEnable( int sw )
+  {
+  [DataCmdBar Enable: sw];
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Desabilita los comandos especificado con 'sw' en la barra de botones del diccionario
+void DataCmdBarDisable( int sw )
+  {
+  [DataCmdBar Disable: sw];
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Determina si los comandos especificados en 'sw' estan avilitados o no
+BOOL DataCmdBarIsEnable( int sw )
+  {
+  return [DataCmdBar IsEnable:sw];
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Obtiene el ancho de la barra de botones del diccionario
+void DataCmdBarRefresh()
+  {
+  [DataCmdBar setNeedsLayout];
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Determina si la barra de comando esta activa en la vista 'view'
+BOOL DataCmdBarInView( UIView* view )
+  {
+  return (DataCmdBar.superview == view);
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Adiciona la barra de botones a una vista especificada por 'view'
+void DataCmdBarPosBottomView( UIView* view )
+  {
+  if( DataCmdBar.superview != view )
+    {
+    [DataCmdBar removeFromSuperview];
+    if( view==nil ) return;
+    
+    [view addSubview:DataCmdBar];
+    }
+  
+  if( view !=nil )
+    {
+    CGSize sz = view.bounds.size;
+    DataCmdBar.frame = CGRectMake(0, sz.height-hBTN, sz.width, hBTN);
+    }
   }
 
 //=========================================================================================================================================================

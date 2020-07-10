@@ -16,7 +16,8 @@
 //=========================================================================================================================================================
 @interface DesplazaView : UIView
 
-@property(nonatomic,readonly) int Mode;
+@property(nonatomic,readonly) int  Mode;
+@property(nonatomic,readonly) BOOL SplitDatos;
 
 - (void)TogglePanel;
 - (void)ShowInMode:(int) mode Animate:(BOOL) anim;

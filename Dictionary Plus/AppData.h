@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "DictMain.h"
 #import "DictIndexes.h"
-//#import "DatosView.h"
 #import "ViewController.h"
 
 //===================================================================================================================================================

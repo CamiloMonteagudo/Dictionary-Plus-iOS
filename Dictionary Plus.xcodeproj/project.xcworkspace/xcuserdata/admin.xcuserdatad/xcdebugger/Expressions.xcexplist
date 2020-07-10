@@ -11,10 +11,16 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "::-[BtnsBarView Enable:](int):BtnsBarView.m">
+         contextName = "::-[ViewController viewDidLoad]():ViewController.m">
+      </ContextState>
+      <ContextState
+         contextName = "::-[BtnsBarView Disable:](int):BtnsBarView.m">
          <PersistentStrings>
             <PersistentString
                value = "Actives">
+            </PersistentString>
+            <PersistentString
+               value = "~sw">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -41,13 +47,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "::-[BtnsBarView Disable:](int):BtnsBarView.m">
+         contextName = "::-[BtnsBarView Enable:](int):BtnsBarView.m">
          <PersistentStrings>
             <PersistentString
                value = "Actives">
             </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "::-[ParseMeans ParseStr:](NSString *):ParseMeans.m">
+         <PersistentStrings>
             <PersistentString
-               value = "~sw">
+               value = "sc.scanLocation">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

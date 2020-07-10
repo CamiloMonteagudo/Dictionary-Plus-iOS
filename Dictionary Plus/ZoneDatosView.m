@@ -9,17 +9,42 @@
 #import "ZoneDatosView.h"
 #import "AppData.h"
 #import "BtnsBarView.h"
+#import "DatosMean.h"
+
 //#import "BuyMsgView.h"
 
-static DatosViewBase* DatosSel;
+static InfoDatos* DatosSel;
+static UITableView* _TableDatos;
+
 //===================================================================================================================================================
-// Sirve de base para todas las vistas que va a aparecer en la zona de datos
-@implementation DatosViewBase
+// Clase base para mostrar información en la lista de la derecha
+@implementation InfoCell
+
+- (void) UseWithInfoDatos:(InfoDatos*) datos {}
+- (void) BckColor:(UIColor*) col {}
+
+@end
+
+//===================================================================================================================================================
+// Clase base para los datos de la información que se muestra a la derecha
+@implementation InfoDatos
+
+- (CGFloat) ResizeWithWidth:(CGFloat) w { return 0;}
 
 - (void) SelectedDatos {}
 - (void) UnSelectedDatos {}
 
-- (CGFloat) ResizeWithWidth:(CGFloat) w { return 0;}
+@end
+
+//=========================================================================================================================================================
+@interface ZoneDatosView ()
+{
+UITableView* TableDatos;
+UIView*      InfoView;
+UILabel*     InfoLabel;
+
+NSMutableArray<InfoDatos*> *Datos;
+}
 
 @end
 
@@ -28,124 +53,173 @@ static DatosViewBase* DatosSel;
 @implementation ZoneDatosView
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
+- (instancetype)initWithFrame:(CGRect)frame
+  {
+  self = [super initWithFrame:frame];
+  if( !self ) return self;
+  
+  [self initDatos];
+  return self;
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+  {
+  self = [super initWithCoder:aDecoder];
+  if( !self ) return self;
+  
+  [self initDatos];
+  return self;
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+- (void)initDatos
+  {
+  Datos = [NSMutableArray new];
+  
+  NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
+  [center addObserver:self selector:@selector(OnExecComamd:) name:ExecComamd object:nil];
+  
+  TableDatos = self.subviews[0];
+  InfoView   = self.subviews[1];
+  InfoLabel  = InfoView.subviews[0];
+  
+  TableDatos.estimatedRowHeight = 60;
+//  TableDatos.rowHeight = UITableViewAutomaticDimension;
+  
+  _TableDatos = TableDatos;
+  
+  [TableDatos reloadData];
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Se llama para saber el número de datos de palabras o frases que se van a mostrar
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section 
+  {
+  return Datos.count;
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+  {
+  CGFloat w = tableView.frame.size.width;
+  
+	int row = (int)[indexPath row];
+  InfoDatos* datos = Datos[row];
+  
+  CGFloat h = [datos ResizeWithWidth:w];
+  
+  return h;
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Se llama para conocer la palabra que se corresponde con la fila 'row'
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+  {
+	int row = (int)[indexPath row];
+  InfoDatos* datos = Datos[row];
+  
+	InfoCell *cell = [tableView dequeueReusableCellWithIdentifier: datos.CellName];
+  
+  return cell;
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Se llama cuando la celda se va a mostrar
+- (void)tableView:(UITableView *)tableView willDisplayCell:(InfoCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+  {
+	int row = (int)[indexPath row];
+  InfoDatos* datos = Datos[row];
+  
+  [cell UseWithInfoDatos:datos];
+
+  [cell setNeedsDisplay];
+  [cell layoutIfNeeded];
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Retorna la cantidad de datos que hay en la zona
 - (int)Count
   {
-  return (int)self.subviews.count;
+  return (int)Datos.count;
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Fuerza a que se refresque la información que se muestra en la tabla
+- (void) UpdateInfo
+  {
+  [TableDatos reloadData];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Adiciona los datos de la palabra 'Idx' en la parte superior de la zona de datos de palabras
-- (void) AddDatos:(DatosViewBase*) Datos;
+- (void) AddDatos:(InfoDatos*) datos Select:(BOOL) sel
   {
   DictCmdBarEnable(CMD_DEL_MEANS);
   DictCmdBarRefresh();
   
-  [ZoneDatosView SelectDatos:Datos];
+  [Datos insertObject:datos atIndex:0];                                           // Adiciona vista de datos nueva
+  
+  if( sel )
+    {
+    [ZoneDatosView SelectDatos:datos];
+    [_TableDatos reloadData];
+//    [_TableDatos scrollRectToVisible:CGRectMake(0, 0, 100, 60) animated:YES];
+    
+    NSIndexPath* idx = [NSIndexPath indexPathForRow:0 inSection:0];
+    [_TableDatos scrollToRowAtIndexPath:idx atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
+  }
 
-  UIScrollView* parent = (UIScrollView*)self.superview;
-  [parent setContentOffset:CGPointMake(0, 0)];                        // Pone el scroll en el primer iten de la lista
-
-  [self addSubview:Datos];                                           // Adiciona vista de datos nueva
-  [self setNeedsLayout];
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Selecciona el primer iten de la lista
+- (void) SelectFirst
+  {
+  [ZoneDatosView SelectDatos: Datos[0]];
+  [_TableDatos reloadData];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Inserta los datos de la entrada suministrada después de la vista seleccionada
-- (void) AddDatosAfterSel:(DatosViewBase*) Datos;
+- (void) AddDatosAfterSel:(InfoDatos*) Datos;
   {
-  [self insertSubview:Datos belowSubview:DatosSel];                             // Adiciona vista de datos nueva
-  [self setNeedsLayout];
+//  [self insertSubview:Datos belowSubview:DatosSel];                             // Adiciona vista de datos nueva
+//  [self setNeedsLayout];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Reposiciona todos las vistas de datos aduadamente
 - (void) ClearDatos
   {
-  NSInteger n = self.subviews.count;
-  for( NSInteger i=n-1; i>=0; --i)
-    [self.subviews[i] removeFromSuperview];
-
-  CGFloat w = self.superview.bounds.size.width;                       // Ancho del contenido del scroll
-  self.frame = CGRectMake(0, 0, w, 20);                               // Redimensiona la zona de datos
+  [Datos removeAllObjects];
+  [TableDatos reloadData];
   
   DictCmdBarDisable(CMD_DEL_MEANS);
   DictCmdBarRefresh();
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
-// Obtiene el alto de todas las vistas de datos existentes
-- (NSInteger) HeightDatos
-  {
-  NSInteger h = 5;
-  NSInteger n = self.subviews.count;
-  for( NSInteger i=0; i<n; ++i)
-    {
-    UIView* sub = self.subviews[i];
-    h += sub.frame.size.height;
-    }
-
-  return h;
-  }
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
-// Inserta la altura 'h' en la parte superior de todas las subvistas
-- (NSInteger) InsertInTopHeight:(CGFloat) h
-  {
-  NSInteger n = self.subviews.count;
-  for( NSInteger i=0; i<n; ++i)
-    {
-    UIView* sub = self.subviews[i];
-
-    CGRect rc = sub.frame;
-    rc.origin.y += h;
-    sub.frame = rc;
-    }
-
-  return h;
-  }
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
-// Redimensiona todos los controles de datos cada vez que cambia el tamaño del scroll
-- (void)layoutSubviews
-  {
-  UIScrollView* parent = (UIScrollView*)self.superview;
-  CGFloat w = parent.bounds.size.width;                       // Ancho del contenido del scroll
-  CGFloat h = 0;
-
-  NSInteger n = self.subviews.count;
-  for( NSInteger i=n-1; i>=0; --i)
-    {
-    UIView* Sub  = self.subviews[i];
-    
-    CGFloat hSub = [(DatosViewBase*)Sub ResizeWithWidth:w];
-    
-    CGRect rc = Sub.frame;
-    rc.origin = CGPointMake( 4, h);
-    Sub.frame = rc;
-
-    h += hSub;
-    }
-
-  self.frame = CGRectMake(0, 0, w, h);                                // Redimensiona la zona de datos
-  [parent setContentSize: CGSizeMake(w, h)];
-  }
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Pone los datos identificados por 'view' como datos seleccionados
-+(void) SelectDatos:(DatosViewBase*) view
++(void) SelectDatos:(InfoDatos*) datos
   {
-  if( DatosSel!=nil ) [DatosSel UnSelectedDatos];
-  
-  DatosSel = view;
   HideKeyboard();
+  if( DatosSel == datos ) return;
+  
+  if( DatosSel )  [DatosSel UnSelectedDatos];
+  
+  DatosSel = datos;
 
-  if( view!=nil ) [view SelectedDatos];
+  if( datos ) [datos SelectedDatos];
+  
+  [_TableDatos reloadData];
+//  [_TableDatos setNeedsLayout];
+//  [_TableDatos layoutIfNeeded];
+//  [_TableDatos reloadData];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Retorna la vista de los datos seleccionados
-+(DatosViewBase*) SelectedDatos
++(InfoDatos*) SelectedDatos
   {
   return DatosSel;
   }
@@ -154,31 +228,47 @@ static DatosViewBase* DatosSel;
 // Borra los datos seleccionados
 - (void) DeleteSelectedDatos
   {
-  NSInteger n = self.subviews.count;
-  DatosViewBase* next = nil;
-
-  for( NSInteger i=0; i<n; ++i)
-    {
-    DatosViewBase* sub = self.subviews[i];
-    if( sub == DatosSel )
+  NSInteger i=0;
+  for( ;i<Datos.count; ++i )
+    if( Datos[i] == DatosSel )
       {
-      if( i>0      ) next = self.subviews[i-1];
-      else if( n>1 ) next = self.subviews[i+1];
+      [Datos removeObjectAtIndex:i];
+      break;
       }
-    }
 
-  [DatosSel removeFromSuperview];
-
-  [ZoneDatosView SelectDatos:next];
-
-  [self setNeedsLayout];
-
-  if( self.subviews.count == 0 )
+  if( i>=Datos.count ) --i;
+  if( i>=0 )
     {
+    [ZoneDatosView SelectDatos:Datos[i]];
+    }
+  else
+    {
+    [ZoneDatosView SelectDatos:nil];
+    
     DictCmdBarDisable(CMD_DEL_MEANS);
     DictCmdBarRefresh();
     }
   }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Se llama cuando se ejecuta un comando en cualquier parte la aplicación
+- (void)OnExecComamd:(NSNotification *)notify
+  {
+  if( !DatosSel || ![DatosSel isKindOfClass:DatosMean.class] )
+    return;
+  
+  DatosMean* datos = (DatosMean*)DatosSel;
+  NSNumber *idBnt = notify.object;
+  
+  switch( idBnt.integerValue )
+    {
+    case CMD_PREV_WRD: [datos PreviosWord    ]; break;
+    case CMD_NEXT_WRD: [datos NextWord       ]; break;
+    case CMD_CONJ_WRD: [datos ConjActualWord ]; break;
+    case CMD_FIND_WRD: [datos FindActualWord ]; break;
+    }
+  }
+
 
 @end
 //===================================================================================================================================================

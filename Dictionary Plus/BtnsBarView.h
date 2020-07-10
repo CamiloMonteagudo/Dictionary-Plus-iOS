@@ -14,6 +14,11 @@
 #define CMD_MEANS       0x0008
 #define CMD_ALL_MEANS   0x0010
 #define CMD_DEL_MEANS   0x0020
+#define CMD_PREV_WRD    0x0040
+#define CMD_NEXT_WRD    0x0080
+#define CMD_DEL_MEAN    0x0100
+#define CMD_CONJ_WRD    0x0200
+#define CMD_FIND_WRD    0x0400
 
 #define ExecComamd  @"ExecComamdNotification"
 
@@ -32,11 +37,22 @@ extern void      DictCmdBarOnRight( BOOL oRight );
 extern NSString* TitleForComand( int ID );
 
 //=========================================================================================================================================================
+extern void MakeDataCmdBar();
+extern void DataCmdBarEnable( int sw );
+extern void DataCmdBarDisable( int sw );
+extern void DataCmdBarPosBottomView( UIView* view );
+extern void DataCmdBarRefresh();
+extern BOOL DataCmdBarIsEnable( int sw );
+extern BOOL DataCmdBarInView( UIView* view );
+
+//=========================================================================================================================================================
 @interface BtnsBarView : UIView
 
-@property (nonatomic) BOOL Left;
+@property (nonatomic) int Left;                             // Número de botones pegados a la izquierda
 
 - (void) AddBtn:(int) idBtn WithImage:(NSString*) sImg;
+
+- (BOOL) IsEnable:(int) sw;
 
 - (void) Enable:(int) sw;
 - (void) Disable:(int) sw;

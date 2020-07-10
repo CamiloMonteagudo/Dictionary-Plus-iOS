@@ -16,7 +16,7 @@
 #import "TextQuery.h"
 #import "SortedIndexs.h"
 #import "ZoneDatosView.h"
-#import "DatosView.h"
+#import "DatosMean.h"
 #import "BtnsBarView.h"
 
 //=========================================================================================================================================================
@@ -67,7 +67,9 @@
 - (void)viewDidLoad
   {
   Ctrller = self;
+  
   MakeDictCmdBar();
+  MakeDataCmdBar();
   
   [super viewDidLoad];
   
@@ -97,36 +99,56 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)viewDidLayoutSubviews
   {
-  if( ![self UpdateRightBarSize] )
-    {
-    _BtnsZoneRightWidth.constant = 5 ;
-    _BtnsZoneDownHeight.constant = 40;
-    
-//    DictCmdBarOnRight(FALSE);
-    DictCmdBarAddToView( _BtnsZoneDown );
-    }
+  CGFloat w = self.view.bounds.size.width;
+  _CmdsRight = (w>500);
+ 
+  [self UpdateBarSizeAndPos];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Si es posible actualiza el tamaño de la barra de botones a la derecha del cuadro de edicción
-- (BOOL) UpdateRightBarSize
+- (void) UpdateBarSizeAndPos
   {
-  CGFloat w = self.view.bounds.size.width;
-  
-  if( w<=500 ) return FALSE;
+  if( _DictZone.SplitDatos  && _DictZone.Mode!=MODE_SPLIT ) DictCmdBarEnable(CMD_SPLIT);
+  else                                                      DictCmdBarDisable(CMD_SPLIT);
   
   CGFloat wb = DictCmdBarWidth();
+  if( wb<75 )
+   {
+   [self HideCmdBar];
+   return;
+   }
     
-  _BtnsZoneRightWidth.constant = wb + 10;
-  _BtnsZoneDownHeight.constant = 5;
+  if( _CmdsRight )
+    {
+    _BtnsZoneRightWidth.constant = wb + 10;
+    _BtnsZoneDownHeight.constant = 5;
     
-  [self.view layoutIfNeeded];
+    [self.view layoutIfNeeded];
    
-//  DictCmdBarOnRight(TRUE);
-  DictCmdBarAddToView( _BtnsZoneRight );
-  DictCmdBarRefresh();
+    DictCmdBarAddToView( _BtnsZoneRight );
+    }
+  else
+    {
+    _BtnsZoneRightWidth.constant = 5 ;
+    _BtnsZoneDownHeight.constant = 40;
+    
+    DictCmdBarAddToView( _BtnsZoneDown );
+    }
   
-  return TRUE;
+  DictCmdBarRefresh();
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Oculta la barra de botnes
+- (void) HideCmdBar
+  {
+  _BtnsZoneRightWidth.constant = 5;
+  _BtnsZoneDownHeight.constant = 5;
+  
+  [self.view layoutIfNeeded];
+  
+  DictCmdBarAddToView( nil );
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -171,6 +193,7 @@
     _TopSpace.constant = 0;
  
     nowEdit = nil;
+    [self UpdateBarSizeAndPos];
     }
   }
 
@@ -186,8 +209,36 @@
     case CMD_WRDS:      [_DictZone ShowInMode:MODE_LIST  Animate:YES]; break;
     case CMD_MEANS:     [_DictZone ShowInMode:MODE_MEANS Animate:YES]; break;
     case CMD_SPLIT:     [_DictZone ShowInMode:MODE_SPLIT Animate:YES]; break;
-    case CMD_DEL_MEANS: [_DatosZone ClearDatos]; [self CheckNoMeansLabel]; break;
-    case CMD_ALL_MEANS: [self ShowAllMeans]    ; [self CheckNoMeansLabel]; break;
+    case CMD_DEL_MEANS: [self DeleteAllMeans]; break;
+    case CMD_DEL_MEAN:  [self DeleteSelMean]; break;
+    case CMD_ALL_MEANS: [self ShowAllMeans]; break;
+    }
+  }
+
+//---------------------------------------------------------------------------------------------------------------------------------------------
+// Borra todos los significados
+- (void) DeleteAllMeans
+  {
+  [_DatosZone ClearDatos];
+  
+  [self CheckNoMeansLabel];
+      
+  if( _DictZone.Mode == MODE_MEANS )
+    [_DictZone ShowInMode:MODE_LIST Animate:YES];
+  }
+
+//---------------------------------------------------------------------------------------------------------------------------------------------
+// Borra el significado que esta seleccionado
+- (void) DeleteSelMean
+  {
+  [_DatosZone DeleteSelectedDatos];
+  
+  if( _DatosZone.Count == 0 )
+    {
+    [self CheckNoMeansLabel];
+      
+    if( _DictZone.Mode == MODE_MEANS )
+      [_DictZone ShowInMode:MODE_LIST Animate:YES];
     }
   }
 
@@ -368,6 +419,7 @@
   SortEntries = [SortedIndexs SortEntries:FoundEntries Query:Query];        // Organiza las palabras por su ranking
 
   [_TableFrases reloadData];                                                // Actualiza el contenido de la lista
+  [self CheckNoMeansLabel];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -455,10 +507,13 @@ static NSDictionary* attrWrd = @{ NSFontAttributeName:fontBold };
   
   int idx = SortEntries->Entries[row]->Index;
 
-  [_DatosZone AddDatos: [DatosView DatosForIndex:idx] ];
+  [_DatosZone AddDatos: [DatosMean DatosForIndex:idx] Select:TRUE];
 
-  if( _DictZone.Mode != MODE_SPLIT )
-    [_DictZone ShowInMode:MODE_MEANS Animate:YES];
+  if( _DictZone.Mode == MODE_LIST )
+    {
+    int mode = (_DictZone.SplitDatos)? MODE_SPLIT : MODE_MEANS;
+    [_DictZone ShowInMode:mode Animate:YES];
+    }
   
   [self CheckNoMeansLabel];
   HideKeyboard();
@@ -476,26 +531,43 @@ static NSDictionary* attrWrd = @{ NSFontAttributeName:fontBold };
     {
     int idx = Entries[i]->Index;
     
-    [_DatosZone AddDatos: [DatosView DatosForIndex:idx] ];
+    [_DatosZone AddDatos: [DatosMean DatosForIndex:idx] Select:FALSE];
     }
 
-  if( _DictZone.Mode != MODE_SPLIT )
-    [_DictZone ShowInMode:MODE_MEANS Animate:YES];
+  [_DatosZone UpdateInfo];
+  
+  if( _DictZone.Mode == MODE_LIST )
+    {
+    int mode = (_DictZone.SplitDatos)? MODE_SPLIT : MODE_MEANS;
+    [_DictZone ShowInMode:mode Animate:YES];
+    }
   
   HideKeyboard();
+  [self CheckNoMeansLabel];
+  [_DatosZone SelectFirst];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Chequea si no hay ningún significado y pone una etiqueta de orientación al usuario
 - (void) CheckNoMeansLabel
   {
-  BOOL hidden = (_DatosZone.Count==0);
+  BOOL hidden = (_DatosZone.Count!=0);
   
   _lbNoMeans.hidden = hidden;
-  if( hidden ) return;
+  if( hidden )
+    {
+    if( _DictZone.Mode != MODE_MEANS )
+      DictCmdBarEnable( CMD_MEANS );
+    }
+  else
+    {
+    if( SortEntries.Count>0 ) _lbNoMeans.text = @"Para mostrar un significado aquí:\r\n\r\n Seleccione una fila en la lista de palabras o frases encontradas";
+    else                      _lbNoMeans.text = @"Para mostrar un significado aqui:\r\n\r\n Escriba la palabra o frase que desea buscar en el cuadro de búsqueda y luego seleccione una fila en la lista";
   
-  if( SortEntries.Count>0 ) _lbNoMeans.text = @"Para mostrar un significado aquí:\r\n Seleccione una fila en la lista de palabras o frases encontradas";
-  else                      _lbNoMeans.text = @"Para mostrar un significado aqui:\r\n Escriba la palabra o frase que desea buscar en el cuadro de búsqueda y luego seleccione una fila en la lista";
+    DictCmdBarDisable( CMD_MEANS );
+    }
+  
+  DictCmdBarRefresh();
   }
 
 @end

@@ -184,6 +184,7 @@
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
   {
   CGPoint pnt = [[touches anyObject] locationInView: self];     // Punto que se toco dentro de la fila
+  if( pnt.y<=5 || pnt.y>=45  ) return;
 
   CGFloat MkSrc  = wIcon + wSrc + wDwn;
   CGFloat MkDes  = W - (wIcon + wDes + wDwn);

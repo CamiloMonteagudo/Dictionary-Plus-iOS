@@ -10,8 +10,10 @@
 
 @interface ViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic) BOOL CmdsRight;
+
 - (BOOL) LoadDictWithSrc:(int) src AndDes:(int) des;
-- (BOOL) UpdateRightBarSize;
+- (void) UpdateBarSizeAndPos;
 
 - (int) CountFoundWord;
 - (int) CountOfMeans;

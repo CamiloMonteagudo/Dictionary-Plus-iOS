@@ -59,9 +59,10 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)layoutSubviews
   {
+  _SplitDatos = (self.frame.size.width > 400);
   int nowMode = _Mode;
   
-  if( (nowMode == MODE_SPLIT && self.frame.size.width<400) || nowMode<MODE_LIST || nowMode>MODE_MEANS )
+  if( (nowMode == MODE_SPLIT && !_SplitDatos) || nowMode<MODE_LIST || nowMode>MODE_MEANS )
     nowMode = MODE_LIST;
   
   [self ShowInMode:nowMode Animate:FALSE];
@@ -72,7 +73,7 @@
   {
   int nowMode = _Mode+1;
   
-  if( nowMode == MODE_SPLIT && self.frame.size.width<400 )
+  if( nowMode == MODE_SPLIT && !_SplitDatos )
     nowMode = MODE_MEANS;
   
   if( nowMode<MODE_LIST || nowMode>MODE_MEANS )
@@ -89,28 +90,31 @@
   
   int setAct = 0;  int desAct = 0;
   
-  int ActSpit = CMD_SPLIT; int desSpit = 0;
-  if( self.frame.size.width<400 ) { ActSpit = 0; desSpit = CMD_SPLIT; }
+  int actSplit = CMD_SPLIT; int desSplit = 0;
+  if( !_SplitDatos ) { actSplit = 0; desSplit = CMD_SPLIT; }
 
-  int ActDel = CMD_DEL_MEANS; int desDel = 0;
-  if( !Ctrller.CountOfMeans ) { ActDel = 0; desDel = CMD_DEL_MEANS; }
+  int actDel = CMD_DEL_MEANS; int desDel = 0;
+  if( !Ctrller.CountOfMeans ) { actDel = 0; desDel = CMD_DEL_MEANS; }
 
-  int ActAll = CMD_ALL_MEANS; int desAll = 0;
-  if( !Ctrller.CountFoundWord ) { ActAll = 0; desAll = CMD_ALL_MEANS; }
+  int actAll = CMD_ALL_MEANS; int desAll = 0;
+  if( !Ctrller.CountFoundWord ) { actAll = 0; desAll = CMD_ALL_MEANS; }
+
+  int actMeans = CMD_MEANS; int desMeans = 0;
+  if( !Ctrller.CountOfMeans ) { actMeans = 0; desMeans = CMD_MEANS; }
 
   switch (_Mode)
     {
     case MODE_LIST:
-      setAct = CMD_MEANS | ActAll | ActSpit;
-      desAct = CMD_WRDS  | CMD_DEL_MEANS | desAll | desSpit;
+      setAct = actMeans | actAll | actSplit;
+      desAct = desMeans | desAll | desSplit | CMD_WRDS | CMD_DEL_MEANS;
       break;
     case MODE_MEANS:
-      setAct = CMD_WRDS  | ActDel | ActSpit;
-      desAct = CMD_MEANS | CMD_ALL_MEANS | desDel | desSpit;
+      setAct = CMD_WRDS  | actDel | actSplit;
+      desAct = CMD_MEANS | desDel | desSplit | CMD_ALL_MEANS ;
       break;
     case MODE_SPLIT:
-      setAct = CMD_MEANS | CMD_WRDS | ActDel | ActAll;
-      desAct = CMD_SPLIT | desDel | desAll;
+      setAct = CMD_WRDS  | actMeans | actDel | actAll;
+      desAct = CMD_SPLIT | desMeans | desDel | desAll;
       break;
     }
 
@@ -188,7 +192,8 @@
 // Permite desplazar hacia el lado la ventana
 - (void) OnGeture:(UIPanGestureRecognizer *)sender
   {
-  if( _Mode == MODE_SPLIT ) return;
+  if( _Mode == MODE_SPLIT   ) return;
+  if( !Ctrller.CountOfMeans ) return;
   
   CGRect rc1 = Panel1.frame;
   CGRect rc2 = Panel2.frame;
