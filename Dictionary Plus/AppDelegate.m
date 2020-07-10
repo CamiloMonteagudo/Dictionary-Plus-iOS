@@ -32,6 +32,8 @@
 //    double nSeg = (-[tm timeIntervalSinceNow]);
 //    if( nSeg > 10 )
 //      break;
+//    
+//    WaitMsg();
 //    }
 
   return YES;

@@ -71,6 +71,12 @@
     {
     [self ClearConjData];
     }
+  
+  NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
+  
+  // Notificaciones para cuando se muestra/oculta el teclado
+  [center addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+  [center addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -123,6 +129,29 @@
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Evento que se produce cuando se va ha mostrar el teclado
+- (void)keyboardWillShow:(NSNotification *)notification
+  {
+  if( _FindVerb.isFirstResponder ) nowEdit = _FindVerb;
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Evento que se produce cuando se va a esaconder el teclado
+- (void)keyboardWillHide:(NSNotification *)notification
+  {
+  if( nowEdit == _FindVerb ) nowEdit = nil;
+  }
+
+//---------------------------------------------------------------------------------------------------------------------------------------------
+// Se llama cuando se oprime la tecla retun durante la edicción del verbo
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+  {
+  [self Conjugate];
+  HideKeyboard();
+  return TRUE;
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Se llama cuando se selecciona un idioma en la vista para selección de idiomas
 - (void) OnSelLang:(SelLangView *)view
   {
@@ -144,14 +173,6 @@
 - (IBAction)EditingVerb:(UITextField *)sender
   {
   [self ConjugateIfVerb];
-  }
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
-// Cuando ese toca el boton de budcar en el teclado
-- (void)OnKeyBoardReturn
-  {
-  [self Conjugate];
-  HideKeyboard();
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------

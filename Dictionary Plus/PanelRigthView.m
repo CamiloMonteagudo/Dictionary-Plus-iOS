@@ -59,7 +59,7 @@ static float PopUpWidth;                 // Ancho del mené
 //  rc.origin.y = 150;
 //  rc.size.width = rc.size.width + PopUpWidth;
   
-  self = [super initWithFrame: UpView.bounds ];                                          // Crea una vista, con la dimensiones la de mayor jerarquia
+  self = [super initWithFrame: UpView.bounds ];                               // Crea una vista, con la dimensiones la de mayor jerarquia
   if( !self ) return self;                                                    // Si no la puede crear termina
   
   self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -71,7 +71,7 @@ static float PopUpWidth;                 // Ancho del mené
   [UpView addSubview:Panel];                                                    // Adiciona el menú a la vista de fondo
   
   CGPoint pnt = Panel.center;
-  pnt.x = pnt.x - PopUpWidth;
+  pnt.x = pnt.x - Panel.frame.size.width;
     
   [UIView animateWithDuration: 0.6 animations:^{  Panel.center = pnt;}];     // Muestra menú animado, con la altura final
 
@@ -124,7 +124,7 @@ static float PopUpWidth;                 // Ancho del mené
   [self OnToucheMenuItem:pnt];                                                // Determina si el toque se produjo sobre un item del menú
   
   CGPoint cnt = Panel.center;
-  cnt.x = cnt.x + PopUpWidth;
+  cnt.x = cnt.x + Panel.frame.size.width;
 
   [UIView animateWithDuration:0.6 animations:^{ Panel.center = cnt; }          // Anina como disminulle la altura del menú hasta desaparecer
                                   completion:^(BOOL finished)
@@ -171,8 +171,11 @@ static float PopUpWidth;                 // Ancho del mené
 // Crea el panel lateral en la parte derecha de la vista con lo (oculto) items 'ItemsId'
 - (void)CreatePanelWithItems:(NSArray*) ItemsId
   {
-  CGRect  rc    = UpView.bounds;
-  CGRect  frame = CGRectMake( rc.size.width, 0, PopUpWidth, rc.size.height );   // Crea recuadro para la vista del menú
+  UIEdgeInsets Mg =  [self layoutMargins];
+  CGRect  rc = UpView.bounds;
+  CGFloat w  = PopUpWidth + Mg.right - 8;
+  
+  CGRect  frame = CGRectMake( rc.size.width, 0, w , rc.size.height );           // Crea recuadro para la vista del menú
   Panel  = [[UIView alloc] initWithFrame:frame  ];                              // Crea la vista del menú
   
   Panel.backgroundColor = ColPanelBck;                                          // Define el color de fondo del menú
@@ -182,9 +185,10 @@ static float PopUpWidth;                 // Ancho del mené
   
   Rows = [NSMutableArray new];                                                  // Crea arreglo vacio, para las vistas de las filas (Items del menú)
   
-  [self CreateMenuTitle];
+  float yPos = Mg.top-8;                                                        // Posición inicial para el primer item del menú
+  [self CreateMenuTitleInYPos:yPos];                                            // Crea un texto con el titulo del menú
   
-  float yPos = RowHeight;                                                       // Posición inicial para el primer item del menú
+  yPos += RowHeight;                                                            // Salta la altura del titulo
   for( int i=0; i<ItemsId.count; ++i )                                          // Recorre todo los nombres de los items
     {
     UIView* vRow = [[PanelItemView alloc] initWithItem:ItemsId[i] YPos: yPos];  // Crea la fila con el item de menu actual
@@ -198,9 +202,9 @@ static float PopUpWidth;                 // Ancho del mené
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Pone el titulo del menú
-- (void)CreateMenuTitle
+- (void)CreateMenuTitleInYPos:(CGFloat) yPos
   {
-  CGRect rc = CGRectMake( 0, 0 , PopUpWidth, RowHeight);                        // Determina el recuedro para la fila
+  CGRect rc = CGRectMake( 0, yPos , PopUpWidth, RowHeight);                     // Determina el recuedro para la fila
   
   UILabel* Title      = [[UILabel alloc] initWithFrame: rc];                    // Crea la vista para el titulo
   Title.text          = NSLocalizedString(@"Options", nil) ;                    // Pone el texto del titulo

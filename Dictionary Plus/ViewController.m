@@ -26,7 +26,9 @@
 @interface ViewController ()
   {
   PanelRigthView* PopUp;                                  // Vista que muestra el menú con las opciones adicionales
-  ConjController* PopOverConj;                            // Controller para manejar el conjugador de verbos
+  
+  UIViewController* PopOverCtrller;                       // Controller de la vista mostrada en modo PopOver
+  CGFloat WPopOver;                                       // Ancho de la vista mostrada en modo PopOver
   
   UIButton* btnLeft;                                      // Boton al la derecha del cuedra de búsqueda
   
@@ -106,7 +108,7 @@
   _CmdsRight = (w>500);
  
   [self UpdateBarSizeAndPos];
-  [self PosAndResizeConjugator];
+  [self PosAndResizePopOver:nil Width:0];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -182,7 +184,7 @@
   {
   if( _FindWord.isFirstResponder )
     {
-    _TopSpace.constant = -45;
+    //_TopSpace.constant = -45;
     
     nowEdit = _FindWord;
     }
@@ -194,7 +196,7 @@
   {
   if( nowEdit == _FindWord )
     {
-    _TopSpace.constant = 0;
+    //_TopSpace.constant = 0;
  
     nowEdit = nil;
     [self UpdateBarSizeAndPos];
@@ -400,9 +402,8 @@
   
   switch( view.SelectedItem )
     {
-    case 0:
-      [self performSegueWithIdentifier: @"ShowConjVerb" sender: nil];
-    break;
+    case 0: [self performSegueWithIdentifier: @"ShowConjVerb" sender: nil]; break;
+    case 1: [self performSegueWithIdentifier: @"ShowNumbers"  sender: nil]; break;
     case 3:
       if( _LeftSearchPlus.constant<0 )
         [self ShowAvancedSearch];
@@ -430,11 +431,7 @@
   
   if( [ID isEqualToString:@"ShowConjVerb"] )
     {
-    if( iPad )
-      {
-      PopOverConj = (ConjController *)Ctrller;
-      [self PosAndResizeConjugator];
-      }
+    [self PosAndResizePopOver:Ctrller Width:350];
     
     int lang = LGSrc;
     NSString* word = nil;
@@ -457,26 +454,37 @@
       ((ConjController *)Ctrller).Verb = word;
       }
     }
+  else if( [ID isEqualToString:@"ShowNumbers"] )
+    {
+    [self PosAndResizePopOver:Ctrller Width:380];
+    }
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
-// Posiciona y redimenciona el conjugador cuando esta en modo PopOver
-- (void) PosAndResizeConjugator
+// Posiciona y redimenciona el PopOver cuando esta en iPad
+- (void) PosAndResizePopOver:(UIViewController*) Ctrller Width:(CGFloat) w
   {
-  if( PopOverConj==nil ) return;
+  if( !iPad ) return;
+  if( !PopOverCtrller && !Ctrller) return;
+  if( Ctrller )
+    {
+    PopOverCtrller = Ctrller;
+    WPopOver = w;
+    }
   
-  UIPopoverPresentationController* popOver = PopOverConj.popoverPresentationController;
+  UIPopoverPresentationController* popOver = PopOverCtrller.popoverPresentationController;
   if( popOver == nil ) return;
   
   popOver.delegate = self;
 
   CGSize sz = self.view.bounds.size;
   CGRect rc = _DictZone.frame;
+  
+  [popOver setSourceRect:CGRectMake( sz.width-WPopOver, 0, WPopOver, rc.origin.y)];
     
-  CGFloat w = 350;
-  [popOver setSourceRect:CGRectMake( sz.width-w, 0, w, rc.origin.y)];
-    
-  PopOverConj.preferredContentSize = CGSizeMake(w, rc.size.height);
+  CGFloat h = (WPopOver==380)? 400: rc.size.height;
+  
+  PopOverCtrller.preferredContentSize = CGSizeMake(WPopOver, h);
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -655,14 +663,14 @@ static NSDictionary* attrWrd = @{ NSFontAttributeName:fontBold };
 // Se llama cuando se retorna desde otra pantalla
 - (IBAction)ReturnFromUnwind:(UIStoryboardSegue *)unWindSegue
   {
-  PopOverConj = nil;
+  PopOverCtrller = nil;
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Se llama cuando se cierra el PopOver por oprimir fuera del area
 - (void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController
   {
-  PopOverConj = nil;
+  PopOverCtrller = nil;
   }
 
 @end

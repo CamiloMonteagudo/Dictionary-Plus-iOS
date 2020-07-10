@@ -23,3 +23,13 @@
 "MnuHideFindPlus"  = "Ocultar Búsqueda Avanzada";
 
 "lbConjations"    = "  (Conjugaciones)";
+
+"NumTip"     = "Escriba un número";
+"NumLabel"   = "Lectura del número:";
+"GroupAll"   = "Todo";
+"Group2"     = "Dos dígitos";
+"Group3"     = "Tres dígitos";
+"lbCardinal" = "Número cardinal:";
+"lbOrdinal"  = "Número ordinal: ";
+"lbRomano"   = "Número romano:";
+
