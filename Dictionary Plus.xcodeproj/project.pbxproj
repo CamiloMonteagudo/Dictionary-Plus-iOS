@@ -29,6 +29,15 @@
 		84B0AF6A2068627A00C61E6D /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AF692068627A00C61E6D /* SearchController.m */; };
 		84B0AF6C2068B8CE00C61E6D /* btnMoveUp50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B0AF6B2068B8CE00C61E6D /* btnMoveUp50@2x.png */; };
 		84B22A21205D983E007398F8 /* LangPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B22A20205D983E007398F8 /* LangPopUpView.m */; };
+		84DEEF70207657FC00F3A8F1 /* Datos in Resources */ = {isa = PBXBuildFile; fileRef = 84DEEF6F207657FC00F3A8F1 /* Datos */; };
+		84DEEF742076589D00F3A8F1 /* DictIndexes.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF722076589D00F3A8F1 /* DictIndexes.m */; };
+		84DEEF76207658B900F3A8F1 /* DictMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF75207658B900F3A8F1 /* DictMain.m */; };
+		84DEEF7C20765C4900F3A8F1 /* EntryDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF7920765C4900F3A8F1 /* EntryDict.m */; };
+		84DEEF7D20765C4900F3A8F1 /* EntryIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF7B20765C4900F3A8F1 /* EntryIndex.m */; };
+		84DEEF8020767C9E00F3A8F1 /* WaitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF7F20767C9E00F3A8F1 /* WaitView.m */; };
+		84DEEF862076908B00F3A8F1 /* SortedIndexs.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF832076908B00F3A8F1 /* SortedIndexs.m */; };
+		84DEEF872076908B00F3A8F1 /* TextQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF852076908B00F3A8F1 /* TextQuery.m */; };
+		84DEEF8A2076941200F3A8F1 /* TextQueryPlus.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF892076941200F3A8F1 /* TextQueryPlus.m */; };
 		84E39DD520659CFE00A33EA7 /* PanelRigthView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E39DD420659CFE00A33EA7 /* PanelRigthView.m */; };
 		84E39DD820659EC700A33EA7 /* ColAndFont.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E39DD720659EC700A33EA7 /* ColAndFont.m */; };
 		84E4BB812059F80200BECE1F /* DesplazaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4BB802059F80200BECE1F /* DesplazaView.m */; };
@@ -59,27 +68,44 @@
 		84A195D2205C768A00110EDA /* FlagIt50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FlagIt50@2x.png"; path = "Images/FlagIt50@2x.png"; sourceTree = "<group>"; };
 		84A195DE205C8C7400110EDA /* btnSwap50_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnSwap50_@2x.png"; path = "Images/btnSwap50_@2x.png"; sourceTree = "<group>"; };
 		84A195E0205C966500110EDA /* SelLangsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelLangsView.h; sourceTree = "<group>"; };
-		84A195E1205C966500110EDA /* SelLangsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelLangsView.m; sourceTree = "<group>"; };
+		84A195E1205C966500110EDA /* SelLangsView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = SelLangsView.m; sourceTree = "<group>"; };
 		84A195E3205CB04C00110EDA /* Leading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Leading@2x.png"; path = "Images/Leading@2x.png"; sourceTree = "<group>"; };
 		84A195E7205CB42800110EDA /* AppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppData.h; sourceTree = "<group>"; };
-		84A195E8205CB42800110EDA /* AppData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppData.m; sourceTree = "<group>"; };
+		84A195E8205CB42800110EDA /* AppData.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = AppData.m; sourceTree = "<group>"; };
 		84B0AF682068627A00C61E6D /* SearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchController.h; sourceTree = "<group>"; };
-		84B0AF692068627A00C61E6D /* SearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchController.m; sourceTree = "<group>"; };
+		84B0AF692068627A00C61E6D /* SearchController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = SearchController.m; sourceTree = "<group>"; };
 		84B0AF6B2068B8CE00C61E6D /* btnMoveUp50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnMoveUp50@2x.png"; path = "Images/btnMoveUp50@2x.png"; sourceTree = "<group>"; };
 		84B22A1F205D983E007398F8 /* LangPopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangPopUpView.h; sourceTree = "<group>"; };
-		84B22A20205D983E007398F8 /* LangPopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LangPopUpView.m; sourceTree = "<group>"; };
+		84B22A20205D983E007398F8 /* LangPopUpView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = LangPopUpView.m; sourceTree = "<group>"; };
+		84DEEF6F207657FC00F3A8F1 /* Datos */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Datos; sourceTree = "<group>"; };
+		84DEEF712076589D00F3A8F1 /* DictIndexes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictIndexes.h; path = MngDicts/DictIndexes.h; sourceTree = "<group>"; };
+		84DEEF722076589D00F3A8F1 /* DictIndexes.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = DictIndexes.m; path = MngDicts/DictIndexes.m; sourceTree = "<group>"; };
+		84DEEF732076589D00F3A8F1 /* DictMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictMain.h; path = MngDicts/DictMain.h; sourceTree = "<group>"; };
+		84DEEF75207658B900F3A8F1 /* DictMain.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = DictMain.m; path = MngDicts/DictMain.m; sourceTree = "<group>"; };
+		84DEEF7820765C4900F3A8F1 /* EntryDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntryDict.h; path = MngDicts/EntryDict.h; sourceTree = "<group>"; };
+		84DEEF7920765C4900F3A8F1 /* EntryDict.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = EntryDict.m; path = MngDicts/EntryDict.m; sourceTree = "<group>"; };
+		84DEEF7A20765C4900F3A8F1 /* EntryIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EntryIndex.h; path = MngDicts/EntryIndex.h; sourceTree = "<group>"; };
+		84DEEF7B20765C4900F3A8F1 /* EntryIndex.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = EntryIndex.m; path = MngDicts/EntryIndex.m; sourceTree = "<group>"; };
+		84DEEF7E20767C9E00F3A8F1 /* WaitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaitView.h; sourceTree = "<group>"; };
+		84DEEF7F20767C9E00F3A8F1 /* WaitView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = WaitView.m; sourceTree = "<group>"; };
+		84DEEF822076908B00F3A8F1 /* SortedIndexs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SortedIndexs.h; path = MngDicts/SortedIndexs.h; sourceTree = "<group>"; };
+		84DEEF832076908B00F3A8F1 /* SortedIndexs.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = SortedIndexs.m; path = MngDicts/SortedIndexs.m; sourceTree = "<group>"; };
+		84DEEF842076908B00F3A8F1 /* TextQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextQuery.h; path = MngDicts/TextQuery.h; sourceTree = "<group>"; };
+		84DEEF852076908B00F3A8F1 /* TextQuery.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = TextQuery.m; path = MngDicts/TextQuery.m; sourceTree = "<group>"; };
+		84DEEF882076941200F3A8F1 /* TextQueryPlus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextQueryPlus.h; path = MngDicts/TextQueryPlus.h; sourceTree = "<group>"; };
+		84DEEF892076941200F3A8F1 /* TextQueryPlus.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = TextQueryPlus.m; path = MngDicts/TextQueryPlus.m; sourceTree = "<group>"; };
 		84E39DD320659CFE00A33EA7 /* PanelRigthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanelRigthView.h; sourceTree = "<group>"; };
-		84E39DD420659CFE00A33EA7 /* PanelRigthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanelRigthView.m; sourceTree = "<group>"; };
+		84E39DD420659CFE00A33EA7 /* PanelRigthView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = PanelRigthView.m; sourceTree = "<group>"; };
 		84E39DD620659EC700A33EA7 /* ColAndFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColAndFont.h; sourceTree = "<group>"; };
 		84E39DD720659EC700A33EA7 /* ColAndFont.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ColAndFont.m; sourceTree = "<group>"; };
 		84E4BB7F2059F80200BECE1F /* DesplazaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesplazaView.h; sourceTree = "<group>"; };
-		84E4BB802059F80200BECE1F /* DesplazaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesplazaView.m; sourceTree = "<group>"; };
+		84E4BB802059F80200BECE1F /* DesplazaView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = DesplazaView.m; sourceTree = "<group>"; };
 		84EB11132058814B00A1DA0D /* Dictionary Plus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dictionary Plus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EB11172058814B00A1DA0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84EB11192058814B00A1DA0D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		84EB111A2058814B00A1DA0D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		84EB111A2058814B00A1DA0D /* AppDelegate.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = AppDelegate.m; sourceTree = "<group>"; };
 		84EB111C2058814B00A1DA0D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		84EB111D2058814B00A1DA0D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		84EB111D2058814B00A1DA0D /* ViewController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; path = ViewController.m; sourceTree = "<group>"; };
 		84EB11202058814B00A1DA0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84EB11222058814B00A1DA0D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84EB11252058814B00A1DA0D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,6 +124,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84DEEF77207658D400F3A8F1 /* DictMng */ = {
+			isa = PBXGroup;
+			children = (
+				84DEEF882076941200F3A8F1 /* TextQueryPlus.h */,
+				84DEEF892076941200F3A8F1 /* TextQueryPlus.m */,
+				84DEEF822076908B00F3A8F1 /* SortedIndexs.h */,
+				84DEEF832076908B00F3A8F1 /* SortedIndexs.m */,
+				84DEEF842076908B00F3A8F1 /* TextQuery.h */,
+				84DEEF852076908B00F3A8F1 /* TextQuery.m */,
+				84DEEF7820765C4900F3A8F1 /* EntryDict.h */,
+				84DEEF7920765C4900F3A8F1 /* EntryDict.m */,
+				84DEEF7A20765C4900F3A8F1 /* EntryIndex.h */,
+				84DEEF7B20765C4900F3A8F1 /* EntryIndex.m */,
+				84DEEF75207658B900F3A8F1 /* DictMain.m */,
+				84DEEF712076589D00F3A8F1 /* DictIndexes.h */,
+				84DEEF722076589D00F3A8F1 /* DictIndexes.m */,
+				84DEEF732076589D00F3A8F1 /* DictMain.h */,
+			);
+			name = DictMng;
+			sourceTree = "<group>";
+		};
+		84DEEF8120768AA400F3A8F1 /* Util Views */ = {
+			isa = PBXGroup;
+			children = (
+				84DEEF7E20767C9E00F3A8F1 /* WaitView.h */,
+				84DEEF7F20767C9E00F3A8F1 /* WaitView.m */,
+				84E39DD320659CFE00A33EA7 /* PanelRigthView.h */,
+				84E39DD420659CFE00A33EA7 /* PanelRigthView.m */,
+				84E4BB7F2059F80200BECE1F /* DesplazaView.h */,
+				84E4BB802059F80200BECE1F /* DesplazaView.m */,
+				84A195E0205C966500110EDA /* SelLangsView.h */,
+				84A195E1205C966500110EDA /* SelLangsView.m */,
+				84B22A1F205D983E007398F8 /* LangPopUpView.h */,
+				84B22A20205D983E007398F8 /* LangPopUpView.m */,
+			);
+			name = "Util Views";
+			sourceTree = "<group>";
+		};
 		84EB110A2058814B00A1DA0D = {
 			isa = PBXGroup;
 			children = (
@@ -126,21 +190,13 @@
 				84EB111A2058814B00A1DA0D /* AppDelegate.m */,
 				84EB111C2058814B00A1DA0D /* ViewController.h */,
 				84EB111D2058814B00A1DA0D /* ViewController.m */,
-				84EB11242058814B00A1DA0D /* LaunchScreen.storyboard */,
-				84EB11272058814B00A1DA0D /* Info.plist */,
-				84E39DD320659CFE00A33EA7 /* PanelRigthView.h */,
-				84E39DD420659CFE00A33EA7 /* PanelRigthView.m */,
-				84E4BB7F2059F80200BECE1F /* DesplazaView.h */,
-				84E4BB802059F80200BECE1F /* DesplazaView.m */,
-				84A195E0205C966500110EDA /* SelLangsView.h */,
-				84A195E1205C966500110EDA /* SelLangsView.m */,
-				84B22A1F205D983E007398F8 /* LangPopUpView.h */,
-				84B22A20205D983E007398F8 /* LangPopUpView.m */,
 				84B0AF682068627A00C61E6D /* SearchController.h */,
 				84B0AF692068627A00C61E6D /* SearchController.m */,
-				84EB11222058814B00A1DA0D /* Assets.xcassets */,
+				84DEEF8120768AA400F3A8F1 /* Util Views */,
+				84DEEF77207658D400F3A8F1 /* DictMng */,
 				84EB112D2059619B00A1DA0D /* Images */,
 				84EB11162058814B00A1DA0D /* Supporting Files */,
+				84DEEF6F207657FC00F3A8F1 /* Datos */,
 			);
 			path = "Dictionary Plus";
 			sourceTree = "<group>";
@@ -148,6 +204,9 @@
 		84EB11162058814B00A1DA0D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				84EB11222058814B00A1DA0D /* Assets.xcassets */,
+				84EB11272058814B00A1DA0D /* Info.plist */,
+				84EB11242058814B00A1DA0D /* LaunchScreen.storyboard */,
 				84EB11172058814B00A1DA0D /* main.m */,
 			);
 			name = "Supporting Files";
@@ -250,6 +309,7 @@
 				841CBD7720673C5C0040D178 /* btnAdd50@2x.png in Resources */,
 				84A195D4205C768A00110EDA /* btnPopUp50@2x.png in Resources */,
 				84A195D3205C768A00110EDA /* btnMenu.png in Resources */,
+				84DEEF70207657FC00F3A8F1 /* Datos in Resources */,
 				84A195D9205C768A00110EDA /* FlagIt50@2x.png in Resources */,
 				841CBD7A20673C5C0040D178 /* btnLeft50@2x.png in Resources */,
 				841CBD702066DAF40040D178 /* btnFindMinus50@2x.png in Resources */,
@@ -271,14 +331,22 @@
 			files = (
 				84E39DD820659EC700A33EA7 /* ColAndFont.m in Sources */,
 				84B22A21205D983E007398F8 /* LangPopUpView.m in Sources */,
+				84DEEF7C20765C4900F3A8F1 /* EntryDict.m in Sources */,
+				84DEEF8A2076941200F3A8F1 /* TextQueryPlus.m in Sources */,
 				84E4BB812059F80200BECE1F /* DesplazaView.m in Sources */,
 				84EB111E2058814B00A1DA0D /* ViewController.m in Sources */,
+				84DEEF862076908B00F3A8F1 /* SortedIndexs.m in Sources */,
 				84EB111B2058814B00A1DA0D /* AppDelegate.m in Sources */,
 				84E39DD520659CFE00A33EA7 /* PanelRigthView.m in Sources */,
+				84DEEF76207658B900F3A8F1 /* DictMain.m in Sources */,
 				84A195E9205CB42800110EDA /* AppData.m in Sources */,
+				84DEEF7D20765C4900F3A8F1 /* EntryIndex.m in Sources */,
+				84DEEF872076908B00F3A8F1 /* TextQuery.m in Sources */,
 				84EB11182058814B00A1DA0D /* main.m in Sources */,
 				84A195E2205C966500110EDA /* SelLangsView.m in Sources */,
+				84DEEF8020767C9E00F3A8F1 /* WaitView.m in Sources */,
 				84B0AF6A2068627A00C61E6D /* SearchController.m in Sources */,
+				84DEEF742076589D00F3A8F1 /* DictIndexes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

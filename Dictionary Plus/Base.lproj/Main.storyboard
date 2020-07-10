@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Escriba palabra o frase" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="w70-6o-coE">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Escriba palabra o frase" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="w70-6o-coE">
                                 <rect key="frame" x="4" y="70" width="366" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="H49-9a-xsz"/>
@@ -72,8 +72,8 @@
                                         <rect key="frame" x="285" y="0.0" width="18" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="Leading.png" translatesAutoresizingMaskIntoConstraints="NO" id="pQS-fw-Fja">
-                                        <rect key="frame" x="48" y="35" width="40" height="28"/>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" fixedFrame="YES" image="Leading.png" translatesAutoresizingMaskIntoConstraints="NO" id="pQS-fw-Fja">
+                                        <rect key="frame" x="8" y="38" width="40" height="20"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </imageView>
                                 </subviews>
@@ -88,10 +88,24 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="561"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CXN-P6-EJD">
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="30" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CXN-P6-EJD">
                                                 <rect key="frame" x="5" y="0.0" width="365" height="561"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WordOrPhrase" id="NEt-Mv-SgF">
+                                                        <rect key="frame" x="0.0" y="28" width="365" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NEt-Mv-SgF" id="A7F-jH-VYF">
+                                                            <rect key="frame" x="0.0" y="0.0" width="365" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </tableViewCellContentView>
+                                                    </tableViewCell>
+                                                </prototypes>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="tcx-Ma-fTk"/>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="q4E-Ls-ojQ"/>
+                                                </connections>
                                             </tableView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -208,6 +222,7 @@
                         <outlet property="FindWord" destination="w70-6o-coE" id="EIh-Yk-Lfq"/>
                         <outlet property="LeftSearchPlus" destination="FFd-qO-C7d" id="DxD-Oq-GhY"/>
                         <outlet property="SearchPlus" destination="icb-aR-San" id="Hiv-9k-5sD"/>
+                        <outlet property="TableFrases" destination="CXN-P6-EJD" id="p2L-ux-8vY"/>
                         <outlet property="TopSpace" destination="U6s-mk-yUl" id="lrd-xc-RQW"/>
                         <outlet property="bntSearchPlus" destination="322-PK-pqN" id="pQI-t4-c2c"/>
                         <outlet property="selLangs" destination="0hL-A9-zAl" id="vUV-AX-NgC"/>
@@ -225,11 +240,11 @@
                         <viewControllerLayoutGuide type="top" id="rbU-SC-sEd"/>
                         <viewControllerLayoutGuide type="bottom" id="dDd-89-8VO"/>
                     </layoutGuides>
-                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="IVt-ll-r6A">
+                    <view key="view" contentMode="scaleToFill" id="IVt-ll-r6A">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="561"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXu-wu-2vl">
+                            <scrollView multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXu-wu-2vl">
                                 <rect key="frame" x="0.0" y="0.0" width="150" height="561"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buscar además de" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="54g-kE-10s">
@@ -484,9 +499,9 @@
     <resources>
         <image name="FlagEn50.png" width="40" height="50"/>
         <image name="FlagEs50.png" width="40" height="50"/>
-        <image name="Leading.png" width="40" height="28"/>
+        <image name="Leading.png" width="16" height="14"/>
         <image name="btnAdd50.png" width="50" height="50"/>
-        <image name="btnDel50.png" width="50" height="50"/>
+        <image name="btnDel50.png" width="35" height="35"/>
         <image name="btnFindPlus50.png" width="50" height="50"/>
         <image name="btnLeft50.png" width="50" height="40"/>
         <image name="btnMenu.png" width="100" height="100"/>

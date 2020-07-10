@@ -172,7 +172,9 @@
 // Se llama cada vez que se cierra la vista de busquedas avanzadas
 - (void) CloseFindPlus
   {
+  UITextRange* savePos = txtField.selectedTextRange;
   txtField.attributedText = [[NSMutableAttributedString alloc] initWithString:txtField.text];
+  txtField.selectedTextRange = savePos;
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -213,7 +215,7 @@
   HideKeyboard();
 
   --idxWord;
-  if( idxWord<0 ) idxWord = Words.count-1;
+  if( idxWord<0 ) idxWord = (int)Words.count-1;
   
   nowWord = Words[idxWord];
   [self UpdateNowWord];
@@ -316,7 +318,7 @@
   int     nRow = (int)((HNow + dtY) / hRow);              // Número de filas que se puede tener la tabla
   
   NSInteger nWrds = nowWord.count;                        // Número de palabras a mostrar
-  if( nRow > nWrds ) nRow = nWrds;                        // Limita el # de filas al # de palabras
+  if( nRow > nWrds ) nRow = (int)nWrds;                   // Limita el # de filas al # de palabras
   
   if( nRow < 2 ) nRow = 2;                                // Por lo menos hay que mostrar 2 filas
   _TableHeight.constant = nRow * hRow;                    // Nueva altura para la tabla

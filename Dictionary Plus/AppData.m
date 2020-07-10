@@ -15,23 +15,24 @@ int iUser    = 0;
 
 UIView* nowEdit;
 
-//__strong DictMain*     Dict;
-//__strong DictIndexes*  DictIdx;
-//
-//__strong ViewController* Ctrller;
+__strong DictMain*     Dict;
+__strong DictIndexes*  DictIdx;
+
+
+__strong ViewController* Ctrller;
 
 //=========================================================================================================================================================
 
-//NSCharacterSet* lnSep = [NSCharacterSet characterSetWithCharactersInString:@"\n"];
-//NSCharacterSet* kySep = [NSCharacterSet characterSetWithCharactersInString:@"\\"];
-//
-//NSCharacterSet* TypeSep = [NSCharacterSet characterSetWithCharactersInString:@"|"];
-//NSCharacterSet* MeanSep = [NSCharacterSet characterSetWithCharactersInString:@";"];
-//
-//NSCharacterSet* PntOrSpc = [NSCharacterSet characterSetWithCharactersInString:@". ("];
-//NSCharacterSet* TrimSpc  = [NSCharacterSet characterSetWithCharactersInString:@" *"];
-//
-//NSCharacterSet* wrdSep = [NSCharacterSet characterSetWithCharactersInString:@" -()\"¿?!¡$,/+*="];
+NSCharacterSet* lnSep = [NSCharacterSet characterSetWithCharactersInString:@"\n"];
+NSCharacterSet* kySep = [NSCharacterSet characterSetWithCharactersInString:@"\\"];
+
+NSCharacterSet* TypeSep = [NSCharacterSet characterSetWithCharactersInString:@"|"];
+NSCharacterSet* MeanSep = [NSCharacterSet characterSetWithCharactersInString:@";"];
+
+NSCharacterSet* PntOrSpc = [NSCharacterSet characterSetWithCharactersInString:@". ("];
+NSCharacterSet* TrimSpc  = [NSCharacterSet characterSetWithCharactersInString:@" *"];
+
+NSCharacterSet* wrdSep = [NSCharacterSet characterSetWithCharactersInString:@" -()\"¿?!¡$,/+*="];
 
 //UIColor* SelColor  = [UIColor colorWithCalibratedRed:0.9 green:0.98 blue:1   alpha:1];
 //UIColor* SustColor = [UIColor colorWithCalibratedRed:0.95 green:0.95  blue:0.95 alpha:1];
@@ -221,15 +222,21 @@ void HideKeyboard()
     [nowEdit resignFirstResponder];
   }
 
+static UIView* TopView = Nil;
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Encuentra la vista definida como el tope superior
-UIView* FindTopView( UIView* FromView, int toTag )
+UIView* FindTopView( UIView* FromView )
   {
+  if( TopView != nil ) return TopView;
+  
   for( ; FromView!=nil; )                                                                     // Itera para encontrar la vista de mayor jerarquia
     {
     UIView* next = FromView.superview;
-    if( [next isKindOfClass: UIWindow.class ] || FromView.tag == toTag )
+    if( next==nil || [next isKindOfClass: UIWindow.class ] )
+      {
+      TopView = FromView;
       return FromView;
+      }
       
     FromView = next;
     }
@@ -240,84 +247,84 @@ UIView* FindTopView( UIView* FromView, int toTag )
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //                     0 1 2 3 4 5 6 7 8 9 : ; < = > ? @ A  B  C  D  E  F
-//static int ToHex[] = { 0,1,2,3,4,5,6,7,8,9,0,0,0,0,0,0,0,10,11,12,13,14,15 };
+static int ToHex[] = { 0,1,2,3,4,5,6,7,8,9,0,0,0,0,0,0,0,10,11,12,13,14,15 };
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Obtiene el caracter hexagecimal de una cadena y retorna su valor en el sistema digtal
-//int HexDigit(int idx, NSString* str )
-//  {
-//  int d = [str characterAtIndex:idx]-'0';
-//  return ToHex[d];
-//  }
-//
+int HexDigit(int idx, NSString* str )
+  {
+  int d = [str characterAtIndex:idx]-'0';
+  return ToHex[d];
+  }
+
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//NSCharacterSet* EsChars = [NSCharacterSet characterSetWithCharactersInString:@"áéíóú"];
-//NSCharacterSet* ItChars = [NSCharacterSet characterSetWithCharactersInString:@"éàèìòù"];
-//NSCharacterSet* FrChars = [NSCharacterSet characterSetWithCharactersInString:@"éàèùëïöüâêîôû"];
-//
-//NSCharacterSet* Chars[] = { EsChars, nil, ItChars, FrChars };
+NSCharacterSet* EsChars = [NSCharacterSet characterSetWithCharactersInString:@"áéíóú"];
+NSCharacterSet* ItChars = [NSCharacterSet characterSetWithCharactersInString:@"éàèìòù"];
+NSCharacterSet* FrChars = [NSCharacterSet characterSetWithCharactersInString:@"éàèùëïöüâêîôû"];
+
+NSCharacterSet* Chars[] = { EsChars, nil, ItChars, FrChars };
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Quita los acentos de la palabra 'wrd' de acuerdo al idioma 'lng'
-//NSString* QuitaAcentos( NSString* wrd, int lng )
-//  {
-//  NSInteger len = wrd.length;                                                 // Longitud de la palabra
-//  if( lng==1 || len==0 ) return wrd;                                          // En inglés no hay acentos, no hace nada
-//
-//  NSCharacterSet* charSet = Chars[lng];                                       // Conjunto de caracteres acentuados según el idioma
-//
-//  NSInteger idx = [wrd rangeOfCharacterFromSet:charSet].location;             // Busca alguno de los caracteres acentuados
-//  if( idx == NSNotFound ) return wrd;                                         // No hay ninguno, termina sin hacer nada
-//
-//  unichar chars[ len ];                                                       // Buffer para obtener todos los caracteres
-//  [wrd getCharacters:chars];                                                  // Obtiene todos los caracteres y los pone en el buffer
-//
-//  for(;;)                                                                     // Proceso puede repetirse si se admite mas de un acento
-//    {
-//    switch( [wrd characterAtIndex:idx] )                                      // Obtiene el caracter encontrado
-//      {
-//      case 224: case 225: case 226: case 228: chars[idx]= 'a'; break;         // Si es àáâä lo sustituye por a
-//      case 232: case 233: case 234: case 235: chars[idx]= 'e'; break;         // Si es èéêë lo sustituye por e
-//      case 236: case 237: case 238: case 239: chars[idx]= 'i'; break;         // Si es ìíîï lo sustituye por i
-//      case 242: case 243: case 244: case 246: chars[idx]= 'o'; break;         // Si es òóôö lo sustituye por o
-//      case 249: case 250: case 251: case 252: chars[idx]= 'u'; break;         // Si es ùúûü lo sustituye por u
-//      }
-//
-//    if( lng != 3 ) break;                                                     // Si no es francés termina (solo se admite un acento por palabra)
-//
-//    NSRange rg = NSMakeRange(idx+1, len-idx-1);                               // Toma el rango de caracteres restantes
-//
-//    idx = [wrd rangeOfCharacterFromSet:charSet options:0 range:rg].location;  // Busca alguno de los carecteres acentuados
-//    if( idx == NSNotFound ) break;                                            // Si no lo encuentra, termina la busqueda
-//    }
-//
-//  return [NSString stringWithCharacters:chars length:len];                    // Crea una cadena con el buffer y la retorna
-//  }
+NSString* QuitaAcentos( NSString* wrd, int lng )
+  {
+  NSInteger len = wrd.length;                                                 // Longitud de la palabra
+  if( lng==1 || len==0 ) return wrd;                                          // En inglés no hay acentos, no hace nada
+
+  NSCharacterSet* charSet = Chars[lng];                                       // Conjunto de caracteres acentuados según el idioma
+
+  NSInteger idx = [wrd rangeOfCharacterFromSet:charSet].location;             // Busca alguno de los caracteres acentuados
+  if( idx == NSNotFound ) return wrd;                                         // No hay ninguno, termina sin hacer nada
+
+  unichar chars[ len ];                                                       // Buffer para obtener todos los caracteres
+  [wrd getCharacters:chars];                                                  // Obtiene todos los caracteres y los pone en el buffer
+
+  for(;;)                                                                     // Proceso puede repetirse si se admite mas de un acento
+    {
+    switch( [wrd characterAtIndex:idx] )                                      // Obtiene el caracter encontrado
+      {
+      case 224: case 225: case 226: case 228: chars[idx]= 'a'; break;         // Si es àáâä lo sustituye por a
+      case 232: case 233: case 234: case 235: chars[idx]= 'e'; break;         // Si es èéêë lo sustituye por e
+      case 236: case 237: case 238: case 239: chars[idx]= 'i'; break;         // Si es ìíîï lo sustituye por i
+      case 242: case 243: case 244: case 246: chars[idx]= 'o'; break;         // Si es òóôö lo sustituye por o
+      case 249: case 250: case 251: case 252: chars[idx]= 'u'; break;         // Si es ùúûü lo sustituye por u
+      }
+
+    if( lng != 3 ) break;                                                     // Si no es francés termina (solo se admite un acento por palabra)
+
+    NSRange rg = NSMakeRange(idx+1, len-idx-1);                               // Toma el rango de caracteres restantes
+
+    idx = [wrd rangeOfCharacterFromSet:charSet options:0 range:rg].location;  // Busca alguno de los carecteres acentuados
+    if( idx == NSNotFound ) break;                                            // Si no lo encuentra, termina la busqueda
+    }
+
+  return [NSString stringWithCharacters:chars length:len];                    // Crea una cadena con el buffer y la retorna
+  }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Obtiene el nombre y el camino completo del diccionario
-//NSString* PathForDict(NSString* FName)
-//  {
-//  NSString *Path = [NSBundle mainBundle].resourcePath ;
-//  Path = [Path stringByAppendingPathComponent: @"Datos"];
-//
-//  return [Path stringByAppendingPathComponent:FName];
-//  }
+NSString* PathForDict(NSString* FName)
+  {
+  NSString *Path = [NSBundle mainBundle].resourcePath ;
+  Path = [Path stringByAppendingPathComponent: @"Datos"];
+
+  return [Path stringByAppendingPathComponent:FName];
+  }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Obtiene el nombre del diccionario de indice de acuerdo a los idiomas
-//NSString* IndexDictName( int src, int des )
-//  {
-//  NSString* Sufix = DIRAbrv( src, des );
-//  return [Sufix stringByAppendingString:@"Idx.wrds"];
-//  }
+NSString* IndexDictName( int src, int des )
+  {
+  NSString* Sufix = DIRAbrv( src, des );
+  return [Sufix stringByAppendingString:@"Idx.wrds"];
+  }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Obtiene el nombre del diccionario principal de acuerdo a los idiomas
-//NSString* MainDictName( int src, int des )
-//  {
-//  NSString* Sufix = DIRAbrv( src, des );
-//  return [Sufix stringByAppendingString:@".dcv"];
-//  }
+NSString* MainDictName( int src, int des )
+  {
+  NSString* Sufix = DIRAbrv( src, des );
+  return [Sufix stringByAppendingString:@".dcv"];
+  }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Procesa todos los mensajes que hay en la cola

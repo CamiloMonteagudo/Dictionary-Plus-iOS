@@ -35,7 +35,7 @@
   {
   _SelectedLang = -1;
   
-  UIView* topView = FindTopView(view, -1);
+  UIView* topView = FindTopView( view );
   if( topView==nil ) return nil;
   
   self = [super initWithFrame:topView.bounds];

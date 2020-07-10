@@ -50,7 +50,7 @@ static float PopUpWidth;                 // Ancho del mené
   
   [self PopUpWidthForItems:Items];
   
-  UpView  = FindTopView(view, -1);
+  UpView  = FindTopView( view );
   if( !UpView ) return nil;
   
   UpView.clipsToBounds = FALSE;

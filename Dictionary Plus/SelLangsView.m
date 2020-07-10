@@ -36,9 +36,6 @@
   CGFloat wSwap;                    // Ancho del icono para intercambiar los idiomas
   CGFloat wSrc;                     // Ancho del nombre del idioma fuente
   CGFloat wDes;                     // Ancho del nombre del idioma destino
-  
-  int lngSrc;
-  int lngDes;
   }
 @end
 
@@ -68,9 +65,6 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)initDatos
   {
-  lngSrc = -1;
-  lngDes = -1;
-  
   srcIcon  = self.subviews[0];
   srcLabel = self.subviews[1];
   srcDwm   = self.subviews[2];
@@ -151,6 +145,9 @@
 // Pone los idiomas fuente y destino del diccionario
 - (void)SetDictWithSrc:(int) src AndDes:(int) des
   {
+  if( ![Ctrller LoadDictWithSrc:src AndDes:des] )
+    return;
+  
   NSCharacterSet *sp = [NSCharacterSet whitespaceCharacterSet];
   
   srcIcon.image = [UIImage imageNamed: LGFlagName(src) ];
@@ -159,8 +156,8 @@
   desIcon.image = [UIImage imageNamed: LGFlagName(des) ];
   desLabel.text = [LGName(des) stringByTrimmingCharactersInSet:sp];
   
-  lngSrc = src;
-  lngDes = des;
+  LGSrc = src;
+  LGDes = des;
   
   [self setNeedsLayout];
   }
@@ -229,7 +226,7 @@
     desDwm.frame   = rc7;
     }
   completion:^(BOOL finished) {
-    [self SetDictWithSrc:lngDes AndDes:lngSrc];
+    [self SetDictWithSrc:LGDes AndDes:LGSrc];
   }];
   }
 
@@ -239,7 +236,7 @@
   {
   LangPopUpView* PopUp = [[LangPopUpView alloc] initWithRefView:srcIcon AtLeft:TRUE DeltaX:0 DeltaY:-10];
   PopUp.tag = 0;
-  [PopUp ShowWithLang:lngSrc CallBack:@selector(SelectedLang:) Target:self];
+  [PopUp ShowWithLang:LGSrc CallBack:@selector(SelectedLang:) Target:self];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -255,7 +252,7 @@
     PopUp = [[LangPopUpView alloc] initWithRefView:desDwm AtLeft:FALSE DeltaX:0 DeltaY:-10];
   
   PopUp.tag = 1;
-  [PopUp ShowWithLang:lngDes CallBack:@selector(SelectedLang:) Target:self];
+  [PopUp ShowWithLang:LGDes CallBack:@selector(SelectedLang:) Target:self];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -267,15 +264,14 @@
   
   if( PopUp.tag == 0 )
     {
-    int newDes = (newLng==lngDes)? lngSrc : lngDes;
+    int newDes = (newLng==LGDes)? LGSrc : LGDes;
     [self SetDictWithSrc:newLng AndDes:newDes];
     }
   else
     {
-    int newSrc = (newLng==lngSrc)? lngDes : lngSrc;
+    int newSrc = (newLng==LGSrc)? LGDes : LGSrc;
     [self SetDictWithSrc:newSrc AndDes:newLng];
     }
-  
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------

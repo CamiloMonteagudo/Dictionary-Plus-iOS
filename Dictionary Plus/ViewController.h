@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UITextFieldDelegate>
+@interface ViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 
+- (BOOL) LoadDictWithSrc:(int) src AndDes:(int) des;
 
 @end
 //=========================================================================================================================================================

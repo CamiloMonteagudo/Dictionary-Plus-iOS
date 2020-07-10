@@ -7,10 +7,10 @@
 //===================================================================================================================================================
 
 #import <UIKit/UIKit.h>
-//#import "DictMain.h"
-//#import "DictIndexes.h"
+#import "DictMain.h"
+#import "DictIndexes.h"
 //#import "DatosView.h"
-//#import "ViewController.h"
+#import "ViewController.h"
 
 //===================================================================================================================================================
 #define LGCount     4
@@ -28,14 +28,14 @@
 //
 //#define All_BTNS    0xFFFF
 //
-//#define FULL_FRASE  0x0001
+#define FULL_FRASE  0x0001
 //#define VERB_UP     0x0002
 
 //===================================================================================================================================================
 // Define tipos de datos para la búsqueda
-//#define INT_LIST      NSMutableArray<NSNumber*>
-//#define FOUNDS_ENTRY  NSMutableDictionary<NSNumber*,  INT_LIST*>
-//#define GET_NUMBER(n) [NSNumber numberWithInt:n]
+#define INT_LIST      NSMutableArray<NSNumber*>
+#define FOUNDS_ENTRY  NSMutableDictionary<NSNumber*,  INT_LIST*>
+#define GET_NUMBER(n) [NSNumber numberWithInt:n]
 
 //===================================================================================================================================================
 
@@ -44,19 +44,19 @@ extern int  LGDes;
 extern int  iUser;
 extern UIView* nowEdit;               // Vista que mostro el teclado
 
+extern DictMain*       Dict;
+extern DictIndexes*    DictIdx;
 
-//extern DictMain*       Dict;
-//extern DictIndexes*    DictIdx;
-//extern ViewController* Ctrller;
+extern ViewController* Ctrller;
 
-//extern NSCharacterSet* lnSep;
-//extern NSCharacterSet* kySep;
-//extern NSCharacterSet* TypeSep;
-//extern NSCharacterSet* MeanSep;
-//extern NSCharacterSet* wrdSep;
-//extern NSCharacterSet* PntOrSpc;
-//extern NSCharacterSet* TrimSpc;
-//
+extern NSCharacterSet* lnSep;
+extern NSCharacterSet* kySep;
+extern NSCharacterSet* TypeSep;
+extern NSCharacterSet* MeanSep;
+extern NSCharacterSet* wrdSep;
+extern NSCharacterSet* PntOrSpc;
+extern NSCharacterSet* TrimSpc;
+
 //extern UIColor* SelColor;
 //extern UIColor* SustColor;
 //extern UIColor* BackColor;
@@ -80,17 +80,17 @@ extern int CNJCount();
 extern int CNJLang( int idx );
 extern NSString* CNJTitle( int idx );
 extern void HideKeyboard();
-extern UIView* FindTopView( UIView* FromView, int toTag );
+extern UIView* FindTopView( UIView* FromView );
 
 
-//NSString* IndexDictName( int src, int des );
-//NSString* MainDictName( int src, int des );
-//NSString* PathForDict(NSString* FName);
-//
-//extern BOOL IsLetter( NSInteger idx, NSString* Txt );
-//extern int HexDigit(int idx, NSString* str );
-//
-//extern NSString* QuitaAcentos( NSString* wrd, int lng );
+NSString* IndexDictName( int src, int des );
+NSString* MainDictName( int src, int des );
+NSString* PathForDict(NSString* FName);
+
+extern BOOL IsLetter( NSInteger idx, NSString* Txt );
+extern int HexDigit(int idx, NSString* str );
+
+extern NSString* QuitaAcentos( NSString* wrd, int lng );
 extern void WaitMsg();
 
 //===================================================================================================================================================
