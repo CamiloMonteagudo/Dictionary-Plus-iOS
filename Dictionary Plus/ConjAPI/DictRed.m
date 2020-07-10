@@ -95,7 +95,7 @@ static DictRed* NowDictRed;
 - (NSString*) GetFilePath
   {
   NSString *Path = [NSBundle mainBundle].resourcePath ;
-  Path = [Path stringByAppendingPathComponent: @"Datos"];
+  //Path = [Path stringByAppendingPathComponent: @"Datos"];
 
   NSString* file = [NSString stringWithFormat:@"%@RedS.rwd", LGAbrv(lng) ];
 

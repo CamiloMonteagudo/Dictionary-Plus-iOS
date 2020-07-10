@@ -16,8 +16,6 @@
   UIImageView* srcIcon;            // Bandera para el idioma fuente
   UILabel*     srcLabel;           // Descripcion del idioma fuente
   
-  UIImageView* arrow;              // Flecha que separa los idiomas
-
   UIImageView* desIcon;            // Bandera del idioma destino
   UILabel*     desLabel;           // Descripción del idioma destino
   
@@ -33,9 +31,8 @@
   
   CGFloat wSrc;                     // Ancho del nombre del idioma fuente
   CGFloat wDes;                     // Ancho del nombre del idioma destino
-  CGFloat wArrow;                   // Ancho de la flecha que separa los idiomas
-  CGFloat wIcon;                    // Ancho del icono del idioma
   CGFloat wSwap;                    // Ancho del icono para intercambiar los idiomas
+  CGFloat wIcon;                    // Ancho del icono del idioma
   }
 @end
 
@@ -67,11 +64,10 @@
   {
   srcIcon  = self.subviews[0];
   srcLabel = self.subviews[1];
-  arrow    = self.subviews[2];
+  SwapIcon = self.subviews[2];
   desIcon  = self.subviews[3];
   desLabel = self.subviews[4];
   
-  SwapIcon = self.subviews[5];
   
   X = self.frame.origin.x;
   Y = self.frame.origin.y;
@@ -82,7 +78,6 @@
   
   wIcon = srcIcon.frame.size.width;
   wSwap = SwapIcon.frame.size.width;
-  wArrow = arrow.frame.size.width;
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -91,25 +86,25 @@
   [srcLabel sizeToFit];
   [desLabel sizeToFit];
 
-  wSrc  = srcLabel.frame.size.width;                          // Ancho del nombre del idioma fuente
-  wDes  = desLabel.frame.size.width;                          // Ancho del nombre del idioma destino
+  wSrc  = srcLabel.frame.size.width;                            // Ancho del nombre del idioma fuente
+  wDes  = desLabel.frame.size.width;                            // Ancho del nombre del idioma destino
   
-  CGFloat wDisp = self.superview.bounds.size.width - X - 55;   // Ancho disponible la vista que contiene los idiomas
+  CGFloat wDisp = self.superview.bounds.size.width - X - 55;    // Ancho disponible la vista que contiene los idiomas
   
-  W = wIcon + wSrc + wIcon + wArrow + wDes + wSwap;
-  if( W>wDisp )
+  W = wIcon + wSrc + wSwap + wIcon + wDes ;                     // Tamaño normal
+  if( W>wDisp )                                                 // Si no cabe en el espacio disponible
     {
-    srcLabel.hidden = TRUE;
+    srcLabel.hidden = TRUE;                                     // Oculta los nombres de los idiomas
     desLabel.hidden = TRUE;
 
-    wSrc = 0;
+    wSrc = 0;                                                   // Pone anchos a 0
     wDes = 0;
     
-    W = wIcon + wIcon + wArrow + wSwap;
+    W = wIcon + wSwap + wIcon;                                  // Recalcula el ancho
     }
   else
     {
-    srcLabel.hidden = FALSE;
+    srcLabel.hidden = FALSE;                                    // Garantiza que se muestren los nombres de idioma
     desLabel.hidden = FALSE;
     }
   
@@ -120,17 +115,14 @@
   srcLabel.frame = CGRectMake(x, yLb, wSrc, hLb);
   x += wSrc;
   
-  arrow.frame = CGRectMake(x, 0, wArrow, H);
-  x += wArrow;
-  
+  SwapIcon.frame = CGRectMake(x, 0, wSwap, H);
+  x += wSwap;
+
   desIcon.frame = CGRectMake(x, 0, wIcon, H);
   x += wIcon;
   
   desLabel.frame = CGRectMake(x, yLb, wDes, hLb);
   x += wDes;
-  
-  SwapIcon.frame = CGRectMake(x, 0, wSwap, H);
-  x += wSwap;
   
   W = x;
  // self.frame = CGRectMake(X, Y, W, H);
@@ -194,7 +186,7 @@
   CGRect rcIcn1 = srcIcon.frame;
   CGRect rcTxt1 = srcLabel.frame;
   
-  CGRect rcArrow = arrow.frame;
+  CGRect rcSwap = SwapIcon.frame;
 
   CGRect rcIcn2 = desIcon.frame;
   CGRect rcTxt2 = desLabel.frame;
@@ -203,15 +195,15 @@
   rcTxt2.origin.x = wIcon;
   
   CGFloat x = wIcon + wDes;
-  rcArrow.origin.x = x;
-  rcIcn1.origin.x = x + wArrow;
-  rcTxt1.origin.x = x + wArrow + wIcon;
+  rcSwap.origin.x = x;
+  rcIcn1.origin.x = x + wSwap;
+  rcTxt1.origin.x = x + wSwap + wIcon;
 
   [UIView animateWithDuration:0.5 animations:^{
     srcIcon.frame  = rcIcn1;
     srcLabel.frame = rcTxt1;
 
-    arrow.frame = rcArrow;
+    SwapIcon.frame = rcSwap;
     
     desIcon.frame  = rcIcn2;
     desLabel.frame = rcTxt2;

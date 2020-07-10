@@ -39,11 +39,10 @@ static BOOL _IsVerb;
   {
   InitMFCSystem();
 
-  NSBundle* bd = [NSBundle mainBundle];
+  NSString *Path = [NSBundle mainBundle].resourcePath ;
+//            Path = [Path stringByAppendingPathComponent: @"Datos"];
 
-  NSString* oPathAPI = [bd.resourcePath stringByAppendingPathComponent: @"Datos"];
-
-  [ConjCore SetDictPath:oPathAPI];
+  [ConjCore SetDictPath: Path];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------

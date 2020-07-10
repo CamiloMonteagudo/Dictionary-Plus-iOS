@@ -69,7 +69,7 @@ static MngMarks* MarkObj = nil;
 - (NSString*) GetMarkFilePath
   {
   NSString *Path = [NSBundle mainBundle].resourcePath ;
-  Path = [Path stringByAppendingPathComponent: @"Datos"];
+//  Path = [Path stringByAppendingPathComponent: @"Datos"];
 
   return [Path stringByAppendingPathComponent:@"Marcas.txt"];
   }

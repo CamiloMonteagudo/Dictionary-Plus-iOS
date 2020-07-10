@@ -60,11 +60,21 @@ static NSString * _LngFlags[LGCount] =  {@"🇪🇸", @"🇺🇸", @"🇮🇹", 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // DEFINE LOS DICCIONARIOS Y CONJUGACIONES INSTALADOS
 
+#ifdef DictIOSEn
 //                       EnEs, EnIt, EnFr, EsEn, ItEn, FrEn
 static int _InstSrc[] = {   1,    1,    1,    0,    2,    3 };
 static int _InstDes[] = {   0,    2,    3,    1,    1,    1 };
 
 static int _InstConj[] ={ 0, 1, 2, 3 };
+#endif
+
+#ifdef DictIOSEs
+//                       EsEn, EsIt, EsFr, EnEs, ItEs, FrEs
+static int _InstSrc[] = {   0,    0,    0,    1,    2,    3 };
+static int _InstDes[] = {   1,    2,    3,    0,    0,    0 };
+
+static int _InstConj[] ={ 0, 1, 2, 3 };
+#endif
 
 //=========================================================================================================================================================
 
@@ -311,7 +321,7 @@ NSString* QuitaAcentos( NSString* wrd, int lng )
 NSString* PathForDict(NSString* FName)
   {
   NSString *Path = [NSBundle mainBundle].resourcePath ;
-  Path = [Path stringByAppendingPathComponent: @"Datos"];
+  //Path = [Path stringByAppendingPathComponent: @"Datos"];
 
   return [Path stringByAppendingPathComponent:FName];
   }
