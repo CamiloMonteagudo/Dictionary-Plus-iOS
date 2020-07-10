@@ -59,7 +59,7 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)layoutSubviews
   {
-  _SplitDatos = (self.frame.size.width > 400);
+  _SplitDatos = (self.frame.size.width > 450);
   int nowMode = _Mode;
   
   if( (nowMode == MODE_SPLIT && !_SplitDatos) || nowMode<MODE_LIST || nowMode>MODE_MEANS )
@@ -91,7 +91,7 @@
   int setAct = 0;  int desAct = 0;
   
   int actSplit = CMD_SPLIT; int desSplit = 0;
-  if( !_SplitDatos ) { actSplit = 0; desSplit = CMD_SPLIT; }
+  if( !_SplitDatos || Ctrller.CountOfMeans==0 ) { actSplit = 0; desSplit = CMD_SPLIT; }
 
   int actDel = CMD_DEL_MEANS; int desDel = 0;
   if( !Ctrller.CountOfMeans ) { actDel = 0; desDel = CMD_DEL_MEANS; }
@@ -135,8 +135,11 @@
   switch( mode )
     {
     case MODE_LIST:
-      rc1.origin.x = -w;
-      Panel1.frame = rc1;
+      if( rc1.origin.x >= w )
+        {
+        rc1.origin.x = -w;
+        Panel1.frame = rc1;
+        }
     
       rc1.origin.x = 0;
       rc2.origin.x = w;
@@ -148,8 +151,17 @@
       break;
       
     case MODE_SPLIT:
-      rc2.origin.x = rc1.origin.x + rc1.size.width;
-      Panel2.frame = rc2;
+      if( rc1.origin.x == 0  && rc2.origin.x<0 )
+        {
+        rc2.origin.x = rc1.origin.x + rc1.size.width;
+        Panel2.frame = rc2;
+        }
+    
+      if( rc2.origin.x==0 && rc1.origin.x>0 )
+        {
+        rc1.origin.x = -w;
+        Panel1.frame = rc1;
+        }
     
       rc1.origin.x = 0;
       rc2.origin.x = w/2;
@@ -161,8 +173,11 @@
       break;
       
     case MODE_MEANS:
-      rc2.origin.x = rc1.origin.x + rc1.size.width;
-      Panel2.frame = rc2;
+      if( rc2.origin.x <= 0 )
+        {
+        rc2.origin.x = rc1.origin.x + rc1.size.width;
+        Panel2.frame = rc2;
+        }
     
       rc2.origin.x = 0;
       rc1.origin.x = -w;

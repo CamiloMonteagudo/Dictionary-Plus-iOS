@@ -55,8 +55,9 @@ static float PopUpWidth;                 // Ancho del mené
   
   UpView.clipsToBounds = FALSE;
   
-  CGRect rc = UpView.bounds;
-  rc.size.width = rc.size.width + PopUpWidth;
+//  CGRect rc = UpView.bounds;
+//  rc.origin.y = 150;
+//  rc.size.width = rc.size.width + PopUpWidth;
   
   self = [super initWithFrame: UpView.bounds ];                                          // Crea una vista, con la dimensiones la de mayor jerarquia
   if( !self ) return self;                                                    // Si no la puede crear termina
@@ -82,28 +83,26 @@ static float PopUpWidth;                 // Ancho del mené
 // Calcula el ancho del menú según el tamaño de la fuente actual
 - (void) PopUpWidthForItems:(NSArray*) ItemsId
   {
-  float wTxt = 0;
-  CGSize  sz = CGSizeMake( 5000, 5000);
+//  float wTxt = 0;
+//  CGSize  sz = CGSizeMake( 5000, 5000);
+//  
+//  for( int i=0; i<ItemsId.count; ++i )                                          // Recorre todo los nombres de los items
+//    {
+//    NSString* sItem = ItemsId[i];
+//    
+//    NSString* IdTitle = [@"Mnu" stringByAppendingString:sItem];                 // Obtiene identificador del titulo
+//    NSString* strTitle = NSLocalizedString( IdTitle, nil);                      // Obtiene el titulo localizado
+//    
+//    CGRect rc = [strTitle boundingRectWithSize: sz
+//                                       options: NSStringDrawingUsesLineFragmentOrigin
+//                                    attributes: attrEdit
+//                                       context: nil      ];
+//    if( rc.size.width > wTxt )
+//       wTxt = rc.size.width;
+//    }
   
-  for( int i=0; i<ItemsId.count; ++i )                                          // Recorre todo los nombres de los items
-    {
-    NSString* sItem = ItemsId[i];
-    
-    NSString* IdTitle = [@"Mnu" stringByAppendingString:sItem];                 // Obtiene identificador del titulo
-    NSString* strTitle = NSLocalizedString( IdTitle, nil);                      // Obtiene el titulo localizado
-    
-    CGRect rc = [strTitle boundingRectWithSize: sz
-                                       options: NSStringDrawingUsesLineFragmentOrigin
-                                    attributes: attrEdit
-                                       context: nil      ];
-    if( rc.size.width > wTxt )
-       wTxt = rc.size.width;
-    }
-  
-  RowHeight  = 1.2 * LineHeight;                                                  // Altura de las filas del menú
-  if( RowHeight < ICON_HEIGHT ) RowHeight = ICON_HEIGHT;
-  
-  PopUpWidth = ICON_WIDTH + SEP_HOZ + wTxt + 4*SEP_HOZ;                           // Ancho del menú
+  RowHeight  = ICON_HEIGHT;
+  PopUpWidth = ICON_WIDTH + SEP_HOZ + 110 + 4*SEP_HOZ;                           // Ancho del menú
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -173,7 +172,7 @@ static float PopUpWidth;                 // Ancho del mené
 - (void)CreatePanelWithItems:(NSArray*) ItemsId
   {
   CGRect  rc    = UpView.bounds;
-  CGRect  frame = CGRectMake( rc.size.width, STUS_H, PopUpWidth, rc.size.height-STUS_H ); // Crea recuadro para la vista del menú
+  CGRect  frame = CGRectMake( rc.size.width, 0, PopUpWidth, rc.size.height );   // Crea recuadro para la vista del menú
   Panel  = [[UIView alloc] initWithFrame:frame  ];                              // Crea la vista del menú
   
   Panel.backgroundColor = ColPanelBck;                                          // Define el color de fondo del menú
@@ -207,7 +206,10 @@ static float PopUpWidth;                 // Ancho del mené
   Title.text          = NSLocalizedString(@"Options", nil) ;                    // Pone el texto del titulo
   Title.textColor     = ColPanelItemTxt;                                        // Pone el color de las letras del titulo
   Title.textAlignment = NSTextAlignmentCenter;                                  // Centra el titulo por la horizontal
-  Title.font          = fontEdit;                                               // Pone el tipo de letra a utilizar
+  Title.font          = fontTitle;                                              // Pone el tipo de letra a utilizar
+  
+  Title.shadowColor   = [UIColor blackColor];
+  Title.shadowOffset  = CGSizeMake(2, 2);
   
   [Panel addSubview: Title];                                                    // Agrega la vista del titulo a la fila
   }
@@ -241,14 +243,17 @@ static float PopUpWidth;                 // Ancho del mené
   
   [self addSubview: img];                                                     // Agrega la vista del icono a la fila
   
-  CGFloat xTitle  = ICON_WIDTH + SEP_HOZ - 5;                                 // Determina la posicion donde empieza el titulo
-  CGRect rcTitle  = CGRectMake( xTitle, 0, PopUpWidth-xTitle, RowHeight);     // Determina el recuadro para el titulo
+  CGFloat xTitle  = SEP_HOZ + ICON_WIDTH;                                     // Determina la posicion donde empieza el titulo
+  CGFloat wTitle  = PopUpWidth-xTitle-SEP_HOZ-SEP_HOZ;                        // Ancho del titulo
+  
+  CGRect rcTitle  = CGRectMake( xTitle, 0, wTitle, RowHeight);                // Determina el recuadro para el titulo
   UILabel* Title  = [[UILabel alloc] initWithFrame: rcTitle];                 // Crea la vista para el titulo
   
   NSString* strTitle = NSLocalizedString( IdTitle, nil);                      // Obtiene el titulo localizado
   Title.text         = strTitle;                                              // Pone el texto del titulo
   Title.textColor    = ColPanelItemTxt;                                       // Pone el color de las letras del titulo
   Title.font         = fontEdit;                                              // Pone el tipo de letra a utilizar
+  Title.numberOfLines = 0;
   
   [self addSubview: Title];                                                   // Agrega la vista del titulo a la fila
   

@@ -10,7 +10,7 @@
 #import "ZoneDatosView.h"
 //#import "MarkView.h"
 #import "EntryDesc.h"
-//#import "ConjCore.h"
+#import "ConjCore.h"
 #import "BtnsBarView.h"
 
 static NSCharacterSet * Nums = [NSCharacterSet characterSetWithCharactersInString:@"1234567890"];
@@ -132,7 +132,7 @@ static NSCharacterSet * Nums = [NSCharacterSet characterSetWithCharactersInStrin
     if( ![_ActualWord.Wrd isEqualToString:_sKey] )
       showFind = TRUE;
     
-//    if( [ConjCore IsVerbWord:ActualWord.Wrd InLang:ActualWord.lng] )
+    if( [ConjCore IsVerbWord:_ActualWord.Wrd InLang:_ActualWord.lng] )
       showConj = TRUE;
     }
 
@@ -160,7 +160,9 @@ static NSCharacterSet * Nums = [NSCharacterSet characterSetWithCharactersInStrin
   {
   [self.Cell BckColor: SelColor];
   
-  DataCmdBarPosBottomView( self.Cell.contentView );
+  DataCmdBarDisable(CMD_ALL);
+  DataCmdBarEnable( CMD_PREV_WRD|CMD_NEXT_WRD|CMD_DEL_MEAN );
+  DataCmdBarPosBottomView( self.Cell.contentView, 0 );
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -170,7 +172,7 @@ static NSCharacterSet * Nums = [NSCharacterSet characterSetWithCharactersInStrin
   [self.Cell BckColor: BackColor];
   
   if( DataCmdBarInView(self.Cell.contentView) )
-    DataCmdBarPosBottomView( nil );
+    DataCmdBarPosBottomView( nil, 0 );
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -224,12 +226,12 @@ static NSCharacterSet * Nums = [NSCharacterSet characterSetWithCharactersInStrin
 
   CGFloat y = 0;                                            // Altura donde va la proxima vista
 
-  [self GetAttrStr];
+  [self GetAttrStr];                                        // Obtiene la texto con atributos
   
-  CGSize sz = CGSizeMake( w, 5000);
+  CGSize sz = CGSizeMake( w, 5000);                         // Calcula la altura del texto
   CGRect rc = [AttrStr boundingRectWithSize:sz options:NSStringDrawingUsesLineFragmentOrigin context:nil ];
   
-  _HText = (int)(rc.size.height + 16.9);
+  _HText = (int)(rc.size.height + 16.9);                    // El TextView tiene un pading de 8 por arriba y por abajo
   y += _HText;
 
   if( _HSustMarks>0 )                                       // Si hay controles de sustitución
@@ -238,7 +240,10 @@ static NSCharacterSet * Nums = [NSCharacterSet characterSetWithCharactersInStrin
     }
 
   if( self==ZoneDatosView.SelectedDatos )                   // Si es el dato seleccionado
-    y+= 40;                                                 // Crece la altura en 20 pixeles
+    {
+    _HText += 8;                                            // Crece un poco el texto, para la selección en la ultima linea
+    y+= 40;                                                 // Crece la altura para mostra los botones
+    }
   
   return y;
   }
@@ -276,25 +281,6 @@ static NSCharacterSet * Nums = [NSCharacterSet characterSetWithCharactersInStrin
   else             [Parse GetNext];
   
   [self SelActualWord];
-  }
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
-//
-- (void) FindActualWord
-  {
-  int lng1 = _src;
-  int lng2 = _des;
-  if(_ActualWord.lng == _des ) { lng2=_src; lng1=_des; }
-  
-  
-  NSLog(@"Encontrar '%@' src=%d des=%d", _ActualWord.Wrd, lng1, lng2);
-  }
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
-//
-- (void) ConjActualWord
-  {
-  NSLog(@"CONJUGAR '%@' en  idioma %d", _ActualWord.Wrd, _ActualWord.lng);
   }
 
 @end

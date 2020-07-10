@@ -9,6 +9,9 @@
 #import "SearchController.h"
 #import "ViewController.h"
 #import "AppData.h"
+#import "ColAndFont.h"
+#import "ConjCore.h"
+#import "TextQueryPlus.h"
 
 //=========================================================================================================================================================
 @interface SimilarWord : NSObject
@@ -110,8 +113,6 @@
   WrdsSep = [NSCharacterSet characterSetWithCharactersInString:@" ,;:._¿?'´¡!\"[]()@-" ];
   Words   = [NSMutableArray new];
   
-  [self ResizeTable];
-  
   CGRect frame = CGRectMake(0, 0, 15, 20);
   
   _txtNewWord.rightView = [[UIView alloc] initWithFrame:frame ];      // Deja espacio para botón de la izquierda
@@ -173,7 +174,12 @@
 - (void) CloseFindPlus
   {
   UITextRange* savePos = txtField.selectedTextRange;
-  txtField.attributedText = [[NSMutableAttributedString alloc] initWithString:txtField.text];
+//  txtField.attributedText = [[NSMutableAttributedString alloc] initWithString:txtField.text attributes:nil];
+  
+  txtField.text = txtField.text;
+  txtField.defaultTextAttributes = attrEdit;
+  txtField.typingAttributes = attrEdit;
+  
   txtField.selectedTextRange = savePos;
   }
 
@@ -193,6 +199,11 @@
   
   [_ListWords reloadData];
   [self ResizeTable];
+  
+  NSString *Verb = [ConjCore VerbInfinitive:nowWord.Wrd Lang:LGSrc];
+  
+  if( Verb.length > 0 ) _txtNewVerb.text = Verb;
+  else                  _txtNewVerb.text = @"";
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -257,7 +268,7 @@
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
-//
+// Se llama cuando se oprime el boton para adicionar una palabra similar
 - (IBAction)OnAddWrd:(id)sender
   {
   HideKeyboard();
@@ -265,24 +276,109 @@
   _txtNewWord.text = @"";
 
   [self AddWrd:wrd ];
+  [self UpdateTable];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
-//
+// Se llama cuando se oprime el boton para adicionar todas las conjugaciones de un verbo
 - (IBAction)OnAddVerb:(id)sender
   {
   HideKeyboard();
   
-//  NSString* wrd = _txtNewVerb.text;
-  _txtNewVerb.text = @"";
+  [ConjCore LoadConjLang: LGSrc];                               // Carga la conjugación para el idioma actual
+
+  NSString* Verb = _txtNewVerb.text;
+  NSArray<NSString*>* SWords = nowWord.SWords;
+
+  if( [ConjCore ConjVerb:Verb ] )                               // Si la palabra se puede conjugar
+    {
+    NSArray<NSString*> * Wrds = [ConjCore GetConjsList];        // Obtiene la lista de palabras de la conjugacion
+
+    for (NSString* wrd in Wrds)
+      {
+      if( ![SWords containsObject:wrd] && [wrd characterAtIndex:0]!= '-' )
+        [self AddWrd:wrd];
+      }
+
+    [self UpdateTable];
+    _txtNewVerb.text = @"";
+    }
+  else
+    {
+//    [self ShowMsg:@"WordNoVerb" WithTitle:@"TitleFindPlus"];
+//    [self.view.window makeFirstResponder:_ConjVerb ];
+    }
 
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
-//
+// Se llama cuando se oprime al boton de buscar
 - (IBAction)OnFindPlus:(id)sender
   {
   HideKeyboard();
+  
+  [Ctrller FindFrasesWithQuery:[self FindWords] NWords:Words.count Options:0];
+  }
+
+///------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/// Busca palabras del query usando el diccionario de indices 'dictIndexs'
+- (FOUNDS_ENTRY*) FindWords
+  {
+  FOUNDS_ENTRY* EntrysPos = [FOUNDS_ENTRY new];               // Entradas y posiciones de palabras en la entrada
+
+  int nWrds = (int)Words.count;                               // Número de palabras en la consulta
+  for( int i=0; i<nWrds; ++i )                                // Recorre todas las palabras
+    {
+    SimilarWord* wQry = Words[i];
+    NUM_SET *Entries = [NUM_SET new];                         // Entradas encontradas
+
+    [self AddEntriesWord:wQry.Wrd FoundEntries:EntrysPos EntriesInSameWord:Entries];    // Busca la palabra principal
+    
+    int nSin = (int)wQry.SWords.count;                        // Número de sinonimos de la palabra
+
+    for( int j=0; j<nSin; ++j )                               // Recorre todos los sinonimos de la palabra
+      {
+      NSString* wrd  = wQry.SWords[j];                        // Toma la palabra a buscar
+
+      [self AddEntriesWord:wrd FoundEntries:EntrysPos EntriesInSameWord:Entries];       // Busca el sinonimo de la palabra
+      }
+    }
+
+  return EntrysPos;                                          // Retorna lista de entradas, con las posiciones de las palabras encontradas
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Adiciona las entradas donde esta la palabra 'wrd' a la lista de entradas encontradas
+- (void) AddEntriesWord:(NSString*) wrd FoundEntries:(FOUNDS_ENTRY*) EntrysPos EntriesInSameWord:(NUM_SET *) Entries
+  {
+  wrd = [wrd lowercaseString];                            // Pone la palabra en minusculas
+  wrd = QuitaAcentos(wrd, LGSrc);                         // Le quita los acentos
+
+  EntryIndex* WrdData = DictIdx.Words[wrd];               // Obtiene todas las entradas donde esta la palabra
+
+  if( WrdData==nil ) return;                              // No esta en el diccionario de indices de palabras, la salta
+
+  for( int k=0; k<WrdData.Count; ++k)                     // Recorre todas las entradas donde esta la palabra
+    {
+    int iEntry = WrdData.Entrys[k];                       // Obtiene el indice de la entrada donde esta la palabra
+
+    NSNumber* idx = GET_NUMBER( iEntry );                 // La convierte a un objeto
+
+    if( [Entries containsObject:idx]  )                   // Ya fue encontrada una de las palabras del grupo en la entrada
+      continue;                                           // Salta la palabra
+
+    [Entries addObject:idx];                              // Adiciona la entrada a las encontradas
+
+    INT_LIST *WrdsPos = EntrysPos[idx];                   // Busca si la entrada ya existe
+
+    if( WrdsPos==nil )                                    // Si no hay ninguna palabra en esa entrada
+      {
+      WrdsPos = [INT_LIST new];                           // Crea una nueva lista de posiciones de palabras
+      EntrysPos[idx] = WrdsPos;                           // Adiciona la lista a diccionario de entradas
+      }
+
+    [WrdsPos addObject:GET_NUMBER(WrdData.Pos[k])];       // Adiciona la posición a la lista posiciones de entrada idx
+    }
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -296,11 +392,17 @@
     if( [s isEqualToString:wrd] ) return;
   
   [nowWord AddSWord: wrd ];
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Actualiza el tamaño de la tabla y selecciona y hace visible la última fila
+- (void) UpdateTable
+  {
   [_ListWords reloadData];
   
   NSUInteger  iSel = nowWord.count-1;
   NSIndexPath *sel = [NSIndexPath indexPathForRow:iSel inSection:0];
-  [_ListWords selectRowAtIndexPath:sel animated:FALSE scrollPosition:UITableViewScrollPositionTop];
+  [_ListWords selectRowAtIndexPath:sel animated:FALSE scrollPosition:UITableViewScrollPositionBottom];
   
   [self ResizeTable];
   }
@@ -309,19 +411,22 @@
 // Redimensiona el alto de la tabla, para que ocupe el espacio disponible lo mejor posible
 - (void)ResizeTable
   {
-  CGFloat hRow = _ListWords.rowHeight;                    // Altura de las filas de la tabla
+  CGFloat hCont = _Scroll.contentSize.height;             // Altura actual del contenido del scroll
+  if( hCont==0 ) return;                                  // No se ha inicializado el scroll, termina
   
+  CGFloat hRow  = _ListWords.rowHeight;                   // Altura de las filas de la tabla
   CGFloat hDisp = _Scroll.frame.size.height;              // Altura disponible para la vista
-  CGFloat  dtY  = hDisp - _Scroll.contentSize.height;     // Espacio disponible para crecer
+  CGFloat hList = _ListWords.frame.size.height;           // Altura actual de la lista de palabras
+  CGFloat hFija = hCont-hList;                            // Altura que no varia su tamaño
+  int     rMax  = (int)((hDisp-hFija)/hRow);              // Número maximo de filas que se pueden mostrar
+  int     nRow  = (int)nowWord.count;                      // Número de filas que debe tener la tabla
   
-  CGFloat HNow = _TableHeight.constant;                   // Altura actual de la tabla
-  int     nRow = (int)((HNow + dtY) / hRow);              // Número de filas que se puede tener la tabla
+  if( nRow > rMax ) nRow = rMax;                          // No se puede mostrar más de las que caben
+  if( nRow < 2    ) nRow = 2;                             // Por lo menos hay que mostrar 2 filas
   
-  NSInteger nWrds = nowWord.count;                        // Número de palabras a mostrar
-  if( nRow > nWrds ) nRow = (int)nWrds;                   // Limita el # de filas al # de palabras
-  
-  if( nRow < 2 ) nRow = 2;                                // Por lo menos hay que mostrar 2 filas
-  _TableHeight.constant = nRow * hRow;                    // Nueva altura para la tabla
+  CGFloat hCal = nRow * hRow;                             // Altura calculada para la tabla
+  if( _TableHeight.constant != hCal )                     // Si cambio la altura
+    _TableHeight.constant = nRow * hRow;                  // Nueva altura para la tabla
   }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------
@@ -406,6 +511,12 @@
     }
   }
 
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Obtiene la palabra actual que se esta analizando
+- (NSString*) GetActualWord
+  {
+  return _lbWord.text;
+  }
 
 @end
 

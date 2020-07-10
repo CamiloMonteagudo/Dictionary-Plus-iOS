@@ -374,7 +374,7 @@ BOOL DataCmdBarInView( UIView* view )
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Adiciona la barra de botones a una vista especificada por 'view'
-void DataCmdBarPosBottomView( UIView* view )
+void DataCmdBarPosBottomView( UIView* view, CGFloat OffSet=0 )
   {
   if( DataCmdBar.superview != view )
     {
@@ -387,7 +387,8 @@ void DataCmdBarPosBottomView( UIView* view )
   if( view !=nil )
     {
     CGSize sz = view.bounds.size;
-    DataCmdBar.frame = CGRectMake(0, sz.height-hBTN, sz.width, hBTN);
+    DataCmdBar.frame = CGRectMake(OffSet, sz.height-hBTN, sz.width-OffSet, hBTN);
+    [DataCmdBar setNeedsLayout];
     }
   }
 

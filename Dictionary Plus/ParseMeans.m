@@ -110,7 +110,7 @@ static NSCharacterSet* BreakFrase = [NSCharacterSet characterSetWithCharactersIn
 - (void) GetPrevios
   {
   --_Actual;
-  if( _Actual<0 ) _Actual=Words.count-1;
+  if( _Actual<0 ) _Actual=(int)Words.count-1;
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -163,7 +163,7 @@ static NSCharacterSet* CharsInit = [NSCharacterSet characterSetWithCharactersInS
     wrd = [wrd stringByReplacingOccurrencesOfString:LGFlag(nowLng) withString:@"" ];      // Quita las banderitas
     
     NSInteger lenTmp = wrd.length;
-    Ini = len-lenTmp;
+    Ini += (len-lenTmp);
     
     len  = lenTmp;
     Lang = nowLng;

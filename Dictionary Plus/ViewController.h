@@ -7,6 +7,7 @@
 //=========================================================================================================================================================
 
 #import <UIKit/UIKit.h>
+#import "TextQueryPlus.h"
 
 @interface ViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -17,6 +18,12 @@
 
 - (int) CountFoundWord;
 - (int) CountOfMeans;
+
+- (IBAction)ReturnFromUnwind:(UIStoryboardSegue *)unWindSegue;
+
+- (void) GoToConjVerb:(NSString*) verb Lang:(int) lng;
+
+- (void) FindFrasesWithQuery:(FOUNDS_ENTRY*) FoundEntries NWords:(NSInteger)Count Options:(int) sw;
 
 @end
 //=========================================================================================================================================================

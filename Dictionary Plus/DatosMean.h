@@ -12,7 +12,7 @@
 #import "ParseMeans.h"
 
 //===================================================================================================================================================
-// Botón para poner un icono y el cursor de la manito
+//
 @interface MarkNum : NSObject
 
 @property (nonatomic) int Count;
@@ -23,7 +23,7 @@
 @end
 
 //===================================================================================================================================================
-// Recuadro donde se ponen los datos de una entrada del diccionario
+// Datos de los significados de una palabra
 @interface DatosMean : InfoDatos
 
 @property (nonatomic) int src;
@@ -57,8 +57,6 @@
 
 - (void) PreviosWord;
 - (void) NextWord;
-- (void) FindActualWord;
-- (void) ConjActualWord;
 
 @end
 

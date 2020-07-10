@@ -10,6 +10,7 @@
 #import "AppData.h"
 #import "BtnsBarView.h"
 #import "DatosMean.h"
+#import "DatosConjs.h"
 
 //#import "BuyMsgView.h"
 
@@ -40,8 +41,6 @@ static UITableView* _TableDatos;
 @interface ZoneDatosView ()
 {
 UITableView* TableDatos;
-UIView*      InfoView;
-UILabel*     InfoLabel;
 
 NSMutableArray<InfoDatos*> *Datos;
 }
@@ -81,8 +80,6 @@ NSMutableArray<InfoDatos*> *Datos;
   [center addObserver:self selector:@selector(OnExecComamd:) name:ExecComamd object:nil];
   
   TableDatos = self.subviews[0];
-  InfoView   = self.subviews[1];
-  InfoLabel  = InfoView.subviews[0];
   
   TableDatos.estimatedRowHeight = 60;
 //  TableDatos.rowHeight = UITableViewAutomaticDimension;
@@ -164,7 +161,6 @@ NSMutableArray<InfoDatos*> *Datos;
     {
     [ZoneDatosView SelectDatos:datos];
     [_TableDatos reloadData];
-//    [_TableDatos scrollRectToVisible:CGRectMake(0, 0, 100, 60) animated:YES];
     
     NSIndexPath* idx = [NSIndexPath indexPathForRow:0 inSection:0];
     [_TableDatos scrollToRowAtIndexPath:idx atScrollPosition:UITableViewScrollPositionTop animated:YES];
@@ -194,6 +190,8 @@ NSMutableArray<InfoDatos*> *Datos;
   [Datos removeAllObjects];
   [TableDatos reloadData];
   
+  [ZoneDatosView SelectDatos:nil];
+  
   DictCmdBarDisable(CMD_DEL_MEANS);
   DictCmdBarRefresh();
   }
@@ -212,9 +210,6 @@ NSMutableArray<InfoDatos*> *Datos;
   if( datos ) [datos SelectedDatos];
   
   [_TableDatos reloadData];
-//  [_TableDatos setNeedsLayout];
-//  [_TableDatos layoutIfNeeded];
-//  [_TableDatos reloadData];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -264,9 +259,48 @@ NSMutableArray<InfoDatos*> *Datos;
     {
     case CMD_PREV_WRD: [datos PreviosWord    ]; break;
     case CMD_NEXT_WRD: [datos NextWord       ]; break;
-    case CMD_CONJ_WRD: [datos ConjActualWord ]; break;
-    case CMD_FIND_WRD: [datos FindActualWord ]; break;
+    case CMD_CONJ_WRD: [self ConjNowWordInDatos:datos ]; break;
+    case CMD_FIND_WRD: [self FindNowWordInDatos:datos ]; break;
     }
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Conjuga la palabra actual en los datos y las muesta en una fila nueva a continuación del dato seleccionado
+- (void) ConjNowWordInDatos:(DatosMean *)MeanDato
+  {
+  DictCmdBarEnable(CMD_DEL_MEANS);
+  DictCmdBarRefresh();
+  
+  MeanWord* wrd = MeanDato.ActualWord;
+  DatosConjs* ConfDato = [DatosConjs DatosForWord:wrd.Wrd Lang:wrd.lng];
+  
+  int idx = [self IndexAfter:MeanDato];
+  [Datos insertObject:ConfDato atIndex:idx];                                           // Adiciona vista de datos nueva
+  
+  NSIndexPath* Idx = [NSIndexPath indexPathForRow:idx inSection:0];
+  NSArray<NSIndexPath *> *rows = [NSArray arrayWithObject:Idx];
+  
+  [_TableDatos insertRowsAtIndexPaths:rows withRowAnimation:UITableViewRowAnimationAutomatic ];
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Busca la palabra actual en los datos y las muesta en una fila nueva a continuación del dato seleccionado
+- (void) FindNowWordInDatos:(DatosMean *)datos
+  {
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Busca el indice posterior al dato dado
+- (int) IndexAfter:(InfoDatos *)RefDato
+  {
+  int n = (int)Datos.count;
+  for (int i=0; i<n; ++i)
+    {
+    InfoDatos* dato = Datos[i];
+    if( dato==RefDato ) return i+1;
+    }
+  
+  return n;
   }
 
 

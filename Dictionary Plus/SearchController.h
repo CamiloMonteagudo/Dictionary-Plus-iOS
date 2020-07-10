@@ -13,6 +13,7 @@
 
 - (BOOL) OpenFindPlusWithText:(UITextField*) txt;
 - (void) CloseFindPlus;
+- (NSString*) GetActualWord;
 
 @end
 

@@ -7,7 +7,7 @@
 //=========================================================================================================================================================
 
 #import "ViewController.h"
-#import "SelLangsView.h"
+#import "SelDirView.h"
 #import "AppData.h"
 #import "PanelRigthView.h"
 #import "DesplazaView.h"
@@ -18,6 +18,8 @@
 #import "ZoneDatosView.h"
 #import "DatosMean.h"
 #import "BtnsBarView.h"
+#import "ConjCore.h"
+#import "ConjController.h"
 
 //=========================================================================================================================================================
 @interface ViewController ()
@@ -38,7 +40,7 @@
   }
 
 @property (weak, nonatomic) IBOutlet DesplazaView *DictZone;
-@property (weak, nonatomic) IBOutlet SelLangsView *selLangs;
+@property (weak, nonatomic) IBOutlet SelDirView *selLangs;
 @property (weak, nonatomic) IBOutlet UITextField *FindWord;
 @property (weak, nonatomic) IBOutlet UIView *SearchPlus;
 @property (weak, nonatomic) IBOutlet UIButton *bntSearchPlus;
@@ -46,7 +48,6 @@
 @property (weak, nonatomic) IBOutlet ZoneDatosView *DatosZone;
 @property (weak, nonatomic) IBOutlet UIView *BtnsZoneDown;
 @property (weak, nonatomic) IBOutlet UIView *BtnsZoneRight;
-@property (weak, nonatomic) IBOutlet UILabel *lbNoMeans;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *TopSpace;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *LeftSearchPlus;
@@ -54,7 +55,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *BtnsZoneRightWidth;
 
 - (IBAction)OnAvancedSearch:(id)sender;
-- (IBAction)OnSwapDatos:(id)sender;
 - (IBAction)OnShowMenu:(id)sender;
 - (IBAction)EditingChanged:(UITextField *)sender;
 
@@ -67,6 +67,7 @@
 - (void)viewDidLoad
   {
   Ctrller = self;
+  [ConjCore initConjCore];                                      // Inicializa modulo de conjugación
   
   MakeDictCmdBar();
   MakeDataCmdBar();
@@ -85,7 +86,7 @@
   [_selLangs SetDictWithSrc:LGSrc AndDes:LGDes];
   [self SetEditRightBotton];
   
-  _FindWord.allowsEditingTextAttributes = TRUE;
+//  _FindWord.allowsEditingTextAttributes = TRUE;
   
   NSNotificationCenter* center = [NSNotificationCenter defaultCenter];
   
@@ -109,8 +110,8 @@
 // Si es posible actualiza el tamaño de la barra de botones a la derecha del cuadro de edicción
 - (void) UpdateBarSizeAndPos
   {
-  if( _DictZone.SplitDatos  && _DictZone.Mode!=MODE_SPLIT ) DictCmdBarEnable(CMD_SPLIT);
-  else                                                      DictCmdBarDisable(CMD_SPLIT);
+  if( _DictZone.SplitDatos  && _DictZone.Mode!=MODE_SPLIT  && _DatosZone.Count>0 ) DictCmdBarEnable(CMD_SPLIT);
+  else                                                                             DictCmdBarDisable(CMD_SPLIT);
   
   CGFloat wb = DictCmdBarWidth();
   if( wb<75 )
@@ -221,9 +222,9 @@
   {
   [_DatosZone ClearDatos];
   
-  [self CheckNoMeansLabel];
+//  [self CheckNoMeansLabel];
       
-  if( _DictZone.Mode == MODE_MEANS )
+  if( _DictZone.Mode != MODE_LIST )
     [_DictZone ShowInMode:MODE_LIST Animate:YES];
   }
 
@@ -235,9 +236,9 @@
   
   if( _DatosZone.Count == 0 )
     {
-    [self CheckNoMeansLabel];
+//    [self CheckNoMeansLabel];
       
-    if( _DictZone.Mode == MODE_MEANS )
+    if( _DictZone.Mode != MODE_LIST )
       [_DictZone ShowInMode:MODE_LIST Animate:YES];
     }
   }
@@ -268,6 +269,7 @@
   {
   if( _LeftSearchPlus.constant>=0 ) return;
   
+  _SearchPlus.hidden = false;
   [UIView animateWithDuration:0.3 animations:^
     {
     _LeftSearchPlus.constant = 0;
@@ -290,14 +292,19 @@
   [UIView animateWithDuration:0.3 animations:^
     {
     _LeftSearchPlus.constant = -_SearchPlus.frame.size.width;
+    
     [self.view setNeedsUpdateConstraints];
   
     [self.view layoutIfNeeded];
+    }
+  completion:^(BOOL finished)
+    {
+    _SearchPlus.hidden = true;
+    
+    [FindPlusCtrller CloseFindPlus];
     }];
   
   [_bntSearchPlus setImage:imgPlus forState:UIControlStateNormal ];
-  
-  [FindPlusCtrller CloseFindPlus];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -312,38 +319,6 @@
  
   _FindWord.leftView     = btnLeft;
   _FindWord.leftViewMode = UITextFieldViewModeNever;
-  }
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
-// Se llama al oprimir el botón para cambiar la vista de los datos
-- (IBAction)OnSwapDatos:(id)sender
-  {
-  HideKeyboard();
-  
-  [_DictZone TogglePanel];
-  }
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
-// Se llama al oprimir el botón para mostrar el menú
-- (IBAction)OnShowMenu:(id)sender
-  {
-  HideKeyboard();
-  
-  NSArray* ItemIDs = @[@"Diccionario",@"Conjugador",@"Personalización"];
-  PopUp = [[PanelRigthView alloc] initInView:sender ItemIDs:ItemIDs];             // Crea un popup menú con items adicionales
-
-  [PopUp OnHidePopUp:@selector(OnHidePopUp:) Target:self];                          // Pone metodo de notificación del mené
-  }
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
-// Se llama cuando se cierra el menú con las opciones adicionales
-- (void)OnHidePopUp:(PanelRigthView*) view
-  {
-  PopUp = nil;                                                                     // Indica que no hay menú a partir de este momento
-  
-//  int Idx = view.SelectedItem;                                                     // Obtiene el item seleccionado en el menú
-//  if( Idx >= 0 )                                                                   // Hay uno seleccionado
-//    [self OnSelectItem:Idx];                                                       // Función que procesa la acción
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -368,14 +343,109 @@
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Se llama al oprimir el botón para mostrar el menú
+- (IBAction)OnShowMenu:(id)sender
+  {
+  HideKeyboard();
+  
+  NSMutableArray* ItemIDs = [NSMutableArray arrayWithObjects: @"Conj", @"Nums", @"Purchases", nil];
+  
+  if( _FindWord.text.length>0  )
+    {
+    if( _LeftSearchPlus.constant<0 ) [ItemIDs addObject:@"ShowFindPlus"];
+    else                             [ItemIDs addObject:@"HideFindPlus"];
+    }
+  
+  PopUp = [[PanelRigthView alloc] initInView:sender ItemIDs:ItemIDs];             // Crea un popup menú con items adicionales
+
+  [PopUp OnHidePopUp:@selector(OnHidePopUp:) Target:self];                          // Pone metodo de notificación del mené
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Se llama cuando se cierra el menú con las opciones adicionales
+- (void)OnHidePopUp:(PanelRigthView*) view
+  {
+  PopUp = nil;                                                                     // Indica que no hay menú a partir de este momento
+  
+  switch( view.SelectedItem )
+    {
+    case 0:
+      [self performSegueWithIdentifier: @"ShowConjVerb" sender: nil];
+    break;
+    case 3:
+      if( _LeftSearchPlus.constant<0 )
+        [self ShowAvancedSearch];
+      else
+        [self HideAvancedSearch];
+    break;
+    }
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Muestra la pantalla de conjugaciones con el verbo suministrado
+- (void) GoToConjVerb:(NSString*) verb Lang:(int) lng
+  {
+  MeanWord* CnjWord = [MeanWord MeanWordWithWord:verb Range:NSMakeRange(0, 0) Lang:lng];
+  
+  [self performSegueWithIdentifier: @"ShowConjVerb" sender: CnjWord];
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Se llama cada vez que se llama otro controlador para mostrar una vista
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
   {
-//  UIViewController* Ctrller = segue.destinationViewController;
-//  NSString* ID = segue.identifier;
+  UIViewController* Ctrller = segue.destinationViewController;
+  NSString* ID = segue.identifier;
   
+  if( [ID isEqualToString:@"ShowConjVerb"] )
+    {
+    int lang = LGSrc;
+    NSString* word = nil;
+    if( sender != nil )
+      {
+      word = ((MeanWord*)sender).Wrd;
+      lang = ((MeanWord*)sender).lng;
+      }
+    else
+      {
+      word = [self SelWordInActualData: &lang];
+   
+      if( word==nil )
+        word = [self ActualWordInFindPlus: &lang];
+      }
+    
+    if( word!=nil /*&& [ConjCore IsVerbWord:word InLang:lang ]*/ )
+      {
+      LGConj = lang;
+      ((ConjController *) Ctrller).Verb = word;
+      }
+    }
   }
 
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Obtiene la palabra actual en la busqueda avanzada si es esta usando, en otro caso retorna nil
+- (NSString*) ActualWordInFindPlus: (int *) lng
+  {
+  if( _LeftSearchPlus.constant < 0 ) return nil;
+
+  *lng = LGSrc;
+  return [FindPlusCtrller GetActualWord];
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Obtiene la palabra seleccionada en el dato actual si existe, en otro caso retorna nil
+- (NSString*) SelWordInActualData: (int *) lng
+  {
+  InfoDatos* SelDato = [ZoneDatosView SelectedDatos];
+  if( SelDato == nil ) return nil;
+  if( ![SelDato isKindOfClass:DatosMean.class] ) return nil;
+  
+  MeanWord* wrd = [(DatosMean*)SelDato ActualWord];
+  if( wrd==nil ) return nil;
+  
+  *lng = wrd.lng;
+  return wrd.Wrd;
+  }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Carga el diccionario para los idiomas activos
@@ -419,18 +489,19 @@
   SortEntries = [SortedIndexs SortEntries:FoundEntries Query:Query];        // Organiza las palabras por su ranking
 
   [_TableFrases reloadData];                                                // Actualiza el contenido de la lista
-  [self CheckNoMeansLabel];
+//  [self CheckNoMeansLabel];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Realiza una busqueda avanzada de palabras y frases, según los datos suministrados en 'Query' y 'sw'
-- (void) FindFrasesWithQuery:(TextQueryPlus*) query Options:(int) sw
+- (void) FindFrasesWithQuery:(FOUNDS_ENTRY*) FoundEntries NWords:(NSInteger)Count Options:(int) sw
   {
-  FOUNDS_ENTRY* FoundEntries = [query FindWords];                           // Busca las palabras
-
-  SortEntries = [SortedIndexs SortEntries:FoundEntries QueryPlus:query Options:sw];    // Organiza las palabras por su ranking
+  SortEntries = [SortedIndexs SortEntries:FoundEntries NWords:Count Options:sw];    // Organiza las palabras por su ranking
 
   [_TableFrases reloadData];                                                // Actualiza el contenido de la lista
+  
+  if( _DictZone.Mode != MODE_LIST )
+    [_DictZone ShowInMode:MODE_LIST Animate:YES];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -515,7 +586,7 @@ static NSDictionary* attrWrd = @{ NSFontAttributeName:fontBold };
     [_DictZone ShowInMode:mode Animate:YES];
     }
   
-  [self CheckNoMeansLabel];
+//  [self CheckNoMeansLabel];
   HideKeyboard();
   }
 
@@ -527,7 +598,7 @@ static NSDictionary* attrWrd = @{ NSFontAttributeName:fontBold };
 
   NSMutableArray<EntrySort*> *Entries = SortEntries->Entries;
 
-  for( int i=Entries.count-1; i>=0; --i )
+  for( int i=(int)Entries.count-1; i>=0; --i )
     {
     int idx = Entries[i]->Index;
     
@@ -543,32 +614,39 @@ static NSDictionary* attrWrd = @{ NSFontAttributeName:fontBold };
     }
   
   HideKeyboard();
-  [self CheckNoMeansLabel];
+//  [self CheckNoMeansLabel];
   [_DatosZone SelectFirst];
   }
 
+//------------------------------------------------------------------------------------------------------------------------------------
+// Se llama cuando se retorna desde otra pantalla
+- (IBAction)ReturnFromUnwind:(UIStoryboardSegue *)unWindSegue
+  {
+  }
+
+
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Chequea si no hay ningún significado y pone una etiqueta de orientación al usuario
-- (void) CheckNoMeansLabel
-  {
-  BOOL hidden = (_DatosZone.Count!=0);
-  
-  _lbNoMeans.hidden = hidden;
-  if( hidden )
-    {
-    if( _DictZone.Mode != MODE_MEANS )
-      DictCmdBarEnable( CMD_MEANS );
-    }
-  else
-    {
-    if( SortEntries.Count>0 ) _lbNoMeans.text = @"Para mostrar un significado aquí:\r\n\r\n Seleccione una fila en la lista de palabras o frases encontradas";
-    else                      _lbNoMeans.text = @"Para mostrar un significado aqui:\r\n\r\n Escriba la palabra o frase que desea buscar en el cuadro de búsqueda y luego seleccione una fila en la lista";
-  
-    DictCmdBarDisable( CMD_MEANS );
-    }
-  
-  DictCmdBarRefresh();
-  }
+//- (void) CheckNoMeansLabel
+//  {
+//  BOOL hidden = (_DatosZone.Count!=0);
+//  
+//  _lbNoMeans.hidden = hidden;
+//  if( hidden )
+//    {
+//    if( _DictZone.Mode != MODE_MEANS )
+//      DictCmdBarEnable( CMD_MEANS );
+//    }
+//  else
+//    {
+//    if( SortEntries.Count>0 ) _lbNoMeans.text = @"Para mostrar un significado aquí:\r\n\r\n Seleccione una fila en la lista de palabras o frases encontradas";
+//    else                      _lbNoMeans.text = @"Para mostrar un significado aqui:\r\n\r\n Escriba la palabra o frase que desea buscar en el cuadro de búsqueda y luego seleccione una fila en la lista";
+//  
+//    DictCmdBarDisable( CMD_MEANS );
+//    }
+//  
+//  DictCmdBarRefresh();
+//  }
 
 @end
 //=========================================================================================================================================================

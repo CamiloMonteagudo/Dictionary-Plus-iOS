@@ -31,16 +31,26 @@
 #define FULL_FRASE  0x0001
 //#define VERB_UP     0x0002
 
+#define BRD_W  1                  // Ancho del borde de las zonas redondeadas
+
+#define ROUND  8                  // Radio de redondeo de las esquinas
+#define R_SUP  0x0001             // Lleva redondeo en la parte superior
+#define R_INF  0x0002             // Lleva redondeo en la parte inferior
+#define R_ALL  0x0003             // Llava redondeo en todas las esquinas
+
+
 //===================================================================================================================================================
 // Define tipos de datos para la búsqueda
 #define INT_LIST      NSMutableArray<NSNumber*>
 #define FOUNDS_ENTRY  NSMutableDictionary<NSNumber*,  INT_LIST*>
+#define NUM_SET       NSMutableSet<NSNumber*>
 #define GET_NUMBER(n) [NSNumber numberWithInt:n]
 
 //===================================================================================================================================================
 
 extern int  LGSrc;
 extern int  LGDes;
+extern int  LGConj;
 extern int  iUser;
 extern UIView* nowEdit;               // Vista que mostro el teclado
 
@@ -66,6 +76,7 @@ extern NSString* LGFlag( int lng);
 extern NSString* LGAbrv( int lng );
 extern NSString* LGName( int lng );
 extern NSString* LGFlagName( int lng );
+extern NSString* LGFlagFile( int lng, NSString* Suxfix );
 
 extern int       DIRSrc( int iDir );
 extern int       DIRDes( int iDir );
@@ -92,6 +103,8 @@ extern int HexDigit(int idx, NSString* str );
 
 extern NSString* QuitaAcentos( NSString* wrd, int lng );
 extern void WaitMsg();
+
+extern void DrawRoundRect( CGRect rc, int Round, UIColor* ColBrd, UIColor* ColBody );
 
 //===================================================================================================================================================
 

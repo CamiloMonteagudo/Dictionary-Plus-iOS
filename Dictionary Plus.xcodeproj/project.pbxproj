@@ -15,6 +15,43 @@
 		841CBD7920673C5C0040D178 /* btnDelAll50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 841CBD7520673C5C0040D178 /* btnDelAll50@2x.png */; };
 		841CBD7A20673C5C0040D178 /* btnLeft50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 841CBD7620673C5C0040D178 /* btnLeft50@2x.png */; };
 		841CBD7C20673C9E0040D178 /* btnRight50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 841CBD7B20673C9E0040D178 /* btnRight50@2x.png */; };
+		84651315208E776C00250E21 /* BtnClose1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84651314208E776C00250E21 /* BtnClose1@2x.png */; };
+		8465131B208EA3C000250E21 /* BntCloseMod@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84651316208EA3C000250E21 /* BntCloseMod@2x.png */; };
+		8465131C208EA3C000250E21 /* BtnConj@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84651317208EA3C000250E21 /* BtnConj@2x.png */; };
+		8465131D208EA3C000250E21 /* BtnNums@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84651318208EA3C000250E21 /* BtnNums@2x.png */; };
+		8465131E208EA3C000250E21 /* BtnShowFindPlus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84651319208EA3C000250E21 /* BtnShowFindPlus@2x.png */; };
+		8465131F208EA3C000250E21 /* BtnPurchases@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8465131A208EA3C000250E21 /* BtnPurchases@2x.png */; };
+		84651321208EE08B00250E21 /* BtnHideFindPlus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84651320208EE08B00250E21 /* BtnHideFindPlus@2x.png */; };
+		849911F4208BC27F001F0B0F /* BntFind@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849911F2208BC27F001F0B0F /* BntFind@2x.png */; };
+		849911F5208BC27F001F0B0F /* BtnGroup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849911F3208BC27F001F0B0F /* BtnGroup@2x.png */; };
+		849911FB208BC399001F0B0F /* BtnMeans2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849911F6208BC399001F0B0F /* BtnMeans2@2x.png */; };
+		849911FC208BC399001F0B0F /* FlagEn30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849911F7208BC399001F0B0F /* FlagEn30@2x.png */; };
+		849911FD208BC399001F0B0F /* FlagEs30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849911F8208BC399001F0B0F /* FlagEs30@2x.png */; };
+		849911FE208BC399001F0B0F /* FlagFr30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849911F9208BC399001F0B0F /* FlagFr30@2x.png */; };
+		849911FF208BC399001F0B0F /* FlagIt30@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849911FA208BC399001F0B0F /* FlagIt30@2x.png */; };
+		8499124A208BF39A001F0B0F /* ConjCore.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84991249208BF39A001F0B0F /* ConjCore.mm */; };
+		8499124E208BF3BA001F0B0F /* DictLoad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8499124C208BF3BA001F0B0F /* DictLoad.cpp */; };
+		84991297208BF495001F0B0F /* ArrayUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84991283208BF495001F0B0F /* ArrayUtil.cpp */; };
+		84991298208BF495001F0B0F /* ArrayUtil.inl in Resources */ = {isa = PBXBuildFile; fileRef = 84991285208BF495001F0B0F /* ArrayUtil.inl */; };
+		84991299208BF495001F0B0F /* CString.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84991286208BF495001F0B0F /* CString.cpp */; };
+		8499129A208BF495001F0B0F /* FastHeap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84991289208BF495001F0B0F /* FastHeap.cpp */; };
+		8499129B208BF495001F0B0F /* FileUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8499128B208BF495001F0B0F /* FileUtil.cpp */; };
+		8499129C208BF495001F0B0F /* Logger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8499128E208BF495001F0B0F /* Logger.cpp */; };
+		8499129D208BF495001F0B0F /* StrUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84991291208BF495001F0B0F /* StrUtil.cpp */; };
+		8499129E208BF495001F0B0F /* UtilFun.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84991293208BF495001F0B0F /* UtilFun.cpp */; };
+		8499129F208BF495001F0B0F /* WinUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 84991295208BF495001F0B0F /* WinUtil.cpp */; };
+		849912A5208BF4D7001F0B0F /* ApiRed.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 849912A0208BF4D7001F0B0F /* ApiRed.cpp */; };
+		849912A6208BF4D7001F0B0F /* RedWord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 849912A1208BF4D7001F0B0F /* RedWord.cpp */; };
+		849912A7208BF4D7001F0B0F /* RWDefn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 849912A3208BF4D7001F0B0F /* RWDefn.cpp */; };
+		849912B1208BF4F5001F0B0F /* ApiConj.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 849912A8208BF4F5001F0B0F /* ApiConj.cpp */; };
+		849912B2208BF4F5001F0B0F /* ConjVerb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 849912A9208BF4F5001F0B0F /* ConjVerb.cpp */; };
+		849912B3208BF4F5001F0B0F /* Ctabla.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 849912AB208BF4F5001F0B0F /* Ctabla.cpp */; };
+		849912B4208BF4F5001F0B0F /* CVDefn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 849912AD208BF4F5001F0B0F /* CVDefn.cpp */; };
+		849912B5208BF4F5001F0B0F /* RefTabla.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 849912AF208BF4F5001F0B0F /* RefTabla.cpp */; };
+		849912BF208BF9A4001F0B0F /* DictRed.m in Sources */ = {isa = PBXBuildFile; fileRef = 849912BE208BF9A4001F0B0F /* DictRed.m */; };
+		849912C8208BFC09001F0B0F /* ConjController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849912C1208BFC09001F0B0F /* ConjController.m */; };
+		849912C9208BFC09001F0B0F /* ConjDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 849912C3208BFC09001F0B0F /* ConjDataView.m */; };
+		849912CA208BFC09001F0B0F /* ConjHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 849912C5208BFC09001F0B0F /* ConjHeaderView.m */; };
 		84A195D3205C768A00110EDA /* btnMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A195CC205C768A00110EDA /* btnMenu.png */; };
 		84A195D4205C768A00110EDA /* btnPopUp50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A195CD205C768A00110EDA /* btnPopUp50@2x.png */; };
 		84A195D5205C768A00110EDA /* btnSwap50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A195CE205C768A00110EDA /* btnSwap50@2x.png */; };
@@ -23,12 +60,13 @@
 		84A195D8205C768A00110EDA /* FlagFr50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A195D1205C768A00110EDA /* FlagFr50@2x.png */; };
 		84A195D9205C768A00110EDA /* FlagIt50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A195D2205C768A00110EDA /* FlagIt50@2x.png */; };
 		84A195DF205C8C7400110EDA /* btnSwap50_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A195DE205C8C7400110EDA /* btnSwap50_@2x.png */; };
-		84A195E2205C966500110EDA /* SelLangsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A195E1205C966500110EDA /* SelLangsView.m */; };
+		84A195E2205C966500110EDA /* SelDirView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A195E1205C966500110EDA /* SelDirView.m */; };
 		84A195E4205CB04C00110EDA /* Leading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A195E3205CB04C00110EDA /* Leading@2x.png */; };
 		84A195E9205CB42800110EDA /* AppData.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A195E8205CB42800110EDA /* AppData.m */; };
 		84B0AF6A2068627A00C61E6D /* SearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0AF692068627A00C61E6D /* SearchController.m */; };
 		84B0AF6C2068B8CE00C61E6D /* btnMoveUp50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B0AF6B2068B8CE00C61E6D /* btnMoveUp50@2x.png */; };
 		84B22A21205D983E007398F8 /* LangPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B22A20205D983E007398F8 /* LangPopUpView.m */; };
+		84CF1FB3208FF1D000DD0FE8 /* DatosConjs.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF1FB2208FF1D000DD0FE8 /* DatosConjs.m */; };
 		84DE9EB9207FFDCB004E90AF /* ParseMeans.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE9EB8207FFDCB004E90AF /* ParseMeans.m */; };
 		84DEEF70207657FC00F3A8F1 /* Datos in Resources */ = {isa = PBXBuildFile; fileRef = 84DEEF6F207657FC00F3A8F1 /* Datos */; };
 		84DEEF742076589D00F3A8F1 /* DictIndexes.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF722076589D00F3A8F1 /* DictIndexes.m */; };
@@ -48,6 +86,7 @@
 		84E43D83207A8ADA00D80910 /* CmdPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E43D82207A8ADA00D80910 /* CmdPopUpView.m */; };
 		84E43D86207AB90500D80910 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84E43D88207AB90500D80910 /* Localizable.strings */; };
 		84E4BB812059F80200BECE1F /* DesplazaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E4BB802059F80200BECE1F /* DesplazaView.m */; };
+		84E806A4208CF6D200D78C38 /* SelLangView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E806A3208CF6D200D78C38 /* SelLangView.m */; };
 		84EB11182058814B00A1DA0D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB11172058814B00A1DA0D /* main.m */; };
 		84EB111B2058814B00A1DA0D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB111A2058814B00A1DA0D /* AppDelegate.m */; };
 		84EB111E2058814B00A1DA0D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB111D2058814B00A1DA0D /* ViewController.m */; };
@@ -78,6 +117,76 @@
 		841CBD7520673C5C0040D178 /* btnDelAll50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnDelAll50@2x.png"; path = "Images/btnDelAll50@2x.png"; sourceTree = "<group>"; };
 		841CBD7620673C5C0040D178 /* btnLeft50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnLeft50@2x.png"; path = "Images/btnLeft50@2x.png"; sourceTree = "<group>"; };
 		841CBD7B20673C9E0040D178 /* btnRight50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnRight50@2x.png"; path = "Images/btnRight50@2x.png"; sourceTree = "<group>"; };
+		84651314208E776C00250E21 /* BtnClose1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BtnClose1@2x.png"; path = "Images/BtnClose1@2x.png"; sourceTree = "<group>"; };
+		84651316208EA3C000250E21 /* BntCloseMod@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BntCloseMod@2x.png"; path = "Images/BntCloseMod@2x.png"; sourceTree = "<group>"; };
+		84651317208EA3C000250E21 /* BtnConj@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BtnConj@2x.png"; path = "Images/BtnConj@2x.png"; sourceTree = "<group>"; };
+		84651318208EA3C000250E21 /* BtnNums@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BtnNums@2x.png"; path = "Images/BtnNums@2x.png"; sourceTree = "<group>"; };
+		84651319208EA3C000250E21 /* BtnShowFindPlus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BtnShowFindPlus@2x.png"; path = "Images/BtnShowFindPlus@2x.png"; sourceTree = "<group>"; };
+		8465131A208EA3C000250E21 /* BtnPurchases@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BtnPurchases@2x.png"; path = "Images/BtnPurchases@2x.png"; sourceTree = "<group>"; };
+		84651320208EE08B00250E21 /* BtnHideFindPlus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BtnHideFindPlus@2x.png"; path = "Images/BtnHideFindPlus@2x.png"; sourceTree = "<group>"; };
+		849911F2208BC27F001F0B0F /* BntFind@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BntFind@2x.png"; path = "Images/BntFind@2x.png"; sourceTree = "<group>"; };
+		849911F3208BC27F001F0B0F /* BtnGroup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BtnGroup@2x.png"; path = "Images/BtnGroup@2x.png"; sourceTree = "<group>"; };
+		849911F6208BC399001F0B0F /* BtnMeans2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BtnMeans2@2x.png"; path = "Images/BtnMeans2@2x.png"; sourceTree = "<group>"; };
+		849911F7208BC399001F0B0F /* FlagEn30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FlagEn30@2x.png"; path = "Images/FlagEn30@2x.png"; sourceTree = "<group>"; };
+		849911F8208BC399001F0B0F /* FlagEs30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FlagEs30@2x.png"; path = "Images/FlagEs30@2x.png"; sourceTree = "<group>"; };
+		849911F9208BC399001F0B0F /* FlagFr30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FlagFr30@2x.png"; path = "Images/FlagFr30@2x.png"; sourceTree = "<group>"; };
+		849911FA208BC399001F0B0F /* FlagIt30@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FlagIt30@2x.png"; path = "Images/FlagIt30@2x.png"; sourceTree = "<group>"; };
+		84991248208BF39A001F0B0F /* ConjCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConjCore.h; path = "Dictionary Plus/ConjAPI/ConjCore.h"; sourceTree = "<group>"; };
+		84991249208BF39A001F0B0F /* ConjCore.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ConjCore.mm; path = "Dictionary Plus/ConjAPI/ConjCore.mm"; sourceTree = "<group>"; };
+		8499124B208BF3BA001F0B0F /* Dict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dict.h; path = "Dictionary Plus/ConjAPI/Dict/Dict.h"; sourceTree = "<group>"; };
+		8499124C208BF3BA001F0B0F /* DictLoad.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DictLoad.cpp; path = "Dictionary Plus/ConjAPI/Dict/DictLoad.cpp"; sourceTree = "<group>"; };
+		8499124D208BF3BA001F0B0F /* DictLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictLoad.h; path = "Dictionary Plus/ConjAPI/Dict/DictLoad.h"; sourceTree = "<group>"; };
+		84991281208BF495001F0B0F /* ApiConj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApiConj.h; path = "Dictionary Plus/ConjAPI/CommonSrc/ApiConj.h"; sourceTree = "<group>"; };
+		84991282208BF495001F0B0F /* ApiRed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApiRed.h; path = "Dictionary Plus/ConjAPI/CommonSrc/ApiRed.h"; sourceTree = "<group>"; };
+		84991283208BF495001F0B0F /* ArrayUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ArrayUtil.cpp; path = "Dictionary Plus/ConjAPI/CommonSrc/ArrayUtil.cpp"; sourceTree = "<group>"; };
+		84991284208BF495001F0B0F /* ArrayUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArrayUtil.h; path = "Dictionary Plus/ConjAPI/CommonSrc/ArrayUtil.h"; sourceTree = "<group>"; };
+		84991285208BF495001F0B0F /* ArrayUtil.inl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ArrayUtil.inl; path = "Dictionary Plus/ConjAPI/CommonSrc/ArrayUtil.inl"; sourceTree = "<group>"; };
+		84991286208BF495001F0B0F /* CString.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CString.cpp; path = "Dictionary Plus/ConjAPI/CommonSrc/CString.cpp"; sourceTree = "<group>"; };
+		84991287208BF495001F0B0F /* CString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CString.h; path = "Dictionary Plus/ConjAPI/CommonSrc/CString.h"; sourceTree = "<group>"; };
+		84991288208BF495001F0B0F /* FastArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FastArray.h; path = "Dictionary Plus/ConjAPI/CommonSrc/FastArray.h"; sourceTree = "<group>"; };
+		84991289208BF495001F0B0F /* FastHeap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FastHeap.cpp; path = "Dictionary Plus/ConjAPI/CommonSrc/FastHeap.cpp"; sourceTree = "<group>"; };
+		8499128A208BF495001F0B0F /* FastHeap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FastHeap.h; path = "Dictionary Plus/ConjAPI/CommonSrc/FastHeap.h"; sourceTree = "<group>"; };
+		8499128B208BF495001F0B0F /* FileUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FileUtil.cpp; path = "Dictionary Plus/ConjAPI/CommonSrc/FileUtil.cpp"; sourceTree = "<group>"; };
+		8499128C208BF495001F0B0F /* FileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileUtil.h; path = "Dictionary Plus/ConjAPI/CommonSrc/FileUtil.h"; sourceTree = "<group>"; };
+		8499128D208BF495001F0B0F /* LanguageName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LanguageName.h; path = "Dictionary Plus/ConjAPI/CommonSrc/LanguageName.h"; sourceTree = "<group>"; };
+		8499128E208BF495001F0B0F /* Logger.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Logger.cpp; path = "Dictionary Plus/ConjAPI/CommonSrc/Logger.cpp"; sourceTree = "<group>"; };
+		8499128F208BF495001F0B0F /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Logger.h; path = "Dictionary Plus/ConjAPI/CommonSrc/Logger.h"; sourceTree = "<group>"; };
+		84991290208BF495001F0B0F /* RootLanguageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootLanguageData.h; path = "Dictionary Plus/ConjAPI/CommonSrc/RootLanguageData.h"; sourceTree = "<group>"; };
+		84991291208BF495001F0B0F /* StrUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StrUtil.cpp; path = "Dictionary Plus/ConjAPI/CommonSrc/StrUtil.cpp"; sourceTree = "<group>"; };
+		84991292208BF495001F0B0F /* StrUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StrUtil.h; path = "Dictionary Plus/ConjAPI/CommonSrc/StrUtil.h"; sourceTree = "<group>"; };
+		84991293208BF495001F0B0F /* UtilFun.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = UtilFun.cpp; path = "Dictionary Plus/ConjAPI/CommonSrc/UtilFun.cpp"; sourceTree = "<group>"; };
+		84991294208BF495001F0B0F /* UtilFun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UtilFun.h; path = "Dictionary Plus/ConjAPI/CommonSrc/UtilFun.h"; sourceTree = "<group>"; };
+		84991295208BF495001F0B0F /* WinUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WinUtil.cpp; path = "Dictionary Plus/ConjAPI/CommonSrc/WinUtil.cpp"; sourceTree = "<group>"; };
+		84991296208BF495001F0B0F /* WinUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WinUtil.h; path = "Dictionary Plus/ConjAPI/CommonSrc/WinUtil.h"; sourceTree = "<group>"; };
+		849912A0208BF4D7001F0B0F /* ApiRed.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ApiRed.cpp; path = "Dictionary Plus/ConjAPI/Red/ApiRed.cpp"; sourceTree = "<group>"; };
+		849912A1208BF4D7001F0B0F /* RedWord.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = RedWord.cpp; path = "Dictionary Plus/ConjAPI/Red/RedWord.cpp"; sourceTree = "<group>"; };
+		849912A2208BF4D7001F0B0F /* RedWord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RedWord.h; path = "Dictionary Plus/ConjAPI/Red/RedWord.h"; sourceTree = "<group>"; };
+		849912A3208BF4D7001F0B0F /* RWDefn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RWDefn.cpp; path = "Dictionary Plus/ConjAPI/Red/RWDefn.cpp"; sourceTree = "<group>"; };
+		849912A4208BF4D7001F0B0F /* RWDefn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RWDefn.h; path = "Dictionary Plus/ConjAPI/Red/RWDefn.h"; sourceTree = "<group>"; };
+		849912A8208BF4F5001F0B0F /* ApiConj.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ApiConj.cpp; path = "Dictionary Plus/ConjAPI/Conj/ApiConj.cpp"; sourceTree = "<group>"; };
+		849912A9208BF4F5001F0B0F /* ConjVerb.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ConjVerb.cpp; path = "Dictionary Plus/ConjAPI/Conj/ConjVerb.cpp"; sourceTree = "<group>"; };
+		849912AA208BF4F5001F0B0F /* ConjVerb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConjVerb.h; path = "Dictionary Plus/ConjAPI/Conj/ConjVerb.h"; sourceTree = "<group>"; };
+		849912AB208BF4F5001F0B0F /* Ctabla.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Ctabla.cpp; path = "Dictionary Plus/ConjAPI/Conj/Ctabla.cpp"; sourceTree = "<group>"; };
+		849912AC208BF4F5001F0B0F /* CTabla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CTabla.h; path = "Dictionary Plus/ConjAPI/Conj/CTabla.h"; sourceTree = "<group>"; };
+		849912AD208BF4F5001F0B0F /* CVDefn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CVDefn.cpp; path = "Dictionary Plus/ConjAPI/Conj/CVDefn.cpp"; sourceTree = "<group>"; };
+		849912AE208BF4F5001F0B0F /* cvdefn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = cvdefn.h; path = "Dictionary Plus/ConjAPI/Conj/cvdefn.h"; sourceTree = "<group>"; };
+		849912AF208BF4F5001F0B0F /* RefTabla.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = RefTabla.cpp; path = "Dictionary Plus/ConjAPI/Conj/RefTabla.cpp"; sourceTree = "<group>"; };
+		849912B0208BF4F5001F0B0F /* RefTabla.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RefTabla.h; path = "Dictionary Plus/ConjAPI/Conj/RefTabla.h"; sourceTree = "<group>"; };
+		849912B6208BF599001F0B0F /* CStringNoRef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CStringNoRef.h; path = "Dictionary Plus/ConjAPI/CommonSrc/CStringNoRef.h"; sourceTree = "<group>"; };
+		849912B7208BF73A001F0B0F /* DictCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictCache.h; path = "Dictionary Plus/ConjAPI/Dict/DictCache.h"; sourceTree = "<group>"; };
+		849912B8208BF73A001F0B0F /* DictData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictData.h; path = "Dictionary Plus/ConjAPI/Dict/DictData.h"; sourceTree = "<group>"; };
+		849912B9208BF73A001F0B0F /* DictError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictError.h; path = "Dictionary Plus/ConjAPI/Dict/DictError.h"; sourceTree = "<group>"; };
+		849912BA208BF73A001F0B0F /* DictIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictIndex.h; path = "Dictionary Plus/ConjAPI/Dict/DictIndex.h"; sourceTree = "<group>"; };
+		849912BB208BF73A001F0B0F /* DictTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictTypes.h; path = "Dictionary Plus/ConjAPI/Dict/DictTypes.h"; sourceTree = "<group>"; };
+		849912BC208BF8DB001F0B0F /* ComplexTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComplexTypes.h; path = "Dictionary Plus/ConjAPI/Dict/ComplexTypes.h"; sourceTree = "<group>"; };
+		849912BD208BF9A4001F0B0F /* DictRed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DictRed.h; path = "Dictionary Plus/ConjAPI/DictRed.h"; sourceTree = "<group>"; };
+		849912BE208BF9A4001F0B0F /* DictRed.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = DictRed.m; path = "Dictionary Plus/ConjAPI/DictRed.m"; sourceTree = "<group>"; };
+		849912C0208BFC09001F0B0F /* ConjController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConjController.h; path = "Dictionary Plus/ConjController.h"; sourceTree = "<group>"; };
+		849912C1208BFC09001F0B0F /* ConjController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = ConjController.m; path = "Dictionary Plus/ConjController.m"; sourceTree = "<group>"; };
+		849912C2208BFC09001F0B0F /* ConjDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConjDataView.h; sourceTree = "<group>"; };
+		849912C3208BFC09001F0B0F /* ConjDataView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ConjDataView.m; sourceTree = "<group>"; };
+		849912C4208BFC09001F0B0F /* ConjHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConjHeaderView.h; sourceTree = "<group>"; };
+		849912C5208BFC09001F0B0F /* ConjHeaderView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ConjHeaderView.m; sourceTree = "<group>"; };
 		84A195CC205C768A00110EDA /* btnMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btnMenu.png; path = Images/btnMenu.png; sourceTree = "<group>"; };
 		84A195CD205C768A00110EDA /* btnPopUp50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnPopUp50@2x.png"; path = "Images/btnPopUp50@2x.png"; sourceTree = "<group>"; };
 		84A195CE205C768A00110EDA /* btnSwap50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnSwap50@2x.png"; path = "Images/btnSwap50@2x.png"; sourceTree = "<group>"; };
@@ -86,8 +195,8 @@
 		84A195D1205C768A00110EDA /* FlagFr50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FlagFr50@2x.png"; path = "Images/FlagFr50@2x.png"; sourceTree = "<group>"; };
 		84A195D2205C768A00110EDA /* FlagIt50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FlagIt50@2x.png"; path = "Images/FlagIt50@2x.png"; sourceTree = "<group>"; };
 		84A195DE205C8C7400110EDA /* btnSwap50_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnSwap50_@2x.png"; path = "Images/btnSwap50_@2x.png"; sourceTree = "<group>"; };
-		84A195E0205C966500110EDA /* SelLangsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelLangsView.h; sourceTree = "<group>"; };
-		84A195E1205C966500110EDA /* SelLangsView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = SelLangsView.m; sourceTree = "<group>"; };
+		84A195E0205C966500110EDA /* SelDirView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelDirView.h; sourceTree = "<group>"; };
+		84A195E1205C966500110EDA /* SelDirView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = SelDirView.m; sourceTree = "<group>"; };
 		84A195E3205CB04C00110EDA /* Leading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Leading@2x.png"; path = "Images/Leading@2x.png"; sourceTree = "<group>"; };
 		84A195E7205CB42800110EDA /* AppData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppData.h; path = "Dictionary Plus/AppData.h"; sourceTree = "<group>"; };
 		84A195E8205CB42800110EDA /* AppData.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = AppData.m; path = "Dictionary Plus/AppData.m"; sourceTree = "<group>"; };
@@ -96,6 +205,8 @@
 		84B0AF6B2068B8CE00C61E6D /* btnMoveUp50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnMoveUp50@2x.png"; path = "Images/btnMoveUp50@2x.png"; sourceTree = "<group>"; };
 		84B22A1F205D983E007398F8 /* LangPopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LangPopUpView.h; sourceTree = "<group>"; };
 		84B22A20205D983E007398F8 /* LangPopUpView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = LangPopUpView.m; sourceTree = "<group>"; };
+		84CF1FB1208FF1D000DD0FE8 /* DatosConjs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatosConjs.h; path = "Dictionary Plus/DatosConjs.h"; sourceTree = "<group>"; };
+		84CF1FB2208FF1D000DD0FE8 /* DatosConjs.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = DatosConjs.m; path = "Dictionary Plus/DatosConjs.m"; sourceTree = "<group>"; };
 		84DE9EB7207FFDCB004E90AF /* ParseMeans.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParseMeans.h; path = "Dictionary Plus/ParseMeans.h"; sourceTree = "<group>"; };
 		84DE9EB8207FFDCB004E90AF /* ParseMeans.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = ParseMeans.m; path = "Dictionary Plus/ParseMeans.m"; sourceTree = "<group>"; };
 		84DEEF6F207657FC00F3A8F1 /* Datos */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Datos; path = "Dictionary Plus/Datos"; sourceTree = "<group>"; };
@@ -132,6 +243,8 @@
 		84E43D87207AB90500D80910 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		84E4BB7F2059F80200BECE1F /* DesplazaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesplazaView.h; sourceTree = "<group>"; };
 		84E4BB802059F80200BECE1F /* DesplazaView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = DesplazaView.m; sourceTree = "<group>"; };
+		84E806A2208CF6C100D78C38 /* SelLangView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelLangView.h; sourceTree = "<group>"; };
+		84E806A3208CF6D200D78C38 /* SelLangView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = SelLangView.m; sourceTree = "<group>"; };
 		84EB11132058814B00A1DA0D /* Dictionary Plus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dictionary Plus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EB11172058814B00A1DA0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84EB11192058814B00A1DA0D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "Dictionary Plus/AppDelegate.h"; sourceTree = "<group>"; };
@@ -169,6 +282,95 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84991243208BCB17001F0B0F /* TrdApi */ = {
+			isa = PBXGroup;
+			children = (
+				849912BD208BF9A4001F0B0F /* DictRed.h */,
+				849912BE208BF9A4001F0B0F /* DictRed.m */,
+				84991248208BF39A001F0B0F /* ConjCore.h */,
+				84991249208BF39A001F0B0F /* ConjCore.mm */,
+				84991247208BCB2F001F0B0F /* Dict */,
+				84991246208BCB2B001F0B0F /* CommonSrc */,
+				84991245208BCB27001F0B0F /* Red */,
+				84991244208BCB22001F0B0F /* Conj */,
+			);
+			name = TrdApi;
+			sourceTree = "<group>";
+		};
+		84991244208BCB22001F0B0F /* Conj */ = {
+			isa = PBXGroup;
+			children = (
+				849912A8208BF4F5001F0B0F /* ApiConj.cpp */,
+				849912A9208BF4F5001F0B0F /* ConjVerb.cpp */,
+				849912AA208BF4F5001F0B0F /* ConjVerb.h */,
+				849912AB208BF4F5001F0B0F /* Ctabla.cpp */,
+				849912AC208BF4F5001F0B0F /* CTabla.h */,
+				849912AD208BF4F5001F0B0F /* CVDefn.cpp */,
+				849912AE208BF4F5001F0B0F /* cvdefn.h */,
+				849912AF208BF4F5001F0B0F /* RefTabla.cpp */,
+				849912B0208BF4F5001F0B0F /* RefTabla.h */,
+			);
+			name = Conj;
+			sourceTree = "<group>";
+		};
+		84991245208BCB27001F0B0F /* Red */ = {
+			isa = PBXGroup;
+			children = (
+				849912A0208BF4D7001F0B0F /* ApiRed.cpp */,
+				849912A1208BF4D7001F0B0F /* RedWord.cpp */,
+				849912A2208BF4D7001F0B0F /* RedWord.h */,
+				849912A3208BF4D7001F0B0F /* RWDefn.cpp */,
+				849912A4208BF4D7001F0B0F /* RWDefn.h */,
+			);
+			name = Red;
+			sourceTree = "<group>";
+		};
+		84991246208BCB2B001F0B0F /* CommonSrc */ = {
+			isa = PBXGroup;
+			children = (
+				849912B6208BF599001F0B0F /* CStringNoRef.h */,
+				84991281208BF495001F0B0F /* ApiConj.h */,
+				84991282208BF495001F0B0F /* ApiRed.h */,
+				84991283208BF495001F0B0F /* ArrayUtil.cpp */,
+				84991284208BF495001F0B0F /* ArrayUtil.h */,
+				84991285208BF495001F0B0F /* ArrayUtil.inl */,
+				84991286208BF495001F0B0F /* CString.cpp */,
+				84991287208BF495001F0B0F /* CString.h */,
+				84991288208BF495001F0B0F /* FastArray.h */,
+				84991289208BF495001F0B0F /* FastHeap.cpp */,
+				8499128A208BF495001F0B0F /* FastHeap.h */,
+				8499128B208BF495001F0B0F /* FileUtil.cpp */,
+				8499128C208BF495001F0B0F /* FileUtil.h */,
+				8499128D208BF495001F0B0F /* LanguageName.h */,
+				8499128E208BF495001F0B0F /* Logger.cpp */,
+				8499128F208BF495001F0B0F /* Logger.h */,
+				84991290208BF495001F0B0F /* RootLanguageData.h */,
+				84991291208BF495001F0B0F /* StrUtil.cpp */,
+				84991292208BF495001F0B0F /* StrUtil.h */,
+				84991293208BF495001F0B0F /* UtilFun.cpp */,
+				84991294208BF495001F0B0F /* UtilFun.h */,
+				84991295208BF495001F0B0F /* WinUtil.cpp */,
+				84991296208BF495001F0B0F /* WinUtil.h */,
+			);
+			name = CommonSrc;
+			sourceTree = "<group>";
+		};
+		84991247208BCB2F001F0B0F /* Dict */ = {
+			isa = PBXGroup;
+			children = (
+				849912BC208BF8DB001F0B0F /* ComplexTypes.h */,
+				849912B7208BF73A001F0B0F /* DictCache.h */,
+				849912B8208BF73A001F0B0F /* DictData.h */,
+				849912B9208BF73A001F0B0F /* DictError.h */,
+				849912BA208BF73A001F0B0F /* DictIndex.h */,
+				849912BB208BF73A001F0B0F /* DictTypes.h */,
+				8499124B208BF3BA001F0B0F /* Dict.h */,
+				8499124C208BF3BA001F0B0F /* DictLoad.cpp */,
+				8499124D208BF3BA001F0B0F /* DictLoad.h */,
+			);
+			name = Dict;
+			sourceTree = "<group>";
+		};
 		84DEEF77207658D400F3A8F1 /* DictMng */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,9 +397,13 @@
 			path = "Dictionary Plus";
 			sourceTree = "<group>";
 		};
-		84DEEF8120768AA400F3A8F1 /* Util Views */ = {
+		84DEEF8120768AA400F3A8F1 /* Customs Views */ = {
 			isa = PBXGroup;
 			children = (
+				849912C2208BFC09001F0B0F /* ConjDataView.h */,
+				849912C3208BFC09001F0B0F /* ConjDataView.m */,
+				849912C4208BFC09001F0B0F /* ConjHeaderView.h */,
+				849912C5208BFC09001F0B0F /* ConjHeaderView.m */,
 				84E43D81207A8ADA00D80910 /* CmdPopUpView.h */,
 				84E43D82207A8ADA00D80910 /* CmdPopUpView.m */,
 				84DEEF7E20767C9E00F3A8F1 /* WaitView.h */,
@@ -206,38 +412,45 @@
 				84E39DD420659CFE00A33EA7 /* PanelRigthView.m */,
 				84E4BB7F2059F80200BECE1F /* DesplazaView.h */,
 				84E4BB802059F80200BECE1F /* DesplazaView.m */,
-				84A195E0205C966500110EDA /* SelLangsView.h */,
-				84A195E1205C966500110EDA /* SelLangsView.m */,
+				84A195E0205C966500110EDA /* SelDirView.h */,
+				84A195E1205C966500110EDA /* SelDirView.m */,
+				84E806A2208CF6C100D78C38 /* SelLangView.h */,
+				84E806A3208CF6D200D78C38 /* SelLangView.m */,
 				84B22A1F205D983E007398F8 /* LangPopUpView.h */,
 				84B22A20205D983E007398F8 /* LangPopUpView.m */,
 			);
-			name = "Util Views";
+			name = "Customs Views";
 			path = "Dictionary Plus";
 			sourceTree = "<group>";
 		};
 		84EB110A2058814B00A1DA0D = {
 			isa = PBXGroup;
 			children = (
-				84DE9EB7207FFDCB004E90AF /* ParseMeans.h */,
-				84DE9EB8207FFDCB004E90AF /* ParseMeans.m */,
-				84F7563020782DE300424C12 /* BtnsBarView.h */,
-				84F7563120782DE300424C12 /* BtnsBarView.m */,
+				84CF1FB1208FF1D000DD0FE8 /* DatosConjs.h */,
+				84CF1FB2208FF1D000DD0FE8 /* DatosConjs.m */,
 				84EB111F2058814B00A1DA0D /* Main.storyboard */,
+				84EB111C2058814B00A1DA0D /* ViewController.h */,
+				84EB111D2058814B00A1DA0D /* ViewController.m */,
+				849912C0208BFC09001F0B0F /* ConjController.h */,
+				849912C1208BFC09001F0B0F /* ConjController.m */,
+				84B0AF682068627A00C61E6D /* SearchController.h */,
+				84B0AF692068627A00C61E6D /* SearchController.m */,
 				84E39DD620659EC700A33EA7 /* ColAndFont.h */,
 				84E39DD720659EC700A33EA7 /* ColAndFont.m */,
 				84A195E7205CB42800110EDA /* AppData.h */,
 				84A195E8205CB42800110EDA /* AppData.m */,
 				84EB11192058814B00A1DA0D /* AppDelegate.h */,
 				84EB111A2058814B00A1DA0D /* AppDelegate.m */,
-				84EB111C2058814B00A1DA0D /* ViewController.h */,
-				84EB111D2058814B00A1DA0D /* ViewController.m */,
-				84B0AF682068627A00C61E6D /* SearchController.h */,
-				84B0AF692068627A00C61E6D /* SearchController.m */,
-				84DEEF8B2076C14200F3A8F1 /* DatosMean.h */,
-				84DEEF8C2076C14200F3A8F1 /* DatosMean.m */,
 				84DEEF8D2076C14200F3A8F1 /* ZoneDatosView.h */,
 				84DEEF8E2076C14200F3A8F1 /* ZoneDatosView.m */,
-				84DEEF8120768AA400F3A8F1 /* Util Views */,
+				84DEEF8B2076C14200F3A8F1 /* DatosMean.h */,
+				84DEEF8C2076C14200F3A8F1 /* DatosMean.m */,
+				84DE9EB7207FFDCB004E90AF /* ParseMeans.h */,
+				84DE9EB8207FFDCB004E90AF /* ParseMeans.m */,
+				84F7563020782DE300424C12 /* BtnsBarView.h */,
+				84F7563120782DE300424C12 /* BtnsBarView.m */,
+				84991243208BCB17001F0B0F /* TrdApi */,
+				84DEEF8120768AA400F3A8F1 /* Customs Views */,
 				84DEEF77207658D400F3A8F1 /* DictMng */,
 				84EB112D2059619B00A1DA0D /* Images */,
 				84EB11162058814B00A1DA0D /* Supporting Files */,
@@ -270,6 +483,20 @@
 		84EB112D2059619B00A1DA0D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				84651320208EE08B00250E21 /* BtnHideFindPlus@2x.png */,
+				84651316208EA3C000250E21 /* BntCloseMod@2x.png */,
+				84651317208EA3C000250E21 /* BtnConj@2x.png */,
+				84651318208EA3C000250E21 /* BtnNums@2x.png */,
+				84651319208EA3C000250E21 /* BtnShowFindPlus@2x.png */,
+				8465131A208EA3C000250E21 /* BtnPurchases@2x.png */,
+				84651314208E776C00250E21 /* BtnClose1@2x.png */,
+				849911F6208BC399001F0B0F /* BtnMeans2@2x.png */,
+				849911F7208BC399001F0B0F /* FlagEn30@2x.png */,
+				849911F8208BC399001F0B0F /* FlagEs30@2x.png */,
+				849911F9208BC399001F0B0F /* FlagFr30@2x.png */,
+				849911FA208BC399001F0B0F /* FlagIt30@2x.png */,
+				849911F2208BC27F001F0B0F /* BntFind@2x.png */,
+				849911F3208BC27F001F0B0F /* BtnGroup@2x.png */,
 				84FBFE2A207EFD8B009C410C /* btnConjWord40@2x.png */,
 				84FBFE2B207EFD8B009C410C /* btnDelMean40@2x.png */,
 				84FBFE2C207EFD8B009C410C /* btnFindWord40@2x.png */,
@@ -367,33 +594,48 @@
 				84A195D5205C768A00110EDA /* btnSwap50@2x.png in Resources */,
 				841CBD722066DAF40040D178 /* btnSwapDatos50@2x.png in Resources */,
 				84A195E4205CB04C00110EDA /* Leading@2x.png in Resources */,
+				849911F5208BC27F001F0B0F /* BtnGroup@2x.png in Resources */,
 				84EB1133205961DD00A1DA0D /* LaunchImage.png in Resources */,
 				84EB11262058814B00A1DA0D /* LaunchScreen.storyboard in Resources */,
 				84F698D7207930B700327038 /* btnShowAll40@2x.png in Resources */,
+				8465131F208EA3C000250E21 /* BtnPurchases@2x.png in Resources */,
+				84651315208E776C00250E21 /* BtnClose1@2x.png in Resources */,
 				84FBFE31207EFD8B009C410C /* btnFindWord40@2x.png in Resources */,
 				84A195D8205C768A00110EDA /* FlagFr50@2x.png in Resources */,
+				849911FE208BC399001F0B0F /* FlagFr30@2x.png in Resources */,
 				841CBD7920673C5C0040D178 /* btnDelAll50@2x.png in Resources */,
+				84651321208EE08B00250E21 /* BtnHideFindPlus@2x.png in Resources */,
+				8465131B208EA3C000250E21 /* BntCloseMod@2x.png in Resources */,
 				84EB11232058814B00A1DA0D /* Assets.xcassets in Resources */,
 				84A195DF205C8C7400110EDA /* btnSwap50_@2x.png in Resources */,
+				8465131E208EA3C000250E21 /* BtnShowFindPlus@2x.png in Resources */,
 				84F698D3207930B700327038 /* btnListMeans40@2x.png in Resources */,
 				841CBD7720673C5C0040D178 /* btnAdd50@2x.png in Resources */,
 				84F698D920793A0400327038 /* btnDelMeans40@2x.png in Resources */,
 				84FBFE30207EFD8B009C410C /* btnDelMean40@2x.png in Resources */,
+				849911FD208BC399001F0B0F /* FlagEs30@2x.png in Resources */,
+				849911FB208BC399001F0B0F /* BtnMeans2@2x.png in Resources */,
+				849911FF208BC399001F0B0F /* FlagIt30@2x.png in Resources */,
 				84A195D4205C768A00110EDA /* btnPopUp50@2x.png in Resources */,
 				84FBFE33207EFD8B009C410C /* btnPrevWord40@2x.png in Resources */,
 				84FBFE2F207EFD8B009C410C /* btnConjWord40@2x.png in Resources */,
+				8465131D208EA3C000250E21 /* BtnNums@2x.png in Resources */,
 				84A195D3205C768A00110EDA /* btnMenu.png in Resources */,
 				84DEEF70207657FC00F3A8F1 /* Datos in Resources */,
 				84A195D9205C768A00110EDA /* FlagIt50@2x.png in Resources */,
+				8465131C208EA3C000250E21 /* BtnConj@2x.png in Resources */,
 				841CBD7A20673C5C0040D178 /* btnLeft50@2x.png in Resources */,
 				841CBD702066DAF40040D178 /* btnFindMinus50@2x.png in Resources */,
 				84F698D4207930B700327038 /* btnListMixss40@2x.png in Resources */,
 				84F698D5207930B700327038 /* btnListWrds40@2x.png in Resources */,
 				841CBD712066DAF40040D178 /* btnFindPlus50@2x.png in Resources */,
 				84A195D6205C768A00110EDA /* FlagEn50@2x.png in Resources */,
+				849911F4208BC27F001F0B0F /* BntFind@2x.png in Resources */,
 				84EB11212058814B00A1DA0D /* Main.storyboard in Resources */,
 				84FBFE32207EFD8B009C410C /* btnNextWord40@2x.png in Resources */,
 				84E43D86207AB90500D80910 /* Localizable.strings in Resources */,
+				849911FC208BC399001F0B0F /* FlagEn30@2x.png in Resources */,
+				84991298208BF495001F0B0F /* ArrayUtil.inl in Resources */,
 				841CBD7820673C5C0040D178 /* btnDel50@2x.png in Resources */,
 				84B0AF6C2068B8CE00C61E6D /* btnMoveUp50@2x.png in Resources */,
 				84F698D6207930B700327038 /* btnMnuCmds40@2x.png in Resources */,
@@ -409,28 +651,52 @@
 			buildActionMask = 2147483647;
 			files = (
 				84E39DD820659EC700A33EA7 /* ColAndFont.m in Sources */,
+				849912C8208BFC09001F0B0F /* ConjController.m in Sources */,
 				84B22A21205D983E007398F8 /* LangPopUpView.m in Sources */,
 				84DEEF8F2076C14200F3A8F1 /* DatosMean.m in Sources */,
+				8499129A208BF495001F0B0F /* FastHeap.cpp in Sources */,
 				84DEEF7C20765C4900F3A8F1 /* EntryDict.m in Sources */,
 				84DEEF902076C14200F3A8F1 /* ZoneDatosView.m in Sources */,
 				84DEEF8A2076941200F3A8F1 /* TextQueryPlus.m in Sources */,
+				8499124A208BF39A001F0B0F /* ConjCore.mm in Sources */,
+				849912B5208BF4F5001F0B0F /* RefTabla.cpp in Sources */,
+				849912C9208BFC09001F0B0F /* ConjDataView.m in Sources */,
 				84DEEF932076C2F200F3A8F1 /* EntryDesc.m in Sources */,
 				84E4BB812059F80200BECE1F /* DesplazaView.m in Sources */,
+				8499124E208BF3BA001F0B0F /* DictLoad.cpp in Sources */,
 				84F7563220782DE300424C12 /* BtnsBarView.m in Sources */,
 				84EB111E2058814B00A1DA0D /* ViewController.m in Sources */,
+				849912CA208BFC09001F0B0F /* ConjHeaderView.m in Sources */,
 				84DEEF862076908B00F3A8F1 /* SortedIndexs.m in Sources */,
+				84CF1FB3208FF1D000DD0FE8 /* DatosConjs.m in Sources */,
+				849912BF208BF9A4001F0B0F /* DictRed.m in Sources */,
+				849912B2208BF4F5001F0B0F /* ConjVerb.cpp in Sources */,
+				84E806A4208CF6D200D78C38 /* SelLangView.m in Sources */,
 				84EB111B2058814B00A1DA0D /* AppDelegate.m in Sources */,
 				84E39DD520659CFE00A33EA7 /* PanelRigthView.m in Sources */,
+				84991297208BF495001F0B0F /* ArrayUtil.cpp in Sources */,
+				849912A7208BF4D7001F0B0F /* RWDefn.cpp in Sources */,
+				8499129E208BF495001F0B0F /* UtilFun.cpp in Sources */,
+				84991299208BF495001F0B0F /* CString.cpp in Sources */,
+				849912B4208BF4F5001F0B0F /* CVDefn.cpp in Sources */,
 				84DEEF76207658B900F3A8F1 /* DictMain.m in Sources */,
+				849912B1208BF4F5001F0B0F /* ApiConj.cpp in Sources */,
 				84A195E9205CB42800110EDA /* AppData.m in Sources */,
 				84DEEF7D20765C4900F3A8F1 /* EntryIndex.m in Sources */,
 				84DEEF872076908B00F3A8F1 /* TextQuery.m in Sources */,
 				84EB11182058814B00A1DA0D /* main.m in Sources */,
-				84A195E2205C966500110EDA /* SelLangsView.m in Sources */,
+				84A195E2205C966500110EDA /* SelDirView.m in Sources */,
+				8499129B208BF495001F0B0F /* FileUtil.cpp in Sources */,
+				849912B3208BF4F5001F0B0F /* Ctabla.cpp in Sources */,
+				8499129D208BF495001F0B0F /* StrUtil.cpp in Sources */,
 				84DEEF8020767C9E00F3A8F1 /* WaitView.m in Sources */,
 				84DE9EB9207FFDCB004E90AF /* ParseMeans.m in Sources */,
+				849912A6208BF4D7001F0B0F /* RedWord.cpp in Sources */,
+				8499129C208BF495001F0B0F /* Logger.cpp in Sources */,
 				84E43D83207A8ADA00D80910 /* CmdPopUpView.m in Sources */,
 				84DEEF962076C37C00F3A8F1 /* MngMarks.m in Sources */,
+				849912A5208BF4D7001F0B0F /* ApiRed.cpp in Sources */,
+				8499129F208BF495001F0B0F /* WinUtil.cpp in Sources */,
 				84B0AF6A2068627A00C61E6D /* SearchController.m in Sources */,
 				84DEEF742076589D00F3A8F1 /* DictIndexes.m in Sources */,
 			);
@@ -563,6 +829,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libstdc++";
 				INFOPLIST_FILE = "Dictionary Plus/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -575,6 +842,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LIBRARY = "libstdc++";
 				INFOPLIST_FILE = "Dictionary Plus/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

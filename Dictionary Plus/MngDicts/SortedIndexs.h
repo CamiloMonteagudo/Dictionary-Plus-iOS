@@ -32,7 +32,7 @@
 
 +(SortedIndexs*) Empty;
 +(SortedIndexs*) SortEntries:(FOUNDS_ENTRY*) foundEntries Query:(TextQuery*) query;
-+(SortedIndexs*) SortEntries:(FOUNDS_ENTRY*) foundEntries QueryPlus:(TextQueryPlus *) query Options:(int) sw;
++(SortedIndexs*) SortEntries:(FOUNDS_ENTRY*) foundEntries NWords:(NSInteger) Count Options:(int) sw;
 
 -(int) Count;
 

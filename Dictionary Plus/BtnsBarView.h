@@ -19,6 +19,7 @@
 #define CMD_DEL_MEAN    0x0100
 #define CMD_CONJ_WRD    0x0200
 #define CMD_FIND_WRD    0x0400
+#define CMD_ALL         0xFFFF
 
 #define ExecComamd  @"ExecComamdNotification"
 
@@ -40,7 +41,7 @@ extern NSString* TitleForComand( int ID );
 extern void MakeDataCmdBar();
 extern void DataCmdBarEnable( int sw );
 extern void DataCmdBarDisable( int sw );
-extern void DataCmdBarPosBottomView( UIView* view );
+extern void DataCmdBarPosBottomView( UIView* view, CGFloat OffSet );
 extern void DataCmdBarRefresh();
 extern BOOL DataCmdBarIsEnable( int sw );
 extern BOOL DataCmdBarInView( UIView* view );

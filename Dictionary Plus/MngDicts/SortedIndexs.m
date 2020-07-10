@@ -50,17 +50,17 @@
 
 ///------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /// Ordena los indices en el diccionario 'foundEntries', según la semejanza entre el query y la entrada correspondiente
-+(SortedIndexs*) SortEntries:(FOUNDS_ENTRY*) foundEntries QueryPlus:(TextQueryPlus *) query Options:(int) sw
++(SortedIndexs*) SortEntries:(FOUNDS_ENTRY*) foundEntries NWords:(NSInteger) Count Options:(int) sw
   {
   SortedIndexs* obj = [SortedIndexs new];
 
-  obj->nWrds   = query->Items.count;
+  obj->nWrds   = Count;
   obj->Entries = [NSMutableArray<EntrySort*> new];
 
   for( NSNumber* idxEntry in foundEntries)
     {
     INT_LIST* WrdsPos = foundEntries[idxEntry];
-    if( (sw & FULL_FRASE) && WrdsPos.count !=query->Items.count )
+    if( (sw & FULL_FRASE) && WrdsPos.count != Count )
       continue;
 
     [obj AddEntry:idxEntry WithPos:WrdsPos ];

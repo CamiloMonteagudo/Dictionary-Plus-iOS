@@ -11,6 +11,7 @@
 //===================================================================================================================================================
 int LGSrc    = -1;
 int LGDes    = -1;
+int LGConj   = -1;
 int iUser    = 0;
 
 UIView* nowEdit;
@@ -212,6 +213,16 @@ NSString* LGFlagName( int lng )
   return [NSString stringWithFormat:@"Flag%@50", LGAbrv(lng) ];
   }
 
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Obtiene el nombre del fichero que contiene la imagen del idioma correspondiente
+NSString* LGFlagFile( int lng, NSString* Suxfix )
+  {
+  if( lng<0 || lng>4 ) return @"";
+
+  return [NSString stringWithFormat:@"Flag%@%@", _AbrvLng[lng], Suxfix];
+  }
+
+
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Oculta el teclado si esta activo
 void HideKeyboard()
@@ -220,23 +231,19 @@ void HideKeyboard()
     [nowEdit resignFirstResponder];
   }
 
-static UIView* TopView = Nil;
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Encuentra la vista definida como el tope superior
 UIView* FindTopView( UIView* FromView )
   {
-  if( TopView != nil ) return TopView;
-  
   for( ; FromView!=nil; )                                                                     // Itera para encontrar la vista de mayor jerarquia
     {
     UIView* next = FromView.superview;
     if( next==nil || [next isKindOfClass: UIWindow.class ] )
-      {
-      TopView = FromView;
       return FromView;
-      }
-      
+    
     FromView = next;
+    if( next.tag == 999999)
+      return FromView;
     }
 
   NSLog(@"Top view no found");
@@ -330,5 +337,61 @@ void WaitMsg()
   {
   [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate: [NSDate date] ];   // Procesa los mensajes
   }
+
+//-------------------------------------------------------------------------------------------------------------------------------------------------------
+// Dibuja el rectangulo 'rc' con bordes redondeados
+void DrawRoundRect( CGRect rc, int Round, UIColor* ColBrd, UIColor* ColBody )
+  {
+  float RSup = (Round & R_SUP )? ROUND : 0;
+  float RInf = (Round & R_INF )? ROUND : 0;
+  
+  float xIzq = rc.origin.x;
+  float xDer = xIzq + rc.size.width;
+
+  float ySup = rc.origin.y;
+  float yInf = ySup + rc.size.height;
+  
+  float ycSup  = ySup + RSup;
+  float xcSupI = xIzq + RSup;
+  float xcSupD = xDer - RSup;
+
+  float ycInf  = yInf - RInf;
+  float xcInfI = xIzq + RInf;
+  float xcInfD = xDer - RInf;
+  
+  CGContextRef ct = UIGraphicsGetCurrentContext();
+  
+  CGContextSetStrokeColorWithColor(ct, ColBrd.CGColor);
+  CGContextSetFillColorWithColor(ct, ColBody.CGColor);
+
+  CGContextSetLineWidth(ct, BRD_W);
+  
+  CGContextBeginPath(ct);
+  if( RInf == 0 )
+    {
+    CGContextMoveToPoint   (ct, xDer  , yInf  );
+    CGContextAddLineToPoint(ct, xDer  , ycSup );
+    CGContextAddArc        (ct, xcSupD, ycSup , RSup, 0      , -M_PI_2, 1 );
+    CGContextAddLineToPoint(ct, xcSupI, ySup  );
+    CGContextAddArc        (ct, xcSupI, ycSup , RSup, -M_PI_2, -M_PI  , 1 );
+    CGContextAddLineToPoint(ct, xIzq  , yInf );
+    }
+  else
+    {
+    CGContextMoveToPoint   (ct, xcSupI, ySup  );
+    CGContextAddArc        (ct, xcSupI, ycSup , RSup, -M_PI_2, -M_PI  , 1 );
+    CGContextAddLineToPoint(ct, xIzq  , ycInf );
+    CGContextAddArc        (ct, xcInfI, ycInf , RInf, -M_PI  ,  M_PI_2, 1 );
+    CGContextAddLineToPoint(ct, xcInfD, yInf );
+    CGContextAddArc        (ct, xcInfD, ycInf , RInf, M_PI_2 ,  0     , 1 );
+    CGContextAddLineToPoint(ct, xDer  , ycSup );
+    CGContextAddArc        (ct, xcSupD, ycSup , RSup, 0      , -M_PI_2, 1 );
+  
+    if( RSup>0 ) CGContextClosePath(ct);
+    }
+    
+  CGContextDrawPath( ct, kCGPathFillStroke);
+  }
+
 
 //===================================================================================================================================================

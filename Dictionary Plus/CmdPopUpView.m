@@ -132,7 +132,7 @@
 - (void) FillRow:(UIView*)row Index:(int) idx
   {
   UIButton* btn = ActiveBtns[idx];
-  NSString* Txt = TitleForComand(btn.tag);
+  NSString* Txt = TitleForComand((int)btn.tag);
   
   CGFloat w = row.frame.size.width;
   
@@ -171,12 +171,12 @@
     if( !btn ) break;
     
     NSInteger idBtn = btn.tag;
-    if( idBtn!=CMD_MENU && [Bar IsActiveBtnWithID:idBtn] )
+    if( idBtn!=CMD_MENU && [Bar IsActiveBtnWithID:(int)idBtn] )
       [ActiveBtns addObject:btn];
     }
   
   WPopUp = W_ICON + W_TEXT + SEP_;
-  HPopUp = ActiveBtns.count * (SEP_ + H_ROW) + SEP_ ;
+  HPopUp = (int)ActiveBtns.count * (SEP_ + H_ROW) + SEP_ ;
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -237,7 +237,7 @@
   {
   if( idxRow>=0 && idxRow<ActiveBtns.count )
     {
-    _SelectedCmd = ActiveBtns[idxRow].tag;
+    _SelectedCmd = (int)ActiveBtns[idxRow].tag;
     popUp.subviews[idxRow].backgroundColor = [UIColor colorWithRed:0.7 green:0.95 blue:1.0 alpha:1.0];
     }
   }
