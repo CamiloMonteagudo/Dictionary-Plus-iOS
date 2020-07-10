@@ -1,0 +1,13 @@
+//
+//  DesplazaView.h
+//  Dictionary Plus
+//
+//  Created by Admin on 14/3/18.
+//  Copyright © 2018 bigxsoft. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface DesplazaView : UIView
+
+@end
