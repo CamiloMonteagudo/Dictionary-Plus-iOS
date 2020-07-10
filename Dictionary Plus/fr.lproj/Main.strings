@@ -1,0 +1,45 @@
+
+/* Class = "UILabel"; text = "Add Verb Forms:"; ObjectID = "32O-nl-uie"; */
+"32O-nl-uie.text" = "Formes verbales:";
+
+/* Class = "UILabel"; text = "Search in Addition to"; ObjectID = "54g-kE-10s"; */
+"54g-kE-10s.text" = "Rechercher en plus de";
+
+/* Class = "UITextField"; placeholder = "Type a Verb"; ObjectID = "NsR-oR-32M"; */
+"NsR-oR-32M.placeholder" = "Ecrire un verbe";
+ 
+/* Class = "UILabel"; text = "Prueba"; ObjectID = "OFk-vu-QXJ"; */
+"OFk-vu-QXJ.text" = "";
+
+/* Class = "UILabel"; text = "English"; ObjectID = "Zhh-pC-YBM"; */
+"Zhh-pC-YBM.text" = "Anglais";
+
+/* Class = "UITextField"; placeholder = "Escriba un verbo"; ObjectID = "bnL-RG-66c"; */
+"bnL-RG-66c.placeholder" = "Ecrire un verbe";
+
+/* Class = "UILabel"; text = "Spanish"; ObjectID = "fPv-yB-57H"; */
+"fPv-yB-57H.text" = "Espagnol";
+
+/* Class = "UIButton"; normalTitle = "Conjugator"; ObjectID = "g3B-w2-w9r"; */
+"g3B-w2-w9r.normalTitle" = "Conjugueur";
+
+/* Class = "UILabel"; text = "English"; ObjectID = "k1Q-Um-C7T"; */
+"k1Q-Um-C7T.text" = "Anglais";
+
+/* Class = "UILabel"; text = "Reading the number:"; ObjectID = "kGW-Sg-eNs"; */
+"kGW-Sg-eNs.text" = "Lecture du chiffre:";
+
+/* Class = "UIButton"; normalTitle = "Find"; ObjectID = "pHW-ty-nru"; */
+"pHW-ty-nru.normalTitle" = "Rechercher";
+
+/* Class = "UILabel"; text = "Add Similar Word:"; ObjectID = "q3l-My-77w"; */
+"q3l-My-77w.text" = "Mot similaire:";
+
+/* Class = "UILabel"; text = "English"; ObjectID = "tMI-zT-PKr"; */
+"tMI-zT-PKr.text" = "Anglais";
+
+/* Class = "UITextField"; placeholder = "Escriba palabra o frase"; ObjectID = "w70-6o-coE"; */
+"w70-6o-coE.placeholder" = "Ecrire le mot ou la phrase à rechercher";
+
+/* Class = "UITextField"; placeholder = "Type a Word"; ObjectID = "w8r-lA-7Pt"; */
+"w8r-lA-7Pt.placeholder" = "Ecrire un mot";

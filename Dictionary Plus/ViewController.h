@@ -12,7 +12,7 @@
 @interface ViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate>
 
 @property (nonatomic) BOOL CmdsRight;
-@property (nonatomic) BOOL AllMeans;
+@property (nonatomic) BOOL AllMeans;          // Indica que se muestran todos los significados de las palabras encontradas
 
 - (BOOL) LoadDictWithSrc:(int) src AndDes:(int) des;
 - (void) UpdateBarSizeAndPos;

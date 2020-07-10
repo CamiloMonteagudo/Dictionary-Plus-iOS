@@ -295,7 +295,7 @@ NSMutableArray<InfoDatos*> *Datos;
     if( rootWrd ) DatoM = [DatosMean DatosForWord:rootWrd Src:src Des:des];
     if( !DatoM )
       {
-//      [self ShowMsg:@"NoFindWrd" WithTitle:@"TitleFindMeans"];
+      ShowMsg( @"TitleFindMeans", @"NoFindWrd" );
       return;
       }
     }

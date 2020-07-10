@@ -88,8 +88,6 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *BottomScroll;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *TableHeight;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *TableTop;
-
 
 - (IBAction)OnGetLeftWrd:(id)sender;
 - (IBAction)OnGetRightWrd:(id)sender;
@@ -309,7 +307,7 @@
     }
   else
     {
-//    [self ShowMsg:@"WordNoVerb" WithTitle:@"TitleFindPlus"];
+    ShowMsg( @"TitleFindPlus", @"WordNoVerb"  );
 //    [self.view.window makeFirstResponder:_ConjVerb ];
     }
 
@@ -404,9 +402,12 @@
   {
   [_ListWords reloadData];
   
-  NSUInteger  iSel = nowWord.count-1;
-  NSIndexPath *sel = [NSIndexPath indexPathForRow:iSel inSection:0];
-  [_ListWords selectRowAtIndexPath:sel animated:FALSE scrollPosition:UITableViewScrollPositionBottom];
+  NSInteger iSel = nowWord.count-1;
+  if( iSel>=0 )
+    {
+    NSIndexPath *sel = [NSIndexPath indexPathForRow:iSel inSection:0];
+    [_ListWords selectRowAtIndexPath:sel animated:FALSE scrollPosition:UITableViewScrollPositionBottom];
+    }
   
   [self ResizeTable];
   }

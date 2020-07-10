@@ -1,5 +1,5 @@
 //=========================================================================================================================================================
-//  CmdPopUpView.h
+//  DirPopUpView.h
 //  Dictionary Plus
 //
 //  Created by Admin on 17/3/18.
@@ -9,14 +9,12 @@
 #import <UIKit/UIKit.h>
 
 //=========================================================================================================================================================
-@interface CmdPopUpView : UIView
+@interface DirPopUpView : UIView
 
-@property (nonatomic, readonly) int SelectedCmd;
+@property (nonatomic) int SelectedDir;
 
-- (instancetype)initWithBtnsBar:(UIView*) view DeltaX:(int) dx DeltaY:(int) dy;
-
-- (void) ShowWithCallBack:(SEL) callBck Target:(id) target;
-- (void) HidePopUp;
+- (instancetype)initWithRefView:(UIView*) view AtLeft:(BOOL) left DeltaX:(int) dx DeltaY:(int) dy;
+- (void) ShowWithDir:(int) dir CallBack:(SEL) callBck Target:(id) target;
 
 @end
 //=========================================================================================================================================================

@@ -12,7 +12,7 @@
 int LGSrc    = -1;
 int LGDes    = -1;
 int LGConj   = -1;
-int iUser    = 0;
+int iUser    = 1;
 BOOL iPad    = FALSE;
 
 UIView* nowEdit;
@@ -60,9 +60,9 @@ static NSString * _LngFlags[LGCount] =  {@"🇪🇸", @"🇺🇸", @"🇮🇹", 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // DEFINE LOS DICCIONARIOS Y CONJUGACIONES INSTALADOS
 
-//                       EnEs, EnIt, EnFr, EsEn, EsIt, EsFr, ItEs, ItEn, ItFr, FrEs, FrEn, FrIt
-static int _InstSrc[] = {   1,    1,    1,    0,    0,    0,    2,    2,    2,    3,    3,    3 };
-static int _InstDes[] = {   0,    2,    3,    1,    2,    3,    0,    1,    3,    0,    1,    2 };
+//                       EnEs, EnIt, EnFr, EsEn, ItEn, FrEn
+static int _InstSrc[] = {   1,    1,    1,    0,    2,    3 };
+static int _InstDes[] = {   0,    2,    3,    1,    1,    1 };
 
 static int _InstConj[] ={ 0, 1, 2, 3 };
 
@@ -111,36 +111,36 @@ NSString* LGName( int lng )
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Obtiene el nombre de la dirección de traducción con indice 'iDir'
-NSString* DIRName( int iDir )
-  {
-  if( iDir<0 || iDir>DIRCount() ) return @"";
-  
-  int iSrc = _InstSrc[iDir];
-  int iDes = _InstDes[iDir];
-  
-  NSString* sSrc = _LngNames[iUser][iSrc];
-  NSString* sDes = _LngNames[iUser][iDes];
-
-  NSString* flgSrc = _LngFlags[iSrc];
-  NSString* flgDes = _LngFlags[iDes];
-  
-  return [NSString stringWithFormat:@"%@ %@ ➔ %@ %@", flgSrc, sSrc, flgDes, sDes];
-  }
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// Obtiene el nombre de la dirección de traducción con indice 'iDir'
-NSString* DIRName2( int iDir )
-  {
-  if( iDir<0 || iDir>DIRCount() ) return @"";
-  
-  int iSrc = _InstSrc[iDir];
-  int iDes = _InstDes[iDir];
-  
-  NSString* sSrc = _LngNames[iUser][iSrc];
-  NSString* sDes = _LngNames[iUser][iDes];
-  return [NSString stringWithFormat:@"%@ ➔ %@", sSrc, sDes];
-  }
-
+//NSString* DIRName( int iDir )
+//  {
+//  if( iDir<0 || iDir>DIRCount() ) return @"";
+//
+//  int iSrc = _InstSrc[iDir];
+//  int iDes = _InstDes[iDir];
+//
+//  NSString* sSrc = _LngNames[iUser][iSrc];
+//  NSString* sDes = _LngNames[iUser][iDes];
+//
+//  NSString* flgSrc = _LngFlags[iSrc];
+//  NSString* flgDes = _LngFlags[iDes];
+//
+//  return [NSString stringWithFormat:@"%@ %@ ➔ %@ %@", flgSrc, sSrc, flgDes, sDes];
+//  }
+//
+////---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//// Obtiene el nombre de la dirección de traducción con indice 'iDir'
+//NSString* DIRName2( int iDir )
+//  {
+//  if( iDir<0 || iDir>DIRCount() ) return @"";
+//
+//  int iSrc = _InstSrc[iDir];
+//  int iDes = _InstDes[iDir];
+//
+//  NSString* sSrc = _LngNames[iUser][iSrc];
+//  NSString* sDes = _LngNames[iUser][iDes];
+//  return [NSString stringWithFormat:@"%@ ➔ %@", sSrc, sDes];
+//  }
+//
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Obtiene el nombre de la dirección de traducción con indice 'iDir'
 NSString* DIRAbrv( int src, int des )
@@ -394,5 +394,23 @@ void DrawRoundRect( CGRect rc, int Round, UIColor* ColBrd, UIColor* ColBody )
   CGContextDrawPath( ct, kCGPathFillStroke);
   }
 
+//-------------------------------------------------------------------------------------------------------------------------------------------------------
+// Muestra el mensaje ´msg´ en la pantalla
+void ShowMsg( NSString* title, NSString* msg )
+  {
+  UIAlertController* alert = [UIAlertController alertControllerWithTitle: NSLocalizedString(title, nil)
+                                                message:                  NSLocalizedString(  msg, nil)
+                                                preferredStyle:UIAlertControllerStyleAlert];
+ 
+UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+   handler:^(UIAlertAction * action) { [alert dismissViewControllerAnimated:TRUE completion:nil]; }];
+ 
+[alert addAction:defaultAction];
+
+[Ctrller presentViewController:alert animated:YES completion:nil];
+
+  
+//  NSLog(@"%@",msg);
+  }
 
 //===================================================================================================================================================

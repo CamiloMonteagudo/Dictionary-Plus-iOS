@@ -313,7 +313,11 @@
   
   if( btnMode.hidden )
     {
-    y = self.superview.bounds.size.height - rc.origin.y - 6;
+    CGFloat dy = 0;
+    if (@available(iOS 11.0, *) )
+       dy = self.superview.safeAreaInsets.bottom;
+    
+    y = self.superview.bounds.size.height - rc.origin.y - 6 - dy;
     }
   else
     {

@@ -1,0 +1,38 @@
+"UILang" = "3";
+
+"CmdSplitTitle"    = "Diviser l'écran";
+"CmdWordsTitle"    = "Afficher la liste des mots";
+"CmdMeansTilte"    = "Afficher la liste de significations";
+"CmdAllMeansTitle" = "Trouver tous les significations";
+"CmdDelMeansTitle" = "Effacer toutes les données de significations";
+
+"WrdNoFound" = "Le mot n'est pas dans le dictionnaire";
+"NoVerb"     = "Ne semble pas être un verbe";
+"NoConjWord" = "Le mot n'a pas été conjuguer";
+
+"ConjMode0"    = "Conjugaisons (par mot)";
+"ConjMode1"    = "Conjugaisons (par mode)";
+"ConjMode2"    = "Conjugaisons (par personne)";
+
+"Options"    = "OPTIONS";
+
+"MnuConj"    = "Conjugueur de verbes";
+"MnuNums"    = "Letture de chiffres";
+"MnuShowFindPlus"  = "Afficher Recherche avancée";
+"MnuHideFindPlus"  = "Masquer Recherche avancée";
+
+"lbConjations"    = "  (Conjugaisons)";
+
+"NumTip"     = "Écrire un Chiffre";
+"NumLabel"   = "Lecture du chiffre:";
+"GroupAll"   = "Tout";
+"Group2"     = "Deux chiffres";
+"Group3"     = "Trois chiffres";
+"lbCardinal" = "Nombre cardinal:";
+"lbOrdinal"  = "Nombre ordinal: ";
+"lbRomano"   = "Nombre romano:";
+
+"WordNoVerb"     = "Le mot n'est pas un verbe";
+"TitleFindPlus"  = "Recherche avancée";
+"NoFindWrd"      = "Le mot n'est pas dans le dictionnaire";
+"TitleFindMeans" = "Recherche de significations";

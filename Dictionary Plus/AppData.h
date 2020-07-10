@@ -84,9 +84,6 @@ extern int       DIRDes( int iDir );
 extern int       DIRFromLangs(int src, int des);
 extern int       DIRFirst();
 extern int       DIRCount();
-extern NSString* DIRName( int iDir );
-extern NSString* DIRName2( int iDir );
-extern NSString* DIRAbrv( int src, int des );
 
 extern int CNJCount();
 extern int CNJLang( int idx );
@@ -106,6 +103,7 @@ extern NSString* QuitaAcentos( NSString* wrd, int lng );
 extern void WaitMsg();
 
 extern void DrawRoundRect( CGRect rc, int Round, UIColor* ColBrd, UIColor* ColBody );
+extern void ShowMsg( NSString* title, NSString* msg );
 
 //===================================================================================================================================================
 

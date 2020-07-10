@@ -7,21 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8416A9E420CF4835004EA1C4 /* LeftArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 8416A9E320CF4835004EA1C4 /* LeftArrow.png */; };
+		8416A9E720CF62CA004EA1C4 /* DirPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8416A9E620CF62C9004EA1C4 /* DirPopUpView.m */; };
+		8417E1C420FBC61500B23D92 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8417E1C220FBC61500B23D92 /* InfoPlist.strings */; };
 		841CBD702066DAF40040D178 /* btnFindMinus50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 841CBD6D2066DAF40040D178 /* btnFindMinus50@2x.png */; };
 		841CBD712066DAF40040D178 /* btnFindPlus50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 841CBD6E2066DAF40040D178 /* btnFindPlus50@2x.png */; };
-		841CBD722066DAF40040D178 /* btnSwapDatos50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 841CBD6F2066DAF40040D178 /* btnSwapDatos50@2x.png */; };
 		841CBD7720673C5C0040D178 /* btnAdd50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 841CBD7320673C5C0040D178 /* btnAdd50@2x.png */; };
 		841CBD7820673C5C0040D178 /* btnDel50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 841CBD7420673C5C0040D178 /* btnDel50@2x.png */; };
 		841CBD7920673C5C0040D178 /* btnDelAll50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 841CBD7520673C5C0040D178 /* btnDelAll50@2x.png */; };
 		841CBD7A20673C5C0040D178 /* btnLeft50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 841CBD7620673C5C0040D178 /* btnLeft50@2x.png */; };
 		841CBD7C20673C9E0040D178 /* btnRight50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 841CBD7B20673C9E0040D178 /* btnRight50@2x.png */; };
-		84651315208E776C00250E21 /* BtnClose1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84651314208E776C00250E21 /* BtnClose1@2x.png */; };
+		8434E8A820D40EFE00520157 /* BtnHideFindPlus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8434E8A720D40EFE00520157 /* BtnHideFindPlus@2x.png */; };
+		8434E8AA20D40F8B00520157 /* BtnClose1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8434E8A920D40F8B00520157 /* BtnClose1@2x.png */; };
+		8434E8AC20D412DA00520157 /* btnPopUp50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8434E8AB20D412D900520157 /* btnPopUp50@2x.png */; };
 		8465131B208EA3C000250E21 /* BntCloseMod@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84651316208EA3C000250E21 /* BntCloseMod@2x.png */; };
 		8465131C208EA3C000250E21 /* BtnConj@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84651317208EA3C000250E21 /* BtnConj@2x.png */; };
 		8465131D208EA3C000250E21 /* BtnNums@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84651318208EA3C000250E21 /* BtnNums@2x.png */; };
 		8465131E208EA3C000250E21 /* BtnShowFindPlus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84651319208EA3C000250E21 /* BtnShowFindPlus@2x.png */; };
-		8465131F208EA3C000250E21 /* BtnPurchases@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8465131A208EA3C000250E21 /* BtnPurchases@2x.png */; };
-		84651321208EE08B00250E21 /* BtnHideFindPlus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84651320208EE08B00250E21 /* BtnHideFindPlus@2x.png */; };
 		849911F4208BC27F001F0B0F /* BntFind@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849911F2208BC27F001F0B0F /* BntFind@2x.png */; };
 		849911F5208BC27F001F0B0F /* BtnGroup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849911F3208BC27F001F0B0F /* BtnGroup@2x.png */; };
 		849911FB208BC399001F0B0F /* BtnMeans2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 849911F6208BC399001F0B0F /* BtnMeans2@2x.png */; };
@@ -53,8 +55,6 @@
 		849912C9208BFC09001F0B0F /* ConjDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 849912C3208BFC09001F0B0F /* ConjDataView.m */; };
 		849912CA208BFC09001F0B0F /* ConjHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 849912C5208BFC09001F0B0F /* ConjHeaderView.m */; };
 		84A195D3205C768A00110EDA /* btnMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A195CC205C768A00110EDA /* btnMenu.png */; };
-		84A195D4205C768A00110EDA /* btnPopUp50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A195CD205C768A00110EDA /* btnPopUp50@2x.png */; };
-		84A195D5205C768A00110EDA /* btnSwap50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A195CE205C768A00110EDA /* btnSwap50@2x.png */; };
 		84A195D6205C768A00110EDA /* FlagEn50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A195CF205C768A00110EDA /* FlagEn50@2x.png */; };
 		84A195D7205C768A00110EDA /* FlagEs50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A195D0205C768A00110EDA /* FlagEs50@2x.png */; };
 		84A195D8205C768A00110EDA /* FlagFr50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A195D1205C768A00110EDA /* FlagFr50@2x.png */; };
@@ -114,21 +114,38 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8416A9E320CF4835004EA1C4 /* LeftArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LeftArrow.png; path = Images/LeftArrow.png; sourceTree = "<group>"; };
+		8416A9E520CF62C9004EA1C4 /* DirPopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirPopUpView.h; sourceTree = "<group>"; };
+		8416A9E620CF62C9004EA1C4 /* DirPopUpView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = DirPopUpView.m; sourceTree = "<group>"; };
+		8417E1C320FBC61500B23D92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8417E1C520FBC64300B23D92 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8417E1C620FBC64600B23D92 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8417E1C720FBC64800B23D92 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8417E1C820FBC64900B23D92 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		841CBD6D2066DAF40040D178 /* btnFindMinus50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnFindMinus50@2x.png"; path = "Images/btnFindMinus50@2x.png"; sourceTree = "<group>"; };
 		841CBD6E2066DAF40040D178 /* btnFindPlus50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnFindPlus50@2x.png"; path = "Images/btnFindPlus50@2x.png"; sourceTree = "<group>"; };
-		841CBD6F2066DAF40040D178 /* btnSwapDatos50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnSwapDatos50@2x.png"; path = "Images/btnSwapDatos50@2x.png"; sourceTree = "<group>"; };
 		841CBD7320673C5C0040D178 /* btnAdd50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnAdd50@2x.png"; path = "Images/btnAdd50@2x.png"; sourceTree = "<group>"; };
 		841CBD7420673C5C0040D178 /* btnDel50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnDel50@2x.png"; path = "Images/btnDel50@2x.png"; sourceTree = "<group>"; };
 		841CBD7520673C5C0040D178 /* btnDelAll50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnDelAll50@2x.png"; path = "Images/btnDelAll50@2x.png"; sourceTree = "<group>"; };
 		841CBD7620673C5C0040D178 /* btnLeft50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnLeft50@2x.png"; path = "Images/btnLeft50@2x.png"; sourceTree = "<group>"; };
 		841CBD7B20673C9E0040D178 /* btnRight50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnRight50@2x.png"; path = "Images/btnRight50@2x.png"; sourceTree = "<group>"; };
-		84651314208E776C00250E21 /* BtnClose1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BtnClose1@2x.png"; path = "Images/BtnClose1@2x.png"; sourceTree = "<group>"; };
+		8420158F20D1E90E00763215 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		8420159020D1E90F00763215 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8420159220D1E91F00763215 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		8420159320D1E91F00763215 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8420159520D1E93A00763215 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		8420159620D1E93A00763215 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8434E8A720D40EFE00520157 /* BtnHideFindPlus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BtnHideFindPlus@2x.png"; path = "Images/BtnHideFindPlus@2x.png"; sourceTree = "<group>"; };
+		8434E8A920D40F8B00520157 /* BtnClose1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BtnClose1@2x.png"; path = "Images/BtnClose1@2x.png"; sourceTree = "<group>"; };
+		8434E8AB20D412D900520157 /* btnPopUp50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnPopUp50@2x.png"; path = "Images/btnPopUp50@2x.png"; sourceTree = "<group>"; };
 		84651316208EA3C000250E21 /* BntCloseMod@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BntCloseMod@2x.png"; path = "Images/BntCloseMod@2x.png"; sourceTree = "<group>"; };
 		84651317208EA3C000250E21 /* BtnConj@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BtnConj@2x.png"; path = "Images/BtnConj@2x.png"; sourceTree = "<group>"; };
 		84651318208EA3C000250E21 /* BtnNums@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BtnNums@2x.png"; path = "Images/BtnNums@2x.png"; sourceTree = "<group>"; };
 		84651319208EA3C000250E21 /* BtnShowFindPlus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BtnShowFindPlus@2x.png"; path = "Images/BtnShowFindPlus@2x.png"; sourceTree = "<group>"; };
-		8465131A208EA3C000250E21 /* BtnPurchases@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BtnPurchases@2x.png"; path = "Images/BtnPurchases@2x.png"; sourceTree = "<group>"; };
-		84651320208EE08B00250E21 /* BtnHideFindPlus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BtnHideFindPlus@2x.png"; path = "Images/BtnHideFindPlus@2x.png"; sourceTree = "<group>"; };
+		8469E69620EFBE8C0013AB2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		8469E69820EFBE900013AB2F /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		8469E69A20EFBE970013AB2F /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Main.strings; sourceTree = "<group>"; };
+		8469E69C20EFBE9E0013AB2F /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		849911F2208BC27F001F0B0F /* BntFind@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BntFind@2x.png"; path = "Images/BntFind@2x.png"; sourceTree = "<group>"; };
 		849911F3208BC27F001F0B0F /* BtnGroup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BtnGroup@2x.png"; path = "Images/BtnGroup@2x.png"; sourceTree = "<group>"; };
 		849911F6208BC399001F0B0F /* BtnMeans2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "BtnMeans2@2x.png"; path = "Images/BtnMeans2@2x.png"; sourceTree = "<group>"; };
@@ -193,8 +210,6 @@
 		849912C4208BFC09001F0B0F /* ConjHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConjHeaderView.h; sourceTree = "<group>"; };
 		849912C5208BFC09001F0B0F /* ConjHeaderView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = ConjHeaderView.m; sourceTree = "<group>"; };
 		84A195CC205C768A00110EDA /* btnMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btnMenu.png; path = Images/btnMenu.png; sourceTree = "<group>"; };
-		84A195CD205C768A00110EDA /* btnPopUp50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnPopUp50@2x.png"; path = "Images/btnPopUp50@2x.png"; sourceTree = "<group>"; };
-		84A195CE205C768A00110EDA /* btnSwap50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btnSwap50@2x.png"; path = "Images/btnSwap50@2x.png"; sourceTree = "<group>"; };
 		84A195CF205C768A00110EDA /* FlagEn50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FlagEn50@2x.png"; path = "Images/FlagEn50@2x.png"; sourceTree = "<group>"; };
 		84A195D0205C768A00110EDA /* FlagEs50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FlagEs50@2x.png"; path = "Images/FlagEs50@2x.png"; sourceTree = "<group>"; };
 		84A195D1205C768A00110EDA /* FlagFr50@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "FlagFr50@2x.png"; path = "Images/FlagFr50@2x.png"; sourceTree = "<group>"; };
@@ -260,7 +275,7 @@
 		84E4BB802059F80200BECE1F /* DesplazaView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = DesplazaView.m; sourceTree = "<group>"; };
 		84E806A2208CF6C100D78C38 /* SelLangView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelLangView.h; sourceTree = "<group>"; };
 		84E806A3208CF6D200D78C38 /* SelLangView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = SelLangView.m; sourceTree = "<group>"; };
-		84EB11132058814B00A1DA0D /* Dictionary Plus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dictionary Plus.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		84EB11132058814B00A1DA0D /* Dictionary Plus (English).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dictionary Plus (English).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EB11172058814B00A1DA0D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		84EB11192058814B00A1DA0D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "Dictionary Plus/AppDelegate.h"; sourceTree = "<group>"; };
 		84EB111A2058814B00A1DA0D /* AppDelegate.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; name = AppDelegate.m; path = "Dictionary Plus/AppDelegate.m"; sourceTree = "<group>"; };
@@ -417,6 +432,8 @@
 		84DEEF8120768AA400F3A8F1 /* Customs Views */ = {
 			isa = PBXGroup;
 			children = (
+				8416A9E520CF62C9004EA1C4 /* DirPopUpView.h */,
+				8416A9E620CF62C9004EA1C4 /* DirPopUpView.m */,
 				849912C2208BFC09001F0B0F /* ConjDataView.h */,
 				849912C3208BFC09001F0B0F /* ConjDataView.m */,
 				849912C4208BFC09001F0B0F /* ConjHeaderView.h */,
@@ -487,7 +504,7 @@
 		84EB11142058814B00A1DA0D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84EB11132058814B00A1DA0D /* Dictionary Plus.app */,
+				84EB11132058814B00A1DA0D /* Dictionary Plus (English).app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -495,6 +512,7 @@
 		84EB11162058814B00A1DA0D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8417E1C220FBC61500B23D92 /* InfoPlist.strings */,
 				84EB11222058814B00A1DA0D /* Assets.xcassets */,
 				84EB11272058814B00A1DA0D /* Info.plist */,
 				84EB11242058814B00A1DA0D /* LaunchScreen.storyboard */,
@@ -508,13 +526,14 @@
 		84EB112D2059619B00A1DA0D /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				84651320208EE08B00250E21 /* BtnHideFindPlus@2x.png */,
+				8434E8AB20D412D900520157 /* btnPopUp50@2x.png */,
+				8434E8A920D40F8B00520157 /* BtnClose1@2x.png */,
+				8434E8A720D40EFE00520157 /* BtnHideFindPlus@2x.png */,
+				8416A9E320CF4835004EA1C4 /* LeftArrow.png */,
 				84651316208EA3C000250E21 /* BntCloseMod@2x.png */,
 				84651317208EA3C000250E21 /* BtnConj@2x.png */,
 				84651318208EA3C000250E21 /* BtnNums@2x.png */,
 				84651319208EA3C000250E21 /* BtnShowFindPlus@2x.png */,
-				8465131A208EA3C000250E21 /* BtnPurchases@2x.png */,
-				84651314208E776C00250E21 /* BtnClose1@2x.png */,
 				849911F6208BC399001F0B0F /* BtnMeans2@2x.png */,
 				849911F7208BC399001F0B0F /* FlagEn30@2x.png */,
 				849911F8208BC399001F0B0F /* FlagEs30@2x.png */,
@@ -541,12 +560,9 @@
 				841CBD7620673C5C0040D178 /* btnLeft50@2x.png */,
 				841CBD6D2066DAF40040D178 /* btnFindMinus50@2x.png */,
 				841CBD6E2066DAF40040D178 /* btnFindPlus50@2x.png */,
-				841CBD6F2066DAF40040D178 /* btnSwapDatos50@2x.png */,
 				84A195E3205CB04C00110EDA /* Leading@2x.png */,
 				84A195DE205C8C7400110EDA /* btnSwap50_@2x.png */,
 				84A195CC205C768A00110EDA /* btnMenu.png */,
-				84A195CD205C768A00110EDA /* btnPopUp50@2x.png */,
-				84A195CE205C768A00110EDA /* btnSwap50@2x.png */,
 				84A195CF205C768A00110EDA /* FlagEn50@2x.png */,
 				84A195D0205C768A00110EDA /* FlagEs50@2x.png */,
 				84A195D1205C768A00110EDA /* FlagFr50@2x.png */,
@@ -560,9 +576,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		84EB11122058814B00A1DA0D /* Dictionary Plus */ = {
+		84EB11122058814B00A1DA0D /* Dictionary Plus (English) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 84EB112A2058814B00A1DA0D /* Build configuration list for PBXNativeTarget "Dictionary Plus" */;
+			buildConfigurationList = 84EB112A2058814B00A1DA0D /* Build configuration list for PBXNativeTarget "Dictionary Plus (English)" */;
 			buildPhases = (
 				84EB110F2058814B00A1DA0D /* Sources */,
 				84EB11102058814B00A1DA0D /* Frameworks */,
@@ -572,9 +588,9 @@
 			);
 			dependencies = (
 			);
-			name = "Dictionary Plus";
+			name = "Dictionary Plus (English)";
 			productName = "Dictionary Plus";
-			productReference = 84EB11132058814B00A1DA0D /* Dictionary Plus.app */;
+			productReference = 84EB11132058814B00A1DA0D /* Dictionary Plus (English).app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -599,13 +615,16 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
+				it,
+				fr,
 			);
 			mainGroup = 84EB110A2058814B00A1DA0D;
 			productRefGroup = 84EB11142058814B00A1DA0D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				84EB11122058814B00A1DA0D /* Dictionary Plus */,
+				84EB11122058814B00A1DA0D /* Dictionary Plus (English) */,
 			);
 		};
 /* End PBXProject section */
@@ -616,20 +635,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				841CBD7C20673C9E0040D178 /* btnRight50@2x.png in Resources */,
-				84A195D5205C768A00110EDA /* btnSwap50@2x.png in Resources */,
-				841CBD722066DAF40040D178 /* btnSwapDatos50@2x.png in Resources */,
 				84A195E4205CB04C00110EDA /* Leading@2x.png in Resources */,
 				849911F5208BC27F001F0B0F /* BtnGroup@2x.png in Resources */,
 				84EB1133205961DD00A1DA0D /* LaunchImage.png in Resources */,
 				84EB11262058814B00A1DA0D /* LaunchScreen.storyboard in Resources */,
 				84F698D7207930B700327038 /* btnShowAll40@2x.png in Resources */,
-				8465131F208EA3C000250E21 /* BtnPurchases@2x.png in Resources */,
-				84651315208E776C00250E21 /* BtnClose1@2x.png in Resources */,
 				84FBFE31207EFD8B009C410C /* btnFindWord40@2x.png in Resources */,
 				84A195D8205C768A00110EDA /* FlagFr50@2x.png in Resources */,
 				849911FE208BC399001F0B0F /* FlagFr30@2x.png in Resources */,
 				841CBD7920673C5C0040D178 /* btnDelAll50@2x.png in Resources */,
-				84651321208EE08B00250E21 /* BtnHideFindPlus@2x.png in Resources */,
 				8465131B208EA3C000250E21 /* BntCloseMod@2x.png in Resources */,
 				84EB11232058814B00A1DA0D /* Assets.xcassets in Resources */,
 				84A195DF205C8C7400110EDA /* btnSwap50_@2x.png in Resources */,
@@ -640,26 +654,30 @@
 				84FBFE30207EFD8B009C410C /* btnDelMean40@2x.png in Resources */,
 				849911FD208BC399001F0B0F /* FlagEs30@2x.png in Resources */,
 				849911FB208BC399001F0B0F /* BtnMeans2@2x.png in Resources */,
+				8434E8AA20D40F8B00520157 /* BtnClose1@2x.png in Resources */,
 				849911FF208BC399001F0B0F /* FlagIt30@2x.png in Resources */,
-				84A195D4205C768A00110EDA /* btnPopUp50@2x.png in Resources */,
 				84FBFE33207EFD8B009C410C /* btnPrevWord40@2x.png in Resources */,
 				84FBFE2F207EFD8B009C410C /* btnConjWord40@2x.png in Resources */,
 				8465131D208EA3C000250E21 /* BtnNums@2x.png in Resources */,
 				84A195D3205C768A00110EDA /* btnMenu.png in Resources */,
 				84DEEF70207657FC00F3A8F1 /* Datos in Resources */,
+				8434E8AC20D412DA00520157 /* btnPopUp50@2x.png in Resources */,
 				84A195D9205C768A00110EDA /* FlagIt50@2x.png in Resources */,
 				8465131C208EA3C000250E21 /* BtnConj@2x.png in Resources */,
 				841CBD7A20673C5C0040D178 /* btnLeft50@2x.png in Resources */,
 				841CBD702066DAF40040D178 /* btnFindMinus50@2x.png in Resources */,
 				84F698D4207930B700327038 /* btnListMixss40@2x.png in Resources */,
+				8434E8A820D40EFE00520157 /* BtnHideFindPlus@2x.png in Resources */,
 				84F698D5207930B700327038 /* btnListWrds40@2x.png in Resources */,
 				841CBD712066DAF40040D178 /* btnFindPlus50@2x.png in Resources */,
+				8416A9E420CF4835004EA1C4 /* LeftArrow.png in Resources */,
 				84A195D6205C768A00110EDA /* FlagEn50@2x.png in Resources */,
 				849911F4208BC27F001F0B0F /* BntFind@2x.png in Resources */,
 				84EB11212058814B00A1DA0D /* Main.storyboard in Resources */,
 				84FBFE32207EFD8B009C410C /* btnNextWord40@2x.png in Resources */,
 				84E43D86207AB90500D80910 /* Localizable.strings in Resources */,
 				849911FC208BC399001F0B0F /* FlagEn30@2x.png in Resources */,
+				8417E1C420FBC61500B23D92 /* InfoPlist.strings in Resources */,
 				84991298208BF495001F0B0F /* ArrayUtil.inl in Resources */,
 				841CBD7820673C5C0040D178 /* btnDel50@2x.png in Resources */,
 				84B0AF6C2068B8CE00C61E6D /* btnMoveUp50@2x.png in Resources */,
@@ -728,6 +746,7 @@
 				849912A5208BF4D7001F0B0F /* ApiRed.cpp in Sources */,
 				8499129F208BF495001F0B0F /* WinUtil.cpp in Sources */,
 				84B0AF6A2068627A00C61E6D /* SearchController.m in Sources */,
+				8416A9E720CF62CA004EA1C4 /* DirPopUpView.m in Sources */,
 				84DEEF742076589D00F3A8F1 /* DictIndexes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -735,10 +754,25 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		8417E1C220FBC61500B23D92 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8417E1C320FBC61500B23D92 /* Base */,
+				8417E1C520FBC64300B23D92 /* en */,
+				8417E1C620FBC64600B23D92 /* es */,
+				8417E1C720FBC64800B23D92 /* it */,
+				8417E1C820FBC64900B23D92 /* fr */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		84E43D88207AB90500D80910 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				84E43D87207AB90500D80910 /* Base */,
+				8420159020D1E90F00763215 /* es */,
+				8420159320D1E91F00763215 /* it */,
+				8420159620D1E93A00763215 /* fr */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -747,6 +781,10 @@
 			isa = PBXVariantGroup;
 			children = (
 				84EB11202058814B00A1DA0D /* Base */,
+				8469E69620EFBE8C0013AB2F /* en */,
+				8469E69820EFBE900013AB2F /* es */,
+				8469E69A20EFBE970013AB2F /* it */,
+				8469E69C20EFBE9E0013AB2F /* fr */,
 			);
 			name = Main.storyboard;
 			path = "Dictionary Plus";
@@ -756,6 +794,9 @@
 			isa = PBXVariantGroup;
 			children = (
 				84EB11252058814B00A1DA0D /* Base */,
+				8420158F20D1E90E00763215 /* es */,
+				8420159220D1E91F00763215 /* it */,
+				8420159520D1E93A00763215 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -767,6 +808,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -822,6 +864,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -875,7 +918,7 @@
 				INFOPLIST_FILE = "Dictionary Plus/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bigxsoft.DictiOSAll;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bigxsoft.DictIOSEn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -888,7 +931,7 @@
 				INFOPLIST_FILE = "Dictionary Plus/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bigxsoft.DictiOSAll;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bigxsoft.DictIOSEn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -905,7 +948,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		84EB112A2058814B00A1DA0D /* Build configuration list for PBXNativeTarget "Dictionary Plus" */ = {
+		84EB112A2058814B00A1DA0D /* Build configuration list for PBXNativeTarget "Dictionary Plus (English)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84EB112B2058814B00A1DA0D /* Debug */,

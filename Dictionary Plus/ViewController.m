@@ -200,6 +200,7 @@
  
     nowEdit = nil;
     [self UpdateBarSizeAndPos];
+    [_DictZone UpdateMode:-1];                    // Actualiza los botones para actuar sobre los significados
     }
   }
 
@@ -381,7 +382,7 @@
   {
   HideKeyboard();
   
-  NSMutableArray* ItemIDs = [NSMutableArray arrayWithObjects: @"Conj", @"Nums", @"Purchases", nil];
+  NSMutableArray* ItemIDs = [NSMutableArray arrayWithObjects: @"Conj", @"Nums", nil];
   
   if( _FindWord.text.length>0  )
     {
@@ -404,7 +405,7 @@
     {
     case 0: [self performSegueWithIdentifier: @"ShowConjVerb" sender: nil]; break;
     case 1: [self performSegueWithIdentifier: @"ShowNumbers"  sender: nil]; break;
-    case 3:
+    case 2:
       if( _LeftSearchPlus.constant<0 )
         [self ShowAvancedSearch];
       else
@@ -551,6 +552,8 @@
 // Encuentra todas las palabras frases y oraciones que cumplen el criterio de busqueda
 - (void) FindFrases
   {
+  _AllMeans = FALSE;
+  
   Query = [TextQuery QueryWithText: _FindWord.text ];                       // Obtiene el query
 
   FOUNDS_ENTRY* FoundEntries = [Query FindWords];                           // Busca las palabras
@@ -565,6 +568,8 @@
 // Realiza una busqueda avanzada de palabras y frases, según los datos suministrados en 'Query' y 'sw'
 - (void) FindFrasesWithQuery:(FOUNDS_ENTRY*) FoundEntries NWords:(NSInteger)Count Options:(int) sw
   {
+  _AllMeans = FALSE;
+  
   SortEntries = [SortedIndexs SortEntries:FoundEntries NWords:Count Options:sw];    // Organiza las palabras por su ranking
 
   [_TableFrases reloadData];                                                // Actualiza el contenido de la lista

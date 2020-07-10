@@ -8,20 +8,20 @@
 
 #import "SelDirView.h"
 #import "AppData.h"
-#import "LangPopUpView.h"
+#import "DirPopUpView.h"
 
 //=========================================================================================================================================================
 @interface SelDirView ()
   {
   UIImageView* srcIcon;            // Bandera para el idioma fuente
   UILabel*     srcLabel;           // Descripcion del idioma fuente
-  UIImageView* srcDwm;             // Icono para indicar que se puede seleccionar
+  
+  UIImageView* arrow;              // Flecha que separa los idiomas
+
+  UIImageView* desIcon;            // Bandera del idioma destino
+  UILabel*     desLabel;           // Descripción del idioma destino
   
   UIImageView* SwapIcon;           // Icono para el intercambio de idioma
-  
-  UIImageView* desIcon;
-  UILabel*     desLabel;
-  UIImageView* desDwm;
   
   CGFloat X;                        // Posicion en la x de la vista de idiomas
   CGFloat Y;                        // Posicion en la y de la vista de idiomas
@@ -31,12 +31,11 @@
   CGFloat yLb;                      // Posición en y de los labels
   CGFloat hLb;                      // Altura de los labels
   
-  CGFloat wIcon;                    // Ancho del icono del idioma
-  CGFloat wDwn;                     // Ancho del icono para despazar hacia abajo
-  CGFloat wSwap;                    // Ancho del icono para intercambiar los idiomas
   CGFloat wSrc;                     // Ancho del nombre del idioma fuente
   CGFloat wDes;                     // Ancho del nombre del idioma destino
-  CGFloat wDWN;                     // Ancho del icono de la flechita
+  CGFloat wArrow;                   // Ancho de la flecha que separa los idiomas
+  CGFloat wIcon;                    // Ancho del icono del idioma
+  CGFloat wSwap;                    // Ancho del icono para intercambiar los idiomas
   }
 @end
 
@@ -68,13 +67,11 @@
   {
   srcIcon  = self.subviews[0];
   srcLabel = self.subviews[1];
-  srcDwm   = self.subviews[2];
+  arrow    = self.subviews[2];
+  desIcon  = self.subviews[3];
+  desLabel = self.subviews[4];
   
-  SwapIcon = self.subviews[3];
-  
-  desIcon  = self.subviews[4];
-  desLabel = self.subviews[5];
-  desDwm   = self.subviews[6];
+  SwapIcon = self.subviews[5];
   
   X = self.frame.origin.x;
   Y = self.frame.origin.y;
@@ -85,7 +82,7 @@
   
   wIcon = srcIcon.frame.size.width;
   wSwap = SwapIcon.frame.size.width;
-  wDWN  = srcDwm.frame.size.width;
+  wArrow = arrow.frame.size.width;
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -96,69 +93,46 @@
 
   wSrc  = srcLabel.frame.size.width;                          // Ancho del nombre del idioma fuente
   wDes  = desLabel.frame.size.width;                          // Ancho del nombre del idioma destino
-  wDwn  = wDWN;
-  int wExtra = 0;
   
   CGFloat wDisp = self.superview.bounds.size.width - X - 55;   // Ancho disponible la vista que contiene los idiomas
   
-  W = wIcon + wSrc + wDwn + wSwap + wIcon + wDes + wDwn;
+  W = wIcon + wSrc + wIcon + wArrow + wDes + wSwap;
   if( W>wDisp )
     {
-    W = wIcon + wSrc + wSwap + wIcon + wDes;
-    if( W>wDisp )
-      {
-      srcLabel.hidden = TRUE;
-      desLabel.hidden = TRUE;
-      srcDwm.hidden   = FALSE;
-      desDwm.hidden   = FALSE;
+    srcLabel.hidden = TRUE;
+    desLabel.hidden = TRUE;
 
-      W -= (wSrc + wDes);
-      wSrc = 0;
-      wDes = 0;
-      }
-    else
-      {
-      srcLabel.hidden = FALSE;
-      desLabel.hidden = FALSE;
-      srcDwm.hidden = TRUE;
-      desDwm.hidden = TRUE;
-      
-      wDwn = 0;
-      }
+    wSrc = 0;
+    wDes = 0;
+    
+    W = wIcon + wIcon + wArrow + wSwap;
     }
   else
     {
     srcLabel.hidden = FALSE;
     desLabel.hidden = FALSE;
-    srcDwm.hidden   = FALSE;
-    desDwm.hidden   = FALSE;
-    
-    wExtra = (wDisp - W) / 2;
-    if( wExtra>15 ) wExtra = 15;
     }
   
   CGFloat x = 0;
   srcIcon.frame = CGRectMake(x, 0, wIcon, H);
-  
   x += wIcon;
+  
   srcLabel.frame = CGRectMake(x, yLb, wSrc, hLb);
-  
   x += wSrc;
-  srcDwm.frame = CGRectMake(x, 0, wDwn, H);
-
-  x += (wDwn + wExtra);
-  SwapIcon.frame = CGRectMake(x, 0, wSwap, H);
   
-  x += (wSwap + wExtra);
+  arrow.frame = CGRectMake(x, 0, wArrow, H);
+  x += wArrow;
+  
   desIcon.frame = CGRectMake(x, 0, wIcon, H);
-  
   x += wIcon;
+  
   desLabel.frame = CGRectMake(x, yLb, wDes, hLb);
-  
   x += wDes;
-  desDwm.frame = CGRectMake(x, 0, wDwn, H);
   
-  W = x + wDwn;
+  SwapIcon.frame = CGRectMake(x, 0, wSwap, H);
+  x += wSwap;
+  
+  W = x;
  // self.frame = CGRectMake(X, Y, W, H);
   }
 
@@ -207,53 +181,40 @@
   CGPoint pnt = [[touches anyObject] locationInView: self];     // Punto que se toco dentro de la fila
   if( pnt.y<=5 || pnt.y>=45  ) return;
 
-  CGFloat MkSrc  = wIcon + wSrc + wDwn;
-  CGFloat MkDes  = W - (wIcon + wDes + wDwn);
-  
   CGRect rc = SwapIcon.frame;
   
-       if( pnt.x < MkSrc ) [self SelSrcLanguajes];
-  else if( pnt.x > MkDes ) [self SelDesLanguajes];
-  else if( CGRectContainsPoint(rc, pnt) ) [self SwapLanguajes];
+  if( CGRectContainsPoint(rc, pnt) ) [self SwapLanguajes];
+  else [self SelSrcLanguajes];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Intercambia los idiomas fuentes y destinos
 - (void)SwapLanguajes
   {
-  CGRect rc1 = srcIcon.frame;
-  CGRect rc2 = srcLabel.frame;
-  CGRect rc3 = srcDwm.frame;
+  CGRect rcIcn1 = srcIcon.frame;
+  CGRect rcTxt1 = srcLabel.frame;
+  
+  CGRect rcArrow = arrow.frame;
 
-  CGRect rcSW = SwapIcon.frame;
-  
-  CGRect rc5 = desIcon.frame;
-  CGRect rc6 = desLabel.frame;
-  CGRect rc7 = desDwm.frame;
+  CGRect rcIcn2 = desIcon.frame;
+  CGRect rcTxt2 = desLabel.frame;
 
-  CGFloat Sep = rcSW.origin.x - (rc3.origin.x + wDwn);
+  rcIcn2.origin.x = 0;
+  rcTxt2.origin.x = wIcon;
   
-  rc5.origin.x = 0;
-  rc6.origin.x = wIcon;
-  rc7.origin.x = wIcon + wDes;
-  
-  rcSW.origin.x = wIcon + wDes + wDwn + Sep;
-  
-  CGFloat x = W - (wIcon + wSrc + wDwn);
-  rc1.origin.x = x;
-  rc2.origin.x = x + wIcon;
-  rc3.origin.x = x + wIcon + wSrc;
+  CGFloat x = wIcon + wDes;
+  rcArrow.origin.x = x;
+  rcIcn1.origin.x = x + wArrow;
+  rcTxt1.origin.x = x + wArrow + wIcon;
 
   [UIView animateWithDuration:0.5 animations:^{
-    srcIcon.frame  = rc1;
-    srcLabel.frame = rc2;
-    srcDwm.frame   = rc3;
+    srcIcon.frame  = rcIcn1;
+    srcLabel.frame = rcTxt1;
 
-    SwapIcon.frame = rcSW;
-  
-    desIcon.frame  = rc5;
-    desLabel.frame = rc6;
-    desDwm.frame   = rc7;
+    arrow.frame = rcArrow;
+    
+    desIcon.frame  = rcIcn2;
+    desLabel.frame = rcTxt2;
     }
   completion:^(BOOL finished) {
     [self SetDictWithSrc:LGDes AndDes:LGSrc];
@@ -264,44 +225,23 @@
 // Seleciona el idioma fuente
 - (void)SelSrcLanguajes
   {
-  LangPopUpView* PopUp = [[LangPopUpView alloc] initWithRefView:srcIcon AtLeft:TRUE DeltaX:0 DeltaY:-10];
-  PopUp.tag = 0;
-  [PopUp ShowWithLang:LGSrc CallBack:@selector(SelectedLang:) Target:self];
-  }
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
-// Seleciona el idioma destino
-- (void)SelDesLanguajes
-  {
-  CGFloat leftSep = self.superview.bounds.size.width - desIcon.frame.origin.x;
+  int iDir = DIRFromLangs( LGSrc, LGDes );
   
-  LangPopUpView* PopUp;
-  if( leftSep>= 160 )
-    PopUp = [[LangPopUpView alloc] initWithRefView:desIcon AtLeft:TRUE DeltaX:0 DeltaY:-10];
-  else
-    PopUp = [[LangPopUpView alloc] initWithRefView:desDwm AtLeft:FALSE DeltaX:0 DeltaY:-10];
-  
-  PopUp.tag = 1;
-  [PopUp ShowWithLang:LGDes CallBack:@selector(SelectedLang:) Target:self];
+  DirPopUpView* PopUp = [[DirPopUpView alloc] initWithRefView:srcIcon AtLeft:TRUE DeltaX:0 DeltaY:-10];
+  [PopUp ShowWithDir:iDir CallBack:@selector(SelectedLang:) Target:self];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Se llama cuando se selecciona un idioma
-- (void) SelectedLang:(LangPopUpView *) PopUp
+- (void) SelectedLang:(DirPopUpView *) PopUp
   {
-  int newLng = PopUp.SelectedLang;
-  if( newLng==-1 ) return;
+  int newDir = PopUp.SelectedDir;
+  if( newDir==-1 ) return;
   
-  if( PopUp.tag == 0 )
-    {
-    int newDes = (newLng==LGDes)? LGSrc : LGDes;
-    [self SetDictWithSrc:newLng AndDes:newDes];
-    }
-  else
-    {
-    int newSrc = (newLng==LGSrc)? LGDes : LGSrc;
-    [self SetDictWithSrc:newSrc AndDes:newLng];
-    }
+  int iSrc = DIRSrc(newDir);
+  int iDes = DIRDes(newDir);
+
+  [self SetDictWithSrc:iSrc AndDes:iDes];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
