@@ -7,7 +7,6 @@
 //==================================================================================================================================================================
 
 #import "FindMeans.h"
-#import "CronoTime.h"
 
 extern NSArray<NSString*>* GetMeansInData( NSString* Datos );
 extern NSString* ClearMean( NSString* mean );

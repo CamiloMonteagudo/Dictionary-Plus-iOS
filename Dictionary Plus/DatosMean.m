@@ -12,6 +12,7 @@
 #import "EntryDesc.h"
 #import "ConjCore.h"
 #import "BtnsBarView.h"
+#import "FindMeans.h"
 
 static NSCharacterSet * Nums = [NSCharacterSet characterSetWithCharactersInString:@"1234567890"];
   
@@ -39,7 +40,7 @@ static NSCharacterSet * Nums = [NSCharacterSet characterSetWithCharactersInStrin
 
 //  NSMutableArray<MarkView*> *Marks;               // Controles para cambiar las marcas
 
-  CGFloat wSustData;                                // Contiene el mayor ancho de los datos de los textos de sustitución en la entrada
+//  CGFloat wSustData;                                // Contiene el mayor ancho de los datos de los textos de sustitución en la entrada
   
   ParseMeans* Parse;
   
@@ -94,6 +95,45 @@ static NSCharacterSet * Nums = [NSCharacterSet characterSetWithCharactersInStrin
   Datos.HasSustMarks = (Datos->Entry.nMarks>0);                     // Pone si tiene marcas de sustitución o no
 
   return Datos;
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Crea un objeto con los significados de la palabra 'sWord' si es encontrada para los idiomas 'src' y 'des'
++ (DatosMean*) DatosForWord:(NSString*) sWord Src:(int)src Des:(int)des
+  {
+  DatosMean* Datos = [[DatosMean alloc] init];                    // Crea vista de datos nueva
+  
+  Datos.CellName = @"InfoMeanCell";
+  Datos.src = src;
+  Datos.des = des;
+
+  EntryIndex* idx = FindIndexsForWord(sWord, src, des);
+  if( idx == nil ) return nil;
+  
+  EntryDict* Entry = FindWordEntry(idx, src, des);
+  if( Entry == nil ) return nil;
+  
+  Datos.sKey   = Entry.Key;
+  Datos->Entry = [EntryDesc DescWithEntry:Entry Src:src Des:des];
+
+  Datos.HasSustMarks = (Datos->Entry.nMarks>0);                     // Pone si tiene marcas de sustitución o no
+
+  return Datos;
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Crea un objeto con los significados de la palabra 'sWord' si es encontrada para los idiomas 'src' y 'des'
++ (NSAttributedString*) StrAttrbForWord:(NSString*) sWord Src:(int)src Des:(int)des
+  {
+  EntryIndex* idx = FindIndexsForWord(sWord, src, des);
+  if( idx == nil ) return nil;
+  
+  EntryDict* EntryWrd = FindWordEntry(idx, src, des);
+  if( EntryWrd == nil ) return nil;
+  
+  EntryDesc* EntryDatos = [EntryDesc DescWithEntry:EntryWrd Src:src Des:des];
+  
+  return [EntryDatos getDatosAttrString];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -163,6 +203,8 @@ static NSCharacterSet * Nums = [NSCharacterSet characterSetWithCharactersInStrin
   DataCmdBarDisable(CMD_ALL);
   DataCmdBarEnable( CMD_PREV_WRD|CMD_NEXT_WRD|CMD_DEL_MEAN );
   DataCmdBarPosBottomView( self.Cell.contentView, 0 );
+  
+  [self SelActualWord];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -253,11 +295,13 @@ static NSCharacterSet * Nums = [NSCharacterSet characterSetWithCharactersInStrin
 - (void) SelActualWord
   {
   [self GetParseMeans];
+  
   if( Parse && self.Cell)
     {
     _ActualWord = [Parse GetSelected];
     
-    [(DatosMeanCell*)self.Cell SelWordInRange:_ActualWord.Rg ];
+    if( _ActualWord != nil )
+      [(DatosMeanCell*)self.Cell SelWordInRange:_ActualWord.Rg ];
     }
   
   [self CheckSelectedWord];
@@ -293,11 +337,11 @@ static NSCharacterSet * Nums = [NSCharacterSet characterSetWithCharactersInStrin
   {
   MyEdit* Text;                                     // Texto de la tradución
 
-  UIView* SustBox;                                  // Recuadro donde se pone los datos de sustitución de palabras
+//  UIView* SustBox;                                  // Recuadro donde se pone los datos de sustitución de palabras
   
 //  NSMutableArray<MarkView*> *Marks;               // Controles para cambiar las marcas
 
-  CGFloat wSustData;                                // Contiene el mayor ancho de los datos de los textos de sustitución en la entrada
+//  CGFloat wSustData;                                // Contiene el mayor ancho de los datos de los textos de sustitución en la entrada
   }
 
 @end
@@ -371,7 +415,7 @@ static NSCharacterSet * Nums = [NSCharacterSet characterSetWithCharactersInStrin
   
   NSRange rg = Text.selectedRange;                                     // Obtiene el rango selecciondo
 
-  if( !SelWrd || !NSEqualRanges(SelWrd.Rg, rg) )
+  if( rg.length>0 && (!SelWrd || !NSEqualRanges(SelWrd.Rg, rg)) )
     {
     ParseMeans* Parse = [datos GetParseMeans];
     

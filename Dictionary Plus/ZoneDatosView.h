@@ -46,7 +46,6 @@
 +(InfoDatos*) SelectedDatos;
 
 - (void) AddDatos:(InfoDatos*) view Select:(BOOL) sel;
-- (void) AddDatosAfterSel:(InfoDatos*) view;
 - (void) ClearDatos;
 - (void) DeleteSelectedDatos;
 

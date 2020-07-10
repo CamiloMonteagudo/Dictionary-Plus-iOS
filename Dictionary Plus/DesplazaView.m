@@ -69,24 +69,10 @@
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
-- (void)TogglePanel
-  {
-  int nowMode = _Mode+1;
-  
-  if( nowMode == MODE_SPLIT && !_SplitDatos )
-    nowMode = MODE_MEANS;
-  
-  if( nowMode<MODE_LIST || nowMode>MODE_MEANS )
-    nowMode = MODE_LIST;
-  
-  [self ShowInMode:nowMode Animate:TRUE];
-  }
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Actualiza el modo de mostrar los datos del diccionario y la interface de usuario asocida a el
 - (void) UpdateMode:(int) newMode
   {
-  _Mode = newMode;
+  if( newMode>=0 ) _Mode = newMode;
   
   int setAct = 0;  int desAct = 0;
   
@@ -97,7 +83,7 @@
   if( !Ctrller.CountOfMeans ) { actDel = 0; desDel = CMD_DEL_MEANS; }
 
   int actAll = CMD_ALL_MEANS; int desAll = 0;
-  if( !Ctrller.CountFoundWord ) { actAll = 0; desAll = CMD_ALL_MEANS; }
+  if( !Ctrller.CountFoundWord || Ctrller.AllMeans ) { actAll = 0; desAll = CMD_ALL_MEANS; }
 
   int actMeans = CMD_MEANS; int desMeans = 0;
   if( !Ctrller.CountOfMeans ) { actMeans = 0; desMeans = CMD_MEANS; }

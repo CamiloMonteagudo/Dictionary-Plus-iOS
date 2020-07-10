@@ -20,11 +20,13 @@
 #import "BtnsBarView.h"
 #import "ConjCore.h"
 #import "ConjController.h"
+#import "FindMeans.h"
 
 //=========================================================================================================================================================
 @interface ViewController ()
   {
   PanelRigthView* PopUp;                                  // Vista que muestra el menú con las opciones adicionales
+  ConjController* PopOverConj;                            // Controller para manejar el conjugador de verbos
   
   UIButton* btnLeft;                                      // Boton al la derecha del cuedra de búsqueda
   
@@ -104,6 +106,7 @@
   _CmdsRight = (w>500);
  
   [self UpdateBarSizeAndPos];
+  [self PosAndResizeConjugator];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -220,10 +223,10 @@
 // Borra todos los significados
 - (void) DeleteAllMeans
   {
+  _AllMeans = FALSE;
+  
   [_DatosZone ClearDatos];
   
-//  [self CheckNoMeansLabel];
-      
   if( _DictZone.Mode != MODE_LIST )
     [_DictZone ShowInMode:MODE_LIST Animate:YES];
   }
@@ -232,15 +235,43 @@
 // Borra el significado que esta seleccionado
 - (void) DeleteSelMean
   {
+  _AllMeans = FALSE;
+  
   [_DatosZone DeleteSelectedDatos];
   
   if( _DatosZone.Count == 0 )
     {
-//    [self CheckNoMeansLabel];
-      
     if( _DictZone.Mode != MODE_LIST )
       [_DictZone ShowInMode:MODE_LIST Animate:YES];
     }
+  else
+    [_DictZone UpdateMode:-1];
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Muestra todos los significados de los palabras encontradas
+- (void) ShowAllMeans
+  {
+  _AllMeans = TRUE;
+  [_DatosZone ClearDatos];
+
+  NSMutableArray<EntrySort*> *Entries = SortEntries->Entries;
+
+  for( int i=(int)Entries.count-1; i>=0; --i )
+    {
+    int idx = Entries[i]->Index;
+    
+    [_DatosZone AddDatos: [DatosMean DatosForIndex:idx] Select:FALSE];
+    }
+
+  [_DatosZone UpdateInfo];
+  
+  if( _DictZone.Mode != MODE_MEANS )
+    [_DictZone ShowInMode:MODE_MEANS Animate:YES];
+  
+  HideKeyboard();
+//  [self CheckNoMeansLabel];
+  [_DatosZone SelectFirst];
   }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------
@@ -399,6 +430,12 @@
   
   if( [ID isEqualToString:@"ShowConjVerb"] )
     {
+    if( iPad )
+      {
+      PopOverConj = (ConjController *)Ctrller;
+      [self PosAndResizeConjugator];
+      }
+    
     int lang = LGSrc;
     NSString* word = nil;
     if( sender != nil )
@@ -417,9 +454,29 @@
     if( word!=nil /*&& [ConjCore IsVerbWord:word InLang:lang ]*/ )
       {
       LGConj = lang;
-      ((ConjController *) Ctrller).Verb = word;
+      ((ConjController *)Ctrller).Verb = word;
       }
     }
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Posiciona y redimenciona el conjugador cuando esta en modo PopOver
+- (void) PosAndResizeConjugator
+  {
+  if( PopOverConj==nil ) return;
+  
+  UIPopoverPresentationController* popOver = PopOverConj.popoverPresentationController;
+  if( popOver == nil ) return;
+  
+  popOver.delegate = self;
+
+  CGSize sz = self.view.bounds.size;
+  CGRect rc = _DictZone.frame;
+    
+  CGFloat w = 350;
+  [popOver setSourceRect:CGRectMake( sz.width-w, 0, w, rc.origin.y)];
+    
+  PopOverConj.preferredContentSize = CGSizeMake(w, rc.size.height);
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -473,8 +530,12 @@
   // Guarda dirección seleccionada en los datos del usuario
   NSUserDefaults* UserDef = [NSUserDefaults standardUserDefaults];
   [UserDef setObject:[NSNumber numberWithInt:iDir] forKey:@"lastDir"];
-
+  
+  _AllMeans = FALSE;
+  
   [self FindFrases];
+  [_DictZone UpdateMode:-1];                    // Actualiza los botones para actuar sobre los significados
+  
   return TRUE;
   }
 
@@ -590,63 +651,19 @@ static NSDictionary* attrWrd = @{ NSFontAttributeName:fontBold };
   HideKeyboard();
   }
 
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
-// Muestra todos los significados de los palabras encontradas
-- (void) ShowAllMeans
-  {
-  [_DatosZone ClearDatos];
-
-  NSMutableArray<EntrySort*> *Entries = SortEntries->Entries;
-
-  for( int i=(int)Entries.count-1; i>=0; --i )
-    {
-    int idx = Entries[i]->Index;
-    
-    [_DatosZone AddDatos: [DatosMean DatosForIndex:idx] Select:FALSE];
-    }
-
-  [_DatosZone UpdateInfo];
-  
-  if( _DictZone.Mode == MODE_LIST )
-    {
-    int mode = (_DictZone.SplitDatos)? MODE_SPLIT : MODE_MEANS;
-    [_DictZone ShowInMode:mode Animate:YES];
-    }
-  
-  HideKeyboard();
-//  [self CheckNoMeansLabel];
-  [_DatosZone SelectFirst];
-  }
-
 //------------------------------------------------------------------------------------------------------------------------------------
 // Se llama cuando se retorna desde otra pantalla
 - (IBAction)ReturnFromUnwind:(UIStoryboardSegue *)unWindSegue
   {
+  PopOverConj = nil;
   }
 
-
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
-// Chequea si no hay ningún significado y pone una etiqueta de orientación al usuario
-//- (void) CheckNoMeansLabel
-//  {
-//  BOOL hidden = (_DatosZone.Count!=0);
-//  
-//  _lbNoMeans.hidden = hidden;
-//  if( hidden )
-//    {
-//    if( _DictZone.Mode != MODE_MEANS )
-//      DictCmdBarEnable( CMD_MEANS );
-//    }
-//  else
-//    {
-//    if( SortEntries.Count>0 ) _lbNoMeans.text = @"Para mostrar un significado aquí:\r\n\r\n Seleccione una fila en la lista de palabras o frases encontradas";
-//    else                      _lbNoMeans.text = @"Para mostrar un significado aqui:\r\n\r\n Escriba la palabra o frase que desea buscar en el cuadro de búsqueda y luego seleccione una fila en la lista";
-//  
-//    DictCmdBarDisable( CMD_MEANS );
-//    }
-//  
-//  DictCmdBarRefresh();
-//  }
+// Se llama cuando se cierra el PopOver por oprimir fuera del area
+- (void)popoverPresentationControllerDidDismissPopover:(UIPopoverPresentationController *)popoverPresentationController
+  {
+  PopOverConj = nil;
+  }
 
 @end
 //=========================================================================================================================================================

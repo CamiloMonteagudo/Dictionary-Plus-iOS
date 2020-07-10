@@ -173,14 +173,16 @@
 // Se llama cada vez que se cierra la vista de busquedas avanzadas
 - (void) CloseFindPlus
   {
-  UITextRange* savePos = txtField.selectedTextRange;
+//  UITextRange* savePos = txtField.selectedTextRange;
 //  txtField.attributedText = [[NSMutableAttributedString alloc] initWithString:txtField.text attributes:nil];
   
-  txtField.text = txtField.text;
-  txtField.defaultTextAttributes = attrEdit;
-  txtField.typingAttributes = attrEdit;
+//  NSMutableAttributedString* AttrTxt = [[NSMutableAttributedString alloc] initWithAttributedString:txtField.attributedText];
+//  [AttrTxt removeAttribute:NSStrokeWidthAttributeName range:NSMakeRange(0, txtField.text.length)];
   
-  txtField.selectedTextRange = savePos;
+  txtField.defaultTextAttributes = attrEdit;
+  txtField.typingAttributes      = attrEdit;
+  
+//  txtField.selectedTextRange     = savePos;
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -189,7 +191,9 @@
   {
   _lbWord.text = nowWord.Wrd;
   
-  NSMutableAttributedString* AttrTxt = [[NSMutableAttributedString alloc] initWithString:txtField.text];
+  NSMutableAttributedString* AttrTxt = [[NSMutableAttributedString alloc] initWithAttributedString:txtField.attributedText];
+  
+  [AttrTxt removeAttribute:NSStrokeWidthAttributeName range:NSMakeRange(0, txtField.text.length)];
   [AttrTxt addAttribute:NSStrokeWidthAttributeName value:[NSNumber numberWithInteger:6] range:nowWord.rg];
   
   txtField.attributedText = AttrTxt;

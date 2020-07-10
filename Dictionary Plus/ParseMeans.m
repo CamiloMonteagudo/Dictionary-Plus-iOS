@@ -49,9 +49,9 @@ static NSCharacterSet* BreakFrase = [NSCharacterSet characterSetWithCharactersIn
 // Selecciona la primera palabra que se encuentre en el rango dado
 - (MeanWord*) WordInRange:(NSRange) rg
   {
-  _Actual = -1;
   if( rg.length ==0 ) return nil;
   
+  _Actual = -1;
   for (int i=0; i<Words.count; ++i)
     {
     MeanWord* wrd = Words[i];
@@ -149,7 +149,7 @@ static NSCharacterSet* CharsInit = [NSCharacterSet characterSetWithCharactersInS
     sc.scanLocation += 1;             // Salta el caracter encontrado
     }
   
-  _Actual = 0;
+  _Actual = -1;
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------

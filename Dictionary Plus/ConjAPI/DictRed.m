@@ -75,6 +75,9 @@ static DictRed* NowDictRed;
     NSString* ln = Lines[i];
     int      lst = (int)ln.length-1;
 
+    if( [ln hasPrefix:@"ser"] )
+      lst = (int)ln.length-1;
+    
     if( lst>0 )
       {
       NSString* wrd  = [ln substringToIndex:lst];

@@ -165,15 +165,35 @@ typedef char TText;
 	typedef uint32_t            DWORD;
 	typedef uint32_t            UINT;
 
-  #if !defined (OBJC_BOOL_DEFINED)
-//    #if defined(__OBJC_BOOL_IS_BOOL)
-      typedef bool BOOL;
-//    #else
-//      typedef signed char BOOL;
-//    #endif
-  #endif
+/// Type to represent a boolean value.
 
-  #define OBJC_BOOL_DEFINED
+#if defined(__OBJC_BOOL_IS_BOOL)
+    // Honor __OBJC_BOOL_IS_BOOL when available.
+#   if __OBJC_BOOL_IS_BOOL
+#       define OBJC_BOOL_IS_BOOL 1
+#   else
+#       define OBJC_BOOL_IS_BOOL 0
+#   endif
+#else
+    // __OBJC_BOOL_IS_BOOL not set.
+#   if TARGET_OS_OSX || (TARGET_OS_IOS && !__LP64__ && !__ARM_ARCH_7K)
+#      define OBJC_BOOL_IS_BOOL 0
+#   else
+#      define OBJC_BOOL_IS_BOOL 1
+#   endif
+#endif
+
+#if OBJC_BOOL_IS_BOOL
+    typedef bool BOOL;
+#else
+#   define OBJC_BOOL_IS_CHAR 1
+    typedef signed char BOOL; 
+    // BOOL is explicitly signed so @encode(BOOL) == "c" rather than "C" 
+    // even if -funsigned-char is used.
+#endif
+
+#define OBJC_BOOL_DEFINED
+
 
   typedef WORD* LPWORD;
   typedef BYTE* LPBYTE;

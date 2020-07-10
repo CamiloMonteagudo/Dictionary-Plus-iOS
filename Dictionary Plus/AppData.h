@@ -52,6 +52,7 @@ extern int  LGSrc;
 extern int  LGDes;
 extern int  LGConj;
 extern int  iUser;
+extern BOOL iPad;
 extern UIView* nowEdit;               // Vista que mostro el teclado
 
 extern DictMain*       Dict;

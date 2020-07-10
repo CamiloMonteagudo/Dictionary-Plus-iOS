@@ -13,6 +13,7 @@ int LGSrc    = -1;
 int LGDes    = -1;
 int LGConj   = -1;
 int iUser    = 0;
+BOOL iPad    = FALSE;
 
 UIView* nowEdit;
 

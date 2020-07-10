@@ -162,7 +162,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3B-w2-w9r">
-                                                                    <rect key="frame" x="144" y="35" width="101" height="40"/>
+                                                                    <rect key="frame" x="144" y="34" width="101" height="40"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                     <state key="normal" title="Conjugador"/>
                                                                 </button>
@@ -268,8 +268,8 @@
                         <outlet property="TopSpace" destination="U6s-mk-yUl" id="lrd-xc-RQW"/>
                         <outlet property="bntSearchPlus" destination="322-PK-pqN" id="pQI-t4-c2c"/>
                         <outlet property="selLangs" destination="0hL-A9-zAl" id="vUV-AX-NgC"/>
-                        <segue destination="X2O-AH-3kP" kind="popoverPresentation" identifier="ShowConjVerb" popoverAnchorView="fyd-mU-cvv" id="O4S-l5-XnI">
-                            <popoverArrowDirection key="popoverArrowDirection"/>
+                        <segue destination="X2O-AH-3kP" kind="popoverPresentation" identifier="ShowConjVerb" popoverAnchorView="8bC-Xf-vdC" id="O4S-l5-XnI">
+                            <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                         </segue>
                     </connections>
                 </viewController>
@@ -672,7 +672,7 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="303" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="ugN-io-K7z" customClass="ConjDataView">
-                                <rect key="frame" x="5" y="142" width="404" height="594"/>
+                                <rect key="frame" x="5" y="142" width="404" height="589"/>
                                 <color key="backgroundColor" red="0.75072938199999995" green="0.75072938199999995" blue="0.75072938199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </scrollView>
                         </subviews>
@@ -691,7 +691,7 @@
                             <constraint firstAttribute="trailing" secondItem="B5J-Mi-503" secondAttribute="trailing" id="pVc-ca-Kyz"/>
                             <constraint firstItem="ugN-io-K7z" firstAttribute="top" secondItem="zr0-r8-vaD" secondAttribute="bottom" id="pdu-xd-E3V"/>
                             <constraint firstItem="B5J-Mi-503" firstAttribute="top" secondItem="j4n-Gr-vQS" secondAttribute="bottom" id="txk-k2-9dP"/>
-                            <constraint firstItem="qSp-ZF-adU" firstAttribute="top" secondItem="ugN-io-K7z" secondAttribute="bottom" id="zKD-81-fra"/>
+                            <constraint firstItem="qSp-ZF-adU" firstAttribute="top" secondItem="ugN-io-K7z" secondAttribute="bottom" constant="5" id="zKD-81-fra"/>
                         </constraints>
                     </view>
                     <connections>

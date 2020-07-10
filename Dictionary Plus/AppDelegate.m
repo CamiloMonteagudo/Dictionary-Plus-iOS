@@ -20,6 +20,9 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
   {
+  UIDevice* Device = [UIDevice currentDevice];
+  iPad  = (Device.userInterfaceIdiom == UIUserInterfaceIdiomPad);                             // Si el dispositivo es un iPad
+
   [self LoadUserDefaults ];
  
 //  NSDate *tm = [NSDate date];

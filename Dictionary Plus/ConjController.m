@@ -29,8 +29,8 @@
   BOOL IsVerb;
   }
 
-  @property (weak, nonatomic) IBOutlet SelLangView *selLang;
-  @property (weak, nonatomic) IBOutlet UITextField *FindVerb;
+  @property (weak, nonatomic) IBOutlet SelLangView    *selLang;
+  @property (weak, nonatomic) IBOutlet UITextField    *FindVerb;
   @property (weak, nonatomic) IBOutlet ConjHeaderView *HdrConjs;
   @property (weak, nonatomic) IBOutlet ConjDataView   *LstConjs;
 
@@ -109,7 +109,7 @@
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Se llama antes de pasar a la proxima pantalla
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)viewWillDisappear:(BOOL)animated
   {
   if( IsVerb )
     {
@@ -117,7 +117,7 @@
   
     NSNumber* oLng = [NSNumber numberWithInt:LGConj];
   
-    [UserDef setObject:_Verb forKey:@"lastConjVerb"];
+    [UserDef setObject:_FindVerb.text forKey:@"lastConjVerb"];
     [UserDef setObject:oLng  forKey:@"lastConjLang"];
     }
   }
@@ -173,7 +173,7 @@
 
   if( viewMode == BY_WORDS )                              // Si el nuevo modo es por palabras
     {
-    NSString* sVerb = _FindVerb.text;                     // Toma el texto que hay en el editor
+    NSString* sVerb = [self GetVerb];                     // Toma el texto que hay en el editor
     [_LstConjs SelectConj:sVerb  ];                       // Selecciona la conjugacion tecleada
     }
   
@@ -200,7 +200,7 @@
 // Conjuga la palabra actual
 - (void) ConjugateIfVerb
   {
-  NSString* sVerb = _FindVerb.text;                       // Toma el contenido del editor
+  NSString* sVerb = [self GetVerb];                       // Toma el contenido del editor
   
   IsVerb = [ConjCore IsVerbWord:sVerb InLang:LGConj ];    // Determina si el texto es un verbo o alguna conjugación
   
@@ -212,7 +212,7 @@
 // Conjuga la palabra actual
 - (void)Conjugate
   {
-  NSString* sVerb = _FindVerb.text;                         // Toma el texto que hay en el editor
+  NSString* sVerb = [self GetVerb];                         // Toma el texto que hay en el editor
   
   if( [ConjCore ConjVerb:sVerb] )                           // Si se puedo obtener las conjugaciones
     [self ShowConjData:sVerb];
@@ -241,8 +241,15 @@
   {
   [_HdrConjs ClearData];
   
-  if( _FindVerb.text.length > 0 )
+  if( [self GetVerb].length > 0 )
     [_HdrConjs ShowMessage:NSLocalizedString(@"NoVerb", nil) Color:ColErrInfo];
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Obtiene el verbo que se esta editando, si los especios en blancos delante o detras
+- (NSString*) GetVerb
+  {
+  return [_FindVerb.text stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet] ];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------

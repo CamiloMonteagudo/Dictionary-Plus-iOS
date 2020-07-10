@@ -11,6 +11,7 @@
 #import "BtnsBarView.h"
 #import "DatosMean.h"
 #import "DatosConjs.h"
+#import "ConjCore.h"
 
 //#import "BuyMsgView.h"
 
@@ -176,14 +177,6 @@ NSMutableArray<InfoDatos*> *Datos;
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
-// Inserta los datos de la entrada suministrada después de la vista seleccionada
-- (void) AddDatosAfterSel:(InfoDatos*) Datos;
-  {
-//  [self insertSubview:Datos belowSubview:DatosSel];                             // Adiciona vista de datos nueva
-//  [self setNeedsLayout];
-  }
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Reposiciona todos las vistas de datos aduadamente
 - (void) ClearDatos
   {
@@ -274,19 +267,54 @@ NSMutableArray<InfoDatos*> *Datos;
   MeanWord* wrd = MeanDato.ActualWord;
   DatosConjs* ConfDato = [DatosConjs DatosForWord:wrd.Wrd Lang:wrd.lng];
   
-  int idx = [self IndexAfter:MeanDato];
-  [Datos insertObject:ConfDato atIndex:idx];                                           // Adiciona vista de datos nueva
+  [self InsetInfo:ConfDato After:MeanDato];
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Busca la palabra actual en los datos y las muesta en una fila nueva a continuación del dato seleccionado
+- (void) FindNowWordInDatos:(DatosMean *)MeanDato
+  {
+  DictCmdBarEnable(CMD_DEL_MEANS);
+  DictCmdBarRefresh();
+  
+  MeanWord* wrd  = MeanDato.ActualWord;
+  NSString* fWrd = wrd.Wrd;
+  
+  if( ![DatosSel isKindOfClass:DatosMean.class] ) return;
+  
+  int src = ((DatosMean*)DatosSel).src;
+  int des = ((DatosMean*)DatosSel).des;
+  
+  if( wrd.lng==des ) { des=src; src=wrd.lng; }
+  
+  DatosMean* DatoM = [DatosMean DatosForWord:fWrd Src:src Des:des];
+  if( !DatoM )
+    {
+    NSString* rootWrd = [ConjCore FindRootWord:fWrd Lang:wrd.lng];
+      
+    if( rootWrd ) DatoM = [DatosMean DatosForWord:rootWrd Src:src Des:des];
+    if( !DatoM )
+      {
+//      [self ShowMsg:@"NoFindWrd" WithTitle:@"TitleFindMeans"];
+      return;
+      }
+    }
+  
+  [self InsetInfo:DatoM After:MeanDato];
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Inserta infomación en la zona de datos después de el dato dado
+- (void) InsetInfo:(InfoDatos *)Dato After:(InfoDatos *)RefDato
+  {
+  int idx = [self IndexAfter:RefDato];
+  
+  [Datos insertObject:Dato atIndex:idx];                                           // Adiciona vista de datos nueva
   
   NSIndexPath* Idx = [NSIndexPath indexPathForRow:idx inSection:0];
   NSArray<NSIndexPath *> *rows = [NSArray arrayWithObject:Idx];
   
   [_TableDatos insertRowsAtIndexPaths:rows withRowAnimation:UITableViewRowAnimationAutomatic ];
-  }
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
-// Busca la palabra actual en los datos y las muesta en una fila nueva a continuación del dato seleccionado
-- (void) FindNowWordInDatos:(DatosMean *)datos
-  {
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------

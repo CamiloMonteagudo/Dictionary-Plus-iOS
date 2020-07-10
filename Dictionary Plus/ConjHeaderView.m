@@ -11,6 +11,7 @@
 #import "ConjController.h"
 #import "ColAndFont.h"
 #import "ConjCore.h"
+#import "DatosMean.h"
 
 #define BY_WORDS   0
 #define BY_MODES   1
@@ -38,6 +39,10 @@
   NSString* nowKey;                             // Ultima palabra buscada
   
   BOOL showClose;                               // Se esta mostrando el boton de cerra el significado
+  
+  int src;                                      // Idioma fuente para la búsqueda en el diccionario
+  int desLangs[LGCount-1];                      // Idiomas que pueden ser utilizados como idioma destino
+  int desIdx;                                   // Indice al idioma destino actual
   }
 
 @end
@@ -48,6 +53,8 @@
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 - (id)initWithCoder:(NSCoder *)aDecoder
   {
+  src = -1;
+  
   self = [super initWithCoder:aDecoder];            // Clase base hace la inicializacion del objeto
   if( !self ) return nil;
 
@@ -79,10 +86,34 @@
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Obtiene el orden que se van a utilzar los idiomas destino para las busquedas en el diccionario
+- (void) FillLangsOrden
+  {
+  if( src == LGConj ) return;                       // Si no ha cambiado el idioma de conjugación, no hace nada
+  
+  src = LGConj;                                     // El idioma fuente siempre es el idioma de conjugación
+  
+  if( src==LGSrc ) desLangs[0] = LGDes;             // El primer idioma el idioma destino del diccionario
+  else             desLangs[0] = LGSrc;             // El primer idioma el idioma fuente del diccionario
+  
+  int nLng = 1;                                     // Número de idiomas fuentes analizados
+  for( int i=0; i<LGCount; ++i )                    // Recorre todos los idiomas
+    {
+    if( i==src ) continue;                          // Si el idioma actua es el idioma fuente lo salta
+
+    int j=0;
+    for( ; j<nLng; ++j )                            // Recorre todos los idiomas analizados
+      if( i == desLangs[j] ) break;                 // Si el idioma actual ya esta, lo salta
+    
+    if( j>=nLng ) desLangs[nLng++] = i;             // Pone el idioma actual en el orden correspondiente
+    }
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Se llama cuando se toca el boton para cambiar de modo
 - (void)OnChangeModo:(id)sender
   {
-  HideKeyboard();                                                                   // Se oculta el teclado si esta desplegado
+  HideKeyboard();                                   // Se oculta el teclado si esta desplegado
   
   if( _Mode >= BY_PERSONS ) self.Mode = 0;
   else                      self.Mode = _Mode + 1;
@@ -92,7 +123,8 @@
 // Se llama cuando se toca el boton para buscar los significados del verbo
 - (void)OnFindMeans:(id)sender
   {
-  HideKeyboard();                                                                   // Se oculta el teclado si esta desplegado
+  HideKeyboard();                                   // Se oculta el teclado si esta desplegado
+  [self FillLangsOrden];                            // Obtiene los idiomas de los diccionarios que se pueden acceder
   
   if( !txtMean.hidden )
     {
@@ -140,15 +172,14 @@
 // Se llama cuando se toca el boton con la bandera del idioma
 - (void)OnChangeLang:(id)sender
   {
-  HideKeyboard();                                                                   // Se oculta el teclado si esta desplegado
+  HideKeyboard();                              // Se oculta el teclado si esta desplegado
   
-  int lng = LGDes;
-  if( lng >=0 )
-    {
-    LGDes = lng;
-    NSString* verb = [ConjCore GetInfinitive];
-    [self FindInDictWord: verb];
-    }
+  ++desIdx;                                   // Pasa al proximo idioma destino
+  if( desIdx >= LGCount-1 )                   // Si llego al final
+    desIdx = 0;                               // Pasa al primero
+  
+  NSString* verb = [ConjCore GetInfinitive];
+  [self FindInDictWord: verb];
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -201,7 +232,10 @@
     NSString* sWord = [ConjCore GetInfinitive];
     
     if( isVerb )
+      {
+      [self FillLangsOrden];
       [self FindInDictWord: sWord ];
+      }
     else
       {
       txtMean.attributedText = [ConjCore GetAttrError:@"WrdNoFound" Prefix:sWord];
@@ -279,7 +313,7 @@
   
   if( btnMode.hidden )
     {
-    y = self.superview.bounds.size.height - rc.origin.y;
+    y = self.superview.bounds.size.height - rc.origin.y - 6;
     }
   else
     {
@@ -406,60 +440,31 @@
 // Busca la palabra actual en el diccionario
 - (void) FindInDictWord:( NSString *) sWord
   {
-  [btnLang setImage: [UIImage imageNamed:LGFlagFile(LGDes, @"30") ] forState: UIControlStateNormal ];
-//  
-//  BOOL dOk = [ProxyDict OpenDictSrc:LGSrc Dest:LGDes];                    // Si puede abrir el diccionario
-//  BOOL wOk = (sWord && [sWord length] != 0 );                             // Si la palabra a buscar no es nula o esta vacia
-//  BOOL fOK = FALSE;                                                       // Si la palabra fue encontrada
-//  
-//  if( dOk && wOk )                                                        // Si todo esta OK
-//    {
-//    nowKey = sWord;                                                       // Pone palabra actual para la busqueda
-//    nowIdx = [ProxyDict getWordIdx:nowKey];                               // Busca la palabra en el diccionario
-//  
-//    if( ![ProxyDict Found] ) [self FindLowerWord];                        // No la encontro, la busca en minusculas
-//    if( ![ProxyDict Found] ) [self FindRootWord ];                        // No la encontro, busca una se sus raices
-//
-//    fOK = [ProxyDict Found];
-//    }
-//
-//  if( fOK )                                                               // Si la palabra fue encontrada
-//    {
-//    btnLang.hidden = FALSE;
-//    txtMean.attributedText = [ProxyDict getWDataFromIndex:nowIdx NoKey:TRUE];        // Obtiene los significado de la palabra
-//    }
-//  else                                                                    // Si no encontro, la palabra
-//    {
-//      btnLang.hidden = TRUE;
-      btnLang.hidden = FALSE;
-      txtMean.attributedText = [ConjCore GetAttrError:@"WrdNoFound" Prefix:sWord];
-//      }
+  int des = desLangs[desIdx];
   
-  [self setNeedsLayout];                                                  // Reorganiza los controles
-  }
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
-// Lleva la palabra actual a minusculas y después la busca en el diccionario
-- (void) FindLowerWord
-  {
-  NSString* lWord = [nowKey lowercaseString];                             // La lleva a minusculas
+  int next = desIdx+1;
+  if( next >= LGCount-1 ) next=0;
   
-  if( [lWord isEqualToString:nowKey] )                                    // Si son iguales (no tenia mayusculas)
-    return;                                                               // No hace nada
-    
-  nowKey = lWord;                                                         // Pone palabra actual para la busqueda
-//  nowIdx = [ProxyDict getWordIdx:nowKey];                                 // Busca la palabra en el diccionario
-  }
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
-// Busca la primera raíz de la palabra que se encuentre en el diccionario
-- (void) FindRootWord
-  {
-  NSString* rWord = [ConjCore FindRootWord: nowKey Lang:LGSrc];          // Busca una raiza de la palabra
-  if( rWord==nil ) return;                                                // No encontro raiz, no hace nada
-    
-  nowKey = rWord;                                                         // Pone palabra actual para la busqueda
-//  nowIdx = [ProxyDict getWordIdx:nowKey];                                 // Busca la palabra en el diccionario
+  NSString* flagFile = LGFlagFile(desLangs[next], @"30");
+  UIImage*       img = [UIImage imageNamed:flagFile];
+  btnLang.hidden     = FALSE;
+  
+  [btnLang setImage: img forState: UIControlStateNormal ];
+  
+  NSAttributedString* DatosAttrStr = [DatosMean StrAttrbForWord:sWord Src:src Des:des];
+  if( !DatosAttrStr )
+    {
+    NSString* rootWrd = [ConjCore FindRootWord:sWord Lang:des];
+      
+    if( rootWrd == nil ) DatosAttrStr = [DatosMean StrAttrbForWord:sWord Src:src Des:des];
+    }
+  
+  if( DatosAttrStr  != nil )                                                        // Si la palabra fue encontrada
+    txtMean.attributedText = DatosAttrStr;                                          // Obtiene los significado de la palabra
+  else                                                                              // Si no encontro, la palabra
+    txtMean.attributedText = [ConjCore GetAttrError:@"WrdNoFound" Prefix:sWord];    // Pone un error
+  
+  [self setNeedsLayout];                                                            // Reorganiza los controles
   }
 
 /**********************************************************************************************************************************************/

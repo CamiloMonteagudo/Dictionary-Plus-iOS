@@ -39,6 +39,10 @@
 
 + (DatosMean*) DatosForIndex:(NSInteger) Idx;
 + (DatosMean*) DatosForEntry:(EntryDict*) Entry Src:(int)src Des:(int)des;
++ (DatosMean*) DatosForWord:(NSString*) sWord Src:(int)src Des:(int)des;
+
++ (NSAttributedString*) StrAttrbForWord:(NSString*) sWord Src:(int)src Des:(int)des;
+
 
 - (ParseMeans*) GetParseMeans;
 - (void) CheckSelectedWord;

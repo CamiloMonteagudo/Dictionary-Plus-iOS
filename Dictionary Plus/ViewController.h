@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "TextQueryPlus.h"
 
-@interface ViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface ViewController : UIViewController <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate>
 
 @property (nonatomic) BOOL CmdsRight;
+@property (nonatomic) BOOL AllMeans;
 
 - (BOOL) LoadDictWithSrc:(int) src AndDes:(int) des;
 - (void) UpdateBarSizeAndPos;

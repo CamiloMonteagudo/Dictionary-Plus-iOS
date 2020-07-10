@@ -67,6 +67,7 @@
 		84B0AF6C2068B8CE00C61E6D /* btnMoveUp50@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84B0AF6B2068B8CE00C61E6D /* btnMoveUp50@2x.png */; };
 		84B22A21205D983E007398F8 /* LangPopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B22A20205D983E007398F8 /* LangPopUpView.m */; };
 		84CF1FB3208FF1D000DD0FE8 /* DatosConjs.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF1FB2208FF1D000DD0FE8 /* DatosConjs.m */; };
+		84D192AE20950B89006D8002 /* FindMeans.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D192AD20950B89006D8002 /* FindMeans.m */; };
 		84DE9EB9207FFDCB004E90AF /* ParseMeans.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DE9EB8207FFDCB004E90AF /* ParseMeans.m */; };
 		84DEEF70207657FC00F3A8F1 /* Datos in Resources */ = {isa = PBXBuildFile; fileRef = 84DEEF6F207657FC00F3A8F1 /* Datos */; };
 		84DEEF742076589D00F3A8F1 /* DictIndexes.m in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEF722076589D00F3A8F1 /* DictIndexes.m */; };
@@ -207,6 +208,8 @@
 		84B22A20205D983E007398F8 /* LangPopUpView.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = LangPopUpView.m; sourceTree = "<group>"; };
 		84CF1FB1208FF1D000DD0FE8 /* DatosConjs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatosConjs.h; path = "Dictionary Plus/DatosConjs.h"; sourceTree = "<group>"; };
 		84CF1FB2208FF1D000DD0FE8 /* DatosConjs.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = DatosConjs.m; path = "Dictionary Plus/DatosConjs.m"; sourceTree = "<group>"; };
+		84D192AC20950B89006D8002 /* FindMeans.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FindMeans.h; path = MngDicts/FindMeans.h; sourceTree = "<group>"; };
+		84D192AD20950B89006D8002 /* FindMeans.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = FindMeans.m; path = MngDicts/FindMeans.m; sourceTree = "<group>"; };
 		84DE9EB7207FFDCB004E90AF /* ParseMeans.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ParseMeans.h; path = "Dictionary Plus/ParseMeans.h"; sourceTree = "<group>"; };
 		84DE9EB8207FFDCB004E90AF /* ParseMeans.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = ParseMeans.m; path = "Dictionary Plus/ParseMeans.m"; sourceTree = "<group>"; };
 		84DEEF6F207657FC00F3A8F1 /* Datos */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Datos; path = "Dictionary Plus/Datos"; sourceTree = "<group>"; };
@@ -374,6 +377,8 @@
 		84DEEF77207658D400F3A8F1 /* DictMng */ = {
 			isa = PBXGroup;
 			children = (
+				84D192AC20950B89006D8002 /* FindMeans.h */,
+				84D192AD20950B89006D8002 /* FindMeans.m */,
 				84DEEF942076C37C00F3A8F1 /* MngMarks.h */,
 				84DEEF952076C37C00F3A8F1 /* MngMarks.m */,
 				84DEEF912076C2F200F3A8F1 /* EntryDesc.h */,
@@ -669,6 +674,7 @@
 				849912CA208BFC09001F0B0F /* ConjHeaderView.m in Sources */,
 				84DEEF862076908B00F3A8F1 /* SortedIndexs.m in Sources */,
 				84CF1FB3208FF1D000DD0FE8 /* DatosConjs.m in Sources */,
+				84D192AE20950B89006D8002 /* FindMeans.m in Sources */,
 				849912BF208BF9A4001F0B0F /* DictRed.m in Sources */,
 				849912B2208BF4F5001F0B0F /* ConjVerb.cpp in Sources */,
 				84E806A4208CF6D200D78C38 /* SelLangView.m in Sources */,

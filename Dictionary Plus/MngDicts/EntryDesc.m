@@ -251,6 +251,20 @@ static NSDictionary*        attrParrf = @{ NSParagraphStyleAttributeName:Paraf }
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Obtiene una cadena en formato enrriquecido que representa los datos de la entrada
+- (NSAttributedString*) getDatosAttrString
+  {
+  NSMutableAttributedString* AttrStr = [[NSMutableAttributedString alloc] initWithString:LGFlag(Des) attributes:attrBody];
+  
+  NSMutableAttributedString* sDatos = [[NSMutableAttributedString alloc] initWithString:Datos attributes:attrBody];
+  [self SetAttribInDataString:sDatos];
+
+  [AttrStr appendAttributedString: sDatos];
+  
+  return AttrStr;
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Pone los atributos para la llave de la entrada
 - (void) SetAttribInKeyString:(NSMutableAttributedString*) Txt
   {

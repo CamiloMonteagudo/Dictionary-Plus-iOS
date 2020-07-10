@@ -32,6 +32,8 @@
   +(EntryDesc*) DescWithEntry:(EntryDict*) entry Src:(int)src Des:(int)des;
 
   - (NSAttributedString*) getAttrString;
+  - (NSAttributedString*) getDatosAttrString;
+
   - (InfoMark*) MarkAtIndex:(int) idx;
 
   - (NSString*) TextInKeyForMark:(NSString*) code;
