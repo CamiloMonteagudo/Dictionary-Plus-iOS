@@ -1,10 +1,10 @@
-//
+//=========================================================================================================================================================
 //  LangPopUpView.m
 //  Dictionary Plus
 //
 //  Created by Admin on 17/3/18.
 //  Copyright © 2018 bigxsoft. All rights reserved.
-//
+//=========================================================================================================================================================
 
 #import "LangPopUpView.h"
 #import "AppData.h"
@@ -16,6 +16,7 @@
 #define HPOP_UP  ( (LGCount*(HROW+SEP)) + SEP )
 
 
+//=========================================================================================================================================================
 @interface LangPopUpView ()
   {
   UIView* popUp;
@@ -25,6 +26,7 @@
   }
 @end
 
+//=========================================================================================================================================================
 @implementation LangPopUpView
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -33,7 +35,7 @@
   {
   _SelectedLang = -1;
   
-  UIView* topView = [self FindTopView:view WithTag:-1];
+  UIView* topView = FindTopView(view, -1);
   if( topView==nil ) return nil;
   
   self = [super initWithFrame:topView.bounds];
@@ -151,22 +153,6 @@
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
-// Encuentra la vista definida como el tope superior
-- (UIView*) FindTopView:(UIView*) view WithTag:(NSInteger) tag
-  {
-  for( ; view!=nil; )                                                                     // Itera para encontrar la vista de mayor jerarquia
-    {
-    UIView* next = view.superview;
-    if( [next isKindOfClass: UIWindow.class ] || next==nil || view.tag == tag )
-      return view;
-      
-    view = next;
-    }
-    
-  return nil;
-  }
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Cuando toca sobre el fondo de la pantalla
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
   {
@@ -182,9 +168,21 @@
   
   [self SelectRow: lng];
   
-  [InfoObj performSelector:OnSelLang withObject:self afterDelay:0.0];
+  CGRect rc = popUp.frame;
+  rc.size.height = 0;
   
-  [self removeFromSuperview];
+  [UIView animateWithDuration:0.5
+    animations:^
+      {
+      popUp.frame = rc;
+      }
+    completion:^(BOOL finished)
+      {
+      [InfoObj performSelector:OnSelLang withObject:self afterDelay:0.0];
+  
+      [self removeFromSuperview];
+      }];
+  
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -198,3 +196,4 @@
 */
 
 @end
+//=========================================================================================================================================================

@@ -13,6 +13,8 @@ int LGSrc    = -1;
 int LGDes    = -1;
 int iUser    = 0;
 
+UIView* nowEdit;
+
 //__strong DictMain*     Dict;
 //__strong DictIndexes*  DictIdx;
 //
@@ -209,6 +211,31 @@ NSString* LGFlagName( int lng )
   if( lng<0 || lng>LGCount ) return @"";
 
   return [NSString stringWithFormat:@"Flag%@50", LGAbrv(lng) ];
+  }
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Oculta el teclado si esta activo
+void HideKeyboard()
+  {
+  if( nowEdit != nil )
+    [nowEdit resignFirstResponder];
+  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------------------
+// Encuentra la vista definida como el tope superior
+UIView* FindTopView( UIView* FromView, int toTag )
+  {
+  for( ; FromView!=nil; )                                                                     // Itera para encontrar la vista de mayor jerarquia
+    {
+    UIView* next = FromView.superview;
+    if( [next isKindOfClass: UIWindow.class ] || FromView.tag == toTag )
+      return FromView;
+      
+    FromView = next;
+    }
+
+  NSLog(@"Top view no found");
+  return nil;
   }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------

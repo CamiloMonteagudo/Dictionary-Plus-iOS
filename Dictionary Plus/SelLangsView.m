@@ -1,15 +1,16 @@
-//
+//=========================================================================================================================================================
 //  SelLangsView.m
 //  Dictionary Plus
 //
 //  Created by Admin on 16/3/18.
 //  Copyright © 2018 bigxsoft. All rights reserved.
-//
+//=========================================================================================================================================================
 
 #import "SelLangsView.h"
 #import "AppData.h"
 #import "LangPopUpView.h"
 
+//=========================================================================================================================================================
 @interface SelLangsView ()
   {
   UIImageView* srcIcon;            // Bandera para el idioma fuente
@@ -41,6 +42,7 @@
   }
 @end
 
+//=========================================================================================================================================================
 @implementation SelLangsView
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -97,10 +99,10 @@
   [srcLabel sizeToFit];
   [desLabel sizeToFit];
 
-  CGFloat wDisp = self.superview.bounds.size.width - X - 55;   // Ancho disponible la vista que contiene los idiomas
-  
   wSrc  = srcLabel.frame.size.width;                          // Ancho del nombre del idioma fuente
   wDes  = desLabel.frame.size.width;                          // Ancho del nombre del idioma destino
+  
+  CGFloat wDisp = self.superview.bounds.size.width - X - 55;   // Ancho disponible la vista que contiene los idiomas
   
   W = wIcon + wSrc + wDwn + wSwap + wIcon + wDes + wDwn;
   if( W>wDisp )
@@ -142,7 +144,7 @@
   desDwm.frame = CGRectMake(x, 0, wDwn, H);
   
   W = x + wDwn;
-  self.frame = CGRectMake(X, Y, W, H);
+ // self.frame = CGRectMake(X, Y, W, H);
   }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -165,8 +167,10 @@
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Se llama cuando se pone el dedo sobre la vista
-//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-//  {
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+  {
+  HideKeyboard();
+  
 //  CGSize sz = self.bounds.size;
 //  
 //  CGPoint pnt = [[touches anyObject] locationInView: self];     // Punto que se toco dentro de la vista
@@ -176,7 +180,7 @@
 //  else                     Cover.frame = CGRectMake(xSec1, 0, xSec2-xSec1   , sz.height);
 //  
 //  Cover.hidden = FALSE;
-//  }
+  }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------------
 // Se llama cuando se levanta el dedo de la vista
@@ -285,3 +289,4 @@
 */
 
 @end
+//=========================================================================================================================================================

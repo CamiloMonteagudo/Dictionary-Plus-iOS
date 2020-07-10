@@ -1,19 +1,30 @@
 //=========================================================================================================================================================
-//  AppDelegate.h
-//  Dictionary Plus
+//  PopUpView.h
+//  TrdSuite
 //
-//  Created by Admin on 13/3/18.
-//  Copyright © 2018 bigxsoft. All rights reserved.
+//  Created by Camilo on 28/04/15.
+//  Copyright (c) 2015 Softlingo. All rights reserved.
 //=========================================================================================================================================================
 
 #import <UIKit/UIKit.h>
 
 //=========================================================================================================================================================
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface PanelRigthView : UIView
 
-@property (strong, nonatomic) UIWindow *window;
+- (id)initInView:(UIView*)view ItemIDs:(NSArray*) Items;
+- (void) OnHidePopUp:(SEL)action Target:(id)target;
 
+@property(nonatomic,readonly) int SelectedItem;
 
 @end
-//=========================================================================================================================================================
 
+//=========================================================================================================================================================
+@interface PanelItemView : UIView
+
+- (id)initWithItem:(NSString*)sItem YPos:(float) yPos;
+
+@property(nonatomic) BOOL Selected;
+
+@end
+
+//=========================================================================================================================================================

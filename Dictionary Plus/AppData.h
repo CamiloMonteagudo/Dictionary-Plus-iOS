@@ -42,6 +42,8 @@
 extern int  LGSrc;
 extern int  LGDes;
 extern int  iUser;
+extern UIView* nowEdit;               // Vista que mostro el teclado
+
 
 //extern DictMain*       Dict;
 //extern DictIndexes*    DictIdx;
@@ -77,6 +79,9 @@ extern NSString* DIRAbrv( int src, int des );
 extern int CNJCount();
 extern int CNJLang( int idx );
 extern NSString* CNJTitle( int idx );
+extern void HideKeyboard();
+extern UIView* FindTopView( UIView* FromView, int toTag );
+
 
 //NSString* IndexDictName( int src, int des );
 //NSString* MainDictName( int src, int des );
